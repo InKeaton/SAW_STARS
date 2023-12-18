@@ -56,6 +56,7 @@ This is a list of the different features to be implementes, in tiers of importan
 
 ### TIER 2 (or what it would be fun to do)
 - [ ] Report posts and users to admins
+- [ ] Cite users in posts
 - [ ] Using nested posts structure in the blog (answers, etc)
 - [ ] Internal Search Engine (For all data (users, posts, etc))
 - [ ] Who we are page
