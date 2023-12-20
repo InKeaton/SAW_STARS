@@ -22,7 +22,7 @@ The project is organized as follows:
     + Each of the 5 previous folders we'll be organized as follows:
         + A **commons** folder, which contains **shared files** between the main pages
         + A **folder for each page** which contains its **own files**
-+ Each one of this pages may then have other substructures, depending on the circumstances <br>
++ Each one of this folders may then have other substructures, depending on the circumstances <br>
 
 For the coding, we'll use the following conventions, which may evolve during the development
 + **Snake case** (oh_yeah)
