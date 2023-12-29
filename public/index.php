@@ -13,7 +13,7 @@
             session_start();
         ?>
 
-        <header class = "logo">
+        <header>
             <h1>Welcome to Chiron!</h1>
         </header>
 
