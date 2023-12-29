@@ -11,7 +11,7 @@
 
         <?php 
             // session/remember me check
-            //session_start();
+            session_start();
             //require "commons/snippets/rmbr_me/login_registration_check.php"; 
         ?>
 
