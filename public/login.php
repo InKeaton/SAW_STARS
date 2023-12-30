@@ -67,7 +67,7 @@
                             CHECK CREDENTIALS VALIDITY -----------------------------------------------------------------
                         */
 
-                        // get read and write SQL credentials in $sql_cred
+                        // get read SQL credentials in $sql_cred
                         require "scripts/commons/get_db_credentials/get_R_db_credentials.php";
 
                         // create connection
@@ -76,7 +76,7 @@
                             throw new Exception("<h1 class=\"error\">Unexpected Error, could not connect to DB, errno " . $con->connect_error ."</h1>");
 
                         // prepare and execute query
-                        if(!$stmt = $con->prepare("SELECT pwd, nome, cognome FROM Utente WHERE email = ?;"))
+                        if(!$stmt = $con->prepare("SELECT pwd, nome FROM Utente WHERE email = ?;"))
                             throw new Exception("<h1 class=\"error\">Unexpected Error, could not prepare query</h1>");
                         if(!$stmt->bind_param('s',$email))
                             throw new Exception("<h1 class=\"error\">Unexpected Error, could not bind query parameters</h1>");
@@ -97,10 +97,9 @@
                             throw new Exception("<h1 class=\"error\">Invalid credentials, try again :(</h1>");
 
                         // initiate session
-                        $_SESSION["nome"] = $user_data->nome;
-                        $_SESSION["cognome"] = $user_data->cognome;
+                        $_SESSION["email"] = $email;
 
-                        echo ("<h1 class=\"confirmation\"> Good to see you again " . $_SESSION["nome"] . " :)</h1>");
+                        echo ("<h1 class=\"confirmation\"> Good to see you again " . $user_data->nome . " :)</h1>");
 
                         // close connection with DB
                         $stmt->close();

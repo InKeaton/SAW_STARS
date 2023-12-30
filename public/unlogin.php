@@ -10,9 +10,9 @@
     <body>
 
         <?php 
-            // session/remember me check
             session_start();
-            //require "commons/snippets/rmbr_me/login_registration_check.php"; 
+            // check if the user is logged in
+            require "scripts/commons/is_logged_in.php"; 
         ?>
     
 
@@ -27,10 +27,7 @@
 
         <main>
             <?php
-            if (isset($_SESSION["nome"]))
-                echo ("<p> You're sure that you wanna end your session " . $_SESSION["nome"]  ."? </p>");
-            else 
-                echo ("<p> You should not be here, stranger...</p>");
+            echo ("<p> You're sure that you wanna end your session? </p>");
             ?>
             
 
