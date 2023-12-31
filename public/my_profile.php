@@ -25,9 +25,7 @@
         ?>
 
         <main>
-            <p> Hi! This is your profile </p>
-
-            <p>  
+            <p> Hi! This is your profile <br>
                 <ul>
             <?php
                 try {
@@ -40,7 +38,8 @@
                     if ($con->connect_errno) 
                         throw new Exception("<h1 class=\"error\">Unexpected Error, could not connect to DB, errno " . $con->connect_error ."</h1>");
                     
-                    // since data comes from session, we can use normal statements
+                    // since data comes from session, we should be able to use normal statements
+                    // TO BE DONE: Add data sanitization
                     $query = "SELECT username, nome, cognome, pronome, img, amministratore, datacreazione FROM Utente WHERE email='" . $_SESSION["email"] ."'";
 
                     if(!$res = $con->query($query))

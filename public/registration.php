@@ -8,10 +8,19 @@
    </head>
 
     <body>
+
+        <?php
+            // session
+            session_start();
+            // check is not logged 
+            require "scripts/commons/is_not_logged_in.php"; 
+        ?>
         
         <header>
             <h1>Create an account!</h1>
         </header>
+
+        
 
         <?php
             // navigation bar
@@ -54,7 +63,7 @@
                             INPUT VALIDATION --------------------------------------------------------------------------
                         */
 
-                        // TO BE DONE: Add data tests
+                        // TO BE DONE: Add data sanitization
 
                         // common tests
                         $user_data["email"] = $_POST["email"];

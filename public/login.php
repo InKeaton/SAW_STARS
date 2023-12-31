@@ -12,7 +12,7 @@
         <?php 
             // session/remember me check
             session_start();
-            //require "commons/snippets/rmbr_me/login_registration_check.php"; 
+            require "scripts/commons/is_not_logged_in.php"; 
         ?>
 
         <header class = "logo">
