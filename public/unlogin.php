@@ -42,7 +42,7 @@
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["end"])) { 
                     // end session
-                    session_unset();
+                    $_SESSION = array();
                     session_destroy();
                     // send to the index
                     header("Location: index.php");
