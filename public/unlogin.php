@@ -12,7 +12,7 @@
         <?php 
             session_start();
             // check if the user is logged in
-            require "scripts/commons/is_logged_in.php"; 
+            require "commons/scripts/is_logged_in.php"; 
         ?>
     
 
@@ -22,7 +22,7 @@
 
         <?php
             // navigation bar
-            include "snippets/commons/navbar.php"; 
+            include "commons/snippets/navbar.php"; 
         ?>
 
         <main>
@@ -53,7 +53,7 @@
 
         <?php
             // footer
-            include "snippets/commons/footer.php"; 
+            include "commons/snippets/footer.php"; 
         ?>
         
     </body>

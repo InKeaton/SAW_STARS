@@ -12,7 +12,7 @@
         <?php 
             // session/remember me check
             session_start();
-            require "scripts/commons/is_not_logged_in.php"; 
+            require "commons/scripts/is_not_logged_in.php"; 
         ?>
 
         <header class = "logo">
@@ -21,7 +21,7 @@
 
         <?php
             // navigation bar
-            include "snippets/commons/navbar.php"; 
+            include "commons/snippets/navbar.php"; 
         ?>
 
         <main>
@@ -68,8 +68,7 @@
                         */
 
                         // get read SQL credentials in $sql_cred
-                        require "scripts/commons/get_db_credentials/get_R_db_credentials.php";
-
+                        require "commons/scripts/get_db_credentials/get_R_db_credentials.php";
                         // create connection
                         $con = new mysqli($sql_cred[0],$sql_cred[1],$sql_cred[2],$sql_cred[3]);
                         if ($con->connect_errno) 
@@ -116,7 +115,7 @@
         
         <?php
             // footer
-            include "snippets/commons/footer.php"; 
+            include "commons/snippets/footer.php"; 
         ?>
 
     </body>

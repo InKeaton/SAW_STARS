@@ -12,7 +12,7 @@
         <?php 
             session_start();
             // check if the user is logged in
-            require "scripts/commons/is_logged_in.php";
+            require "commons/scripts/is_logged_in.php"; 
         ?>
 
         <header>
@@ -21,7 +21,7 @@
 
         <?php
             // navigation bar
-            include "snippets/commons/navbar.php"; 
+            include "commons/snippets/navbar.php"; 
         ?>
 
         <main>
@@ -32,8 +32,8 @@
                     // get profile data
 
                     // get read SQL credentials in $sql_cred
-                    require "scripts/commons/get_db_credentials/get_R_db_credentials.php";
-
+                    require "commons/scripts/get_db_credentials/get_R_db_credentials.php";
+                      
                     $con = new mysqli($sql_cred[0],$sql_cred[1],$sql_cred[2],$sql_cred[3]);
                     if ($con->connect_errno) 
                         throw new Exception("<h1 class=\"error\">Unexpected Error, could not connect to DB, errno " . $con->connect_error ."</h1>");
@@ -74,7 +74,7 @@
 
         <?php
             // footer
-            include "snippets/commons/footer.php"; 
+            include "commons/snippets/footer.php"; 
         ?>
     </body>
 </html>

@@ -13,7 +13,7 @@
             // session
             session_start();
             // check is not logged 
-            require "scripts/commons/is_not_logged_in.php"; 
+            require "commons/scripts/is_not_logged_in.php"; 
         ?>
         
         <header>
@@ -24,7 +24,7 @@
 
         <?php
             // navigation bar
-            include "snippets/commons/navbar.php"; 
+            include "commons/snippets/navbar.php"; 
         ?>
 
         <main>
@@ -93,8 +93,8 @@
                         */
 
                         // get read and write SQL credentials in $sql_cred
-                        require "scripts/commons/get_db_credentials/get_RW_db_credentials.php";
-
+                        require "commons/scripts/get_db_credentials/get_RW_db_credentials.php";
+                       
 
                         
                         // create connection
@@ -135,7 +135,7 @@
 
         <?php
             // footer
-            include "snippets/commons/footer.php"; 
+            include "commons/snippets/footer.php"; 
         ?>
         
     </body>
