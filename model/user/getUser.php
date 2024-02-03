@@ -1,5 +1,5 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/chiron-server-main/model/User.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/model/User.php';
 
   $user = new User();
   $user->userID = $_POST['userID'];
