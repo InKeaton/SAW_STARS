@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title> REVIEW TEST </title>
+  </head>
+  <body>
+    <hr>
+      <h4>GET ALL REVIEW</h4>
+    <hr>
+    <form type='submit' action='javascript:getAllReview()' >
+      <button type='submit'>Get All REVIEW</button>
+    </form>
+
+    <hr>
+      <h4>GET REVIEW</h4>
+    <hr>
+    <form type='submit' id='get' action='javascript:getReview()' >
+        reviewID <input name='reviewID' type='text' value='toro'><br>
+        <button type='submit'>Get REVIEW</button>
+    </form>
+
+    <hr>
+      <h4>UPDATE REVIEW</h4>
+    <hr>
+    <form id='update' type='submit' action='javascript:updateReview()' >
+        userFK <input name='userFK' type='text' value='friday99@outlook.it'><br>
+        starFK <input name='starFK' type='text' value='friday99@outlook.it'><br>
+        reviewID <input name='reviewID' type='text'><br>  
+        vote <input name='vote' type='text' value='friday99@outlook.it'><br>
+        note <input name='note' type='text'><br>
+        revDate <input name='revDate' type='date'><br>
+      <button type='submit'>Update Cons</button>
+    </form>
+
+    <hr>
+      <h4>INSERT REVIEW</h4>
+    <hr>
+    <form id='insert' type='submit' action='javascript:insertReview()' >
+        starFK <input name='starFK' type='text' value='friday99@outlook.it'><br>
+        userFK <input name='userFK' type='email'><br>
+        vote <input name='vote' type='number'><br>
+        note <input name='note' type='text' value='Arun'><br>
+        <button type='submit'>Insert Cons</button>
+    </form>
+    
+    <hr>
+      <h4>DELETE REVIEW</h4>
+    <hr>
+    <form id='delete' type='submit' action='javascript:deleteReview()' >
+      reviewID <input name='reviewID' type='text' value='friday99@outlook.it'><br>
+      <button type='submit'>Delete Cons</button>
+    </form>
+    <hr>
+  </body>
+
+  <script>
+
+    const getAllReview = () => {
+      fetch('../model/review/getAllReview.php', { method: 'POST' })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const getReview = () => {
+      const form = document.getElementById('get')
+      fetch('../model/review/getReview.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const insertReview = () => {
+      const form = document.getElementById('insert')
+      fetch('../model/review/insertReview.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const updateReview = () => {
+      const form = document.getElementById('update')
+      fetch('../model/review/updateReview.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const deleteReview= () => {
+      const form = document.getElementById('delete')
+      fetch('../model/review/deleteReview.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+  </script>
+</html>

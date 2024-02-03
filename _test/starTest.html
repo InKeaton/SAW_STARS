@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title> STAR TEST </title>
+  </head>
+  <body>
+    <hr>
+      <h4>GET ALL STAR</h4>
+    <hr>
+    <form type='submit' action='javascript:getAllStar()' >
+      <button type='submit'>Get All STAR</button>
+    </form>
+
+    <hr>
+      <h4>GET STAR</h4>
+    <hr>
+    <form type='submit' id='get' action='javascript:getStar()' >
+      starID <input name='starID' type='text' value='friday99@outlook.it'><br> 
+      <button type='submit'>Get All STAR</button>
+    </form>
+
+    <hr>
+      <h4>UPDATE STAR</h4>
+    <hr>
+    <form id='update' type='submit' action='javascript:updateStar()' >
+        consFK <input name='consFK' type='text' value='friday99@outlook.it'><br>
+        price <input name='price' type='number'><br>
+        dLY <input name='dLY' type='number' value='friday99@outlook.it'><br>
+        starID <input name='starID' type='text' value='friday99@outlook.it'><br>
+        starName <input name='dLY' type='text' value="12"><br>
+      <button type='submit'>Update STAR</button>
+    </form>
+
+    <hr>
+      <h4>INSERT STAR</h4>
+    <hr>
+    <form id='insert' type='submit' action='javascript:insertStar()' >
+        starName <input name='starName' type='text' value='friday99@outlook.it'><br>
+        price <input name='price' type='number'><br>
+        dLY <input name='dLY' type='number' value="12"><br>
+        consFK <input name='consFK' type='text' value='Mathiyalakan'><br>
+        <button type='submit'>Insert STAR</button>
+    </form>
+    
+    <hr>
+      <h4>DELETE STAR</h4>
+    <hr>
+    <form id='delete' type='submit' action='javascript:deleteStar()' >
+        starID <input name='starID' type='text' value='friday99@outlook.it'><br> 
+      <button type='submit'>Delete STAR</button>
+    </form>
+    <hr>
+  </body>
+
+  <script>
+
+    const getAllStar = () => {
+      fetch('../model/star/getAllStar.php', { method: 'POST' })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const getStar = () => {
+      const form = document.getElementById('get')
+      fetch('../model/star/getStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const insertStar = () => {
+      const form = document.getElementById('insert')
+      fetch('../model/star/insertStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const updateStar = () => {
+      const form = document.getElementById('update')
+      fetch('../model/star/updateStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const deleteStar = () => {
+      const form = document.getElementById('delete')
+      fetch('../model/star/deleteStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+  </script>
+</html>

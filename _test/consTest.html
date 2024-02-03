@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title> CONS TEST </title>
+  </head>
+  <body>
+    <hr>
+      <h4>GET ALL CONS</h4>
+    <hr>
+    <form type='submit' action='javascript:getAllCons()' >
+      <button type='submit'>Get All CONS</button>
+    </form>
+
+    <hr>
+      <h4>GET CONS</h4>
+    <hr>
+    <form type='submit' id='get' action='javascript:getCons()' >
+      consID <input name='consID' type='text' value='toro'><br>
+      <button type='submit'>Get All CONS</button>
+    </form>
+
+    <hr>
+      <h4>UPDATE CONS</h4>
+    <hr>
+    <form id='update' type='submit' action='javascript:updateCons()' >
+        ConsName <input name='consName' type='text' value='friday99@outlook.it'><br>
+        StartDate <input name='startDate' type='date'><br>
+        EndDate <input name='endDate' type='date'><br>
+        description <input name='description' type='text' value='Arun'><br>
+        consImg <input name='consImg' type='text' value='Mathiyalakan'><br>
+        consID <input name='consID' type='text' value='Mathiyalakan'><br>
+      <button type='submit'>Update Cons</button>
+    </form>
+
+    <hr>
+      <h4>INSERT CONS</h4>
+    <hr>
+    <form id='insert' type='submit' action='javascript:insertCons()' >
+        ConsName <input name='consName' type='text' value='friday99@outlook.it'><br>
+        StartDate <input name='startDate' type='date'><br>
+        EndDate <input name='endDate' type='date'><br>
+        description <input name='description' type='text' value='Arun'><br>
+        consImg <input name='consImg' type='text' value='Mathiyalakan'><br>
+        <button type='submit'>Insert Cons</button>
+    </form>
+    
+    <hr>
+      <h4>DELETE CONS</h4>
+    <hr>
+    <form id='delete' type='submit' action='javascript:deleteCons()' >
+      consID <input name='consID' type='text' value='friday99@outlook.it'><br>
+      <button type='submit'>Delete Cons</button>
+    </form>
+    <hr>
+  </body>
+
+  <script>
+
+    const getAllCons = () => {
+      fetch('../model/constellation/getAllCons.php', { method: 'POST' })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const getCons = () => {
+      const form = document.getElementById('get')
+      fetch('../model/constellation/getCons.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const insertCons = () => {
+      const form = document.getElementById('insert')
+      fetch('../model/constellation/insertCons.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const updateCons = () => {
+      const form = document.getElementById('update')
+      fetch('../model/constellation/updateCons.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const deleteCons= () => {
+      const form = document.getElementById('delete')
+      fetch('../model/constellation/deleteCons.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+  </script>
+</html>

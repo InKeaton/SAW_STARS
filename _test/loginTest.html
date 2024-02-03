@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title> ULOGIN TEST </title>
+  </head>
+  <body>
+    <hr>
+      <h4>LOGIN</h4>
+    <hr>
+    porav@o.it
+    a
+    <form type='submit' id="login" action='javascript:login()' >
+      <input name="email" type="text">
+      <input name="pwd" type="password">
+      <button type='submit'>Get All Users</button>
+    </form>
+    
+  </body>
+
+  <script>
+  
+    const login = () => {
+      const form = document.getElementById('login')
+      fetch('../api/auth/login.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+
+  </script>
+</html>

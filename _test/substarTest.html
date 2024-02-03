@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title> REVIEW SUB STAR </title>
+  </head>
+  <body>
+    <hr>
+      <h4>GET ALL SUB STAR</h4>
+    <hr>
+    <form type='submit' action='javascript:getAllSubStar()' >
+      <button type='submit'>Get All SUB STAR</button>
+    </form>
+
+    <hr>
+      <h4>GET SUB STAR</h4>
+    <hr>
+    <form type='submit' id='get' action='javascript:getSubStar()' >
+        substarID <input name='substarID' type='text' value='toro'><br>
+        <button type='submit'>Get SUB STAR</button>
+    </form>
+
+    <hr>
+      <h4>UPDATE SUB STAR</h4>
+    <hr>
+    <form id='update' type='submit' action='javascript:updateSubStar()' >
+       starFK <input name='starFK' type='text'><br>  
+       subFK <input name='subFK' type='text' value='friday99@outlook.it'><br>
+       substarID <input name='substarID' type='text'><br>
+      <button type='submit'>Update SUB STAR</button>
+    </form>
+
+    <hr>
+      <h4>INSERT SUB STAR</h4>
+    <hr>
+    <form id='insert' type='submit' action='javascript:insertSubStar()' >
+      subFK <input name='subFK' type='text' value='friday99@outlook.it'><br>
+      starFK <input name='starFK' type='text'><br>
+       <button type='submit'>INSERT SUB STAR</button>
+    </form>
+    
+    <hr>
+      <h4>DELETE SUB STAR</h4>
+    <hr>
+    <form id='delete' type='submit' action='javascript:deleteSubStar()' >
+      substarID <input name='substarID' type='text' value='friday99@outlook.it'><br>
+      <button type='submit'>Delete SUB STAR</button>
+    </form>
+    <hr>
+  </body>
+
+  <script>
+
+    const getAllSubStar = () => {
+      fetch('../model/substar/getAllSubStar.php', { method: 'POST' })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const getSubStar = () => {
+      const form = document.getElementById('get')
+      fetch('../model/substar/getSubStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const insertSubStar = () => {
+      const form = document.getElementById('insert')
+      fetch('../model/substar/insertSubStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const updateSubStar = () => {
+      const form = document.getElementById('update')
+      fetch('../model/substar/updateSubStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const deleteSubStar = () => {
+      const form = document.getElementById('delete')
+      fetch('../model/substar/deleteSubStar.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+  </script>
+</html>

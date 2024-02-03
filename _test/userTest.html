@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title> USER TEST </title>
+  </head>
+  <body>
+    <hr>
+      <h4>GET ALL USER</h4>
+    <hr>
+    <form type='submit' action='javascript:getAllUsers()' >
+      <button type='submit'>Get All Users</button>
+    </form>
+
+    <hr>
+      <h4>GET USER</h4>
+    <hr>
+    <form type='submit' id='get' action='javascript:getUser()' >
+      Email <input name='email' type='email' value='fra.matano@outlook.it'><br>
+      <button type='submit'>Get All Users</button>
+    </form>
+
+    <hr>
+      <h4>UPDATE USER</h4>
+    <hr>
+    <form id='update' type='submit' action='javascript:updateUser()' >
+      Email <input name='email' type='email' value='friday99@outlook.it'><br>
+      Password <input name='pwd' type='password' value='arun1234'><br>
+      Confirm Password <input name='pwd_confirm' type='password' value='arun1234'><br>
+      First Name <input name='firstName' type='text' value='Arun'><br>
+      Last Name <input name='lastName' type='text' value='Mathiyalakan'><br>
+      Role <input name="role" type="text"><br>
+      Img <input name="img" type="text"><br>
+      CreateDate <input name="createDate" type="date"><br>
+      UserId <input name="userID" type="text"><br>
+      <button type='submit'>Update User</button>
+    </form>
+
+    <hr>
+      <h4>INSERT USER</h4>
+    <hr>
+    <form id='insert' type='submit' action='javascript:insertUser()' >
+      Email <input name='email' type='email' value='friday99@outlook.it'><br>
+      Password <input name='pwd' type='password' value='arun1234'><br>
+      Confirm Password <input name='pwd_confirm' type='password' value='arun1234'><br>
+      First Name <input name='firstName' type='text' value='Arun'><br>
+      Last Name <input name='lastName' type='text' value='Mathiyalakan'><br>
+      img <input name='img' type='text' value='Mathiyalakan'><br>
+      role <input name='role' type='number' value='Mathiyalakan'><br>
+      <button type='submit'>Insert User</button>
+    </form>
+    
+    <hr>
+      <h4>DELETE USER</h4>
+    <hr>
+    <form id='delete' type='submit' action='javascript:deleteUser()' >
+      Email <input name='userID' type='text' value='friday99@outlook.it'><br>
+      <button type='submit'>Delete User</button>
+    </form>
+    <hr>
+  </body>
+
+  <script>
+
+    const getAllUsers = () => {
+      fetch('../model/user/getAllUsers.php', { method: 'POST' })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const getUser = () => {
+      const form = document.getElementById('get')
+      fetch('../model/user/getUser.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const insertUser = () => {
+      const form = document.getElementById('insert')
+      fetch('../model/user/insertUser.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const updateUser = () => {
+      const form = document.getElementById('update')
+      fetch('../model/user/updateUser.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+    const deleteUser= () => {
+      const form = document.getElementById('delete')
+      fetch('../model/user/deleteUser.php', { method: 'POST', body : new FormData(form) })
+      .then(response => response.json()).then(result => { console.log(result) })
+    }
+
+  </script>
+</html>
