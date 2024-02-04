@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2024 at 01:46 AM
+-- Generation Time: Feb 04, 2024 at 06:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
-DROP DATABASE IF EXISTS galileoDb;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `galileoDb`
 --
-CREATE DATABASE IF NOT EXISTS `galileoDb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `galileoDb`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +27,6 @@ USE `galileoDb`;
 -- Table structure for table `CONSTELLATION`
 --
 
-DROP TABLE IF EXISTS `CONSTELLATION`;
 CREATE TABLE `CONSTELLATION` (
   `consID` varchar(36) NOT NULL DEFAULT uuid(),
   `consName` varchar(36) NOT NULL,
@@ -55,7 +51,6 @@ INSERT INTO `CONSTELLATION` (`consID`, `consName`, `startDate`, `endDate`, `desc
 -- Table structure for table `REVIEW`
 --
 
-DROP TABLE IF EXISTS `REVIEW`;
 CREATE TABLE `REVIEW` (
   `reviewID` varchar(36) NOT NULL DEFAULT uuid(),
   `starFK` varchar(36) NOT NULL,
@@ -71,7 +66,6 @@ CREATE TABLE `REVIEW` (
 -- Table structure for table `STAR`
 --
 
-DROP TABLE IF EXISTS `STAR`;
 CREATE TABLE `STAR` (
   `starID` varchar(36) NOT NULL DEFAULT uuid(),
   `consFK` varchar(36) NOT NULL,
@@ -108,46 +102,13 @@ INSERT INTO `STAR` (`starID`, `consFK`, `starName`, `dLY`, `price`) VALUES
 -- Table structure for table `SUB`
 --
 
-DROP TABLE IF EXISTS `SUB`;
 CREATE TABLE `SUB` (
   `subID` varchar(36) NOT NULL DEFAULT uuid(),
   `userFK` varchar(36) NOT NULL,
-  `subName` varchar(20) NOT NULL,
+  `starFK` varchar(36) NOT NULL,
   `startDate` date DEFAULT current_timestamp(),
   `life` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `SUB`
---
-
-INSERT INTO `SUB` (`subID`, `userFK`, `subName`, `startDate`, `life`) VALUES
-('0c1a8378-c059-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'sad', '2024-02-13', 155),
-('1c9d4c11-c058-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'fra.matao@outlook.it', '2024-01-31', 12),
-('2d0a7b97-c05b-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'cc', '2024-01-11', 100),
-('5a5c5182-c05c-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'ccs', '2024-01-31', 12),
-('5b4d29f3-c058-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'fra.matao@sad.it', '2024-01-31', 12),
-('e0757aac-c057-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', '', '2024-01-31', 12);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `SUBSTAR`
---
-
-DROP TABLE IF EXISTS `SUBSTAR`;
-CREATE TABLE `SUBSTAR` (
-  `substarID` varchar(36) NOT NULL DEFAULT uuid(),
-  `starFK` varchar(36) NOT NULL,
-  `subFK` varchar(36) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `SUBSTAR`
---
-
-INSERT INTO `SUBSTAR` (`substarID`, `starFK`, `subFK`) VALUES
-('a439ca16-c066-11ee-ad7c-e86f3893ce31', '97a31a97-c009-11ee-9ccc-e86f3893ce31', 'e0757aac-c057-11ee-ad7c-e86f3893ce31');
 
 -- --------------------------------------------------------
 
@@ -155,7 +116,6 @@ INSERT INTO `SUBSTAR` (`substarID`, `starFK`, `subFK`) VALUES
 -- Table structure for table `USER`
 --
 
-DROP TABLE IF EXISTS `USER`;
 CREATE TABLE `USER` (
   `userID` varchar(36) NOT NULL DEFAULT uuid(),
   `role` tinyint(1) NOT NULL DEFAULT 0,
@@ -163,8 +123,8 @@ CREATE TABLE `USER` (
   `pwd` varchar(60) NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
-  `img` varchar(150) DEFAULT 'userImg.png' NOT NULL,
-  `createDate` datetime DEFAULT curdate() NOT NULL
+  `img` varchar(150) NOT NULL DEFAULT 'userImg.png',
+  `createDate` datetime NOT NULL DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -172,11 +132,7 @@ CREATE TABLE `USER` (
 --
 
 INSERT INTO `USER` (`userID`, `role`, `email`, `pwd`, `firstName`, `lastName`, `img`, `createDate`) VALUES
-('000bb777-c1c7-11ee-ad7c-e86f3893ce31', 0, 'eogcn@xnmfdtgvph.tws', '$2y$10$RvFZxRD2pUCaNMXE6jHX7O707ZqNUM5YgC1uYbL6XaEKOOmsMEOvG', 'Dmxodypbv', 'Wgkurwjlt', 'userImg.png', '2024-02-03 00:00:00'),
-('05d205e8-c1c8-11ee-ad7c-e86f3893ce31', 0, 'pmcue@vzfhjtuqlb.mes', '$2y$10$pgJdz.NMl5sZiPKClWm2hu.QAf5ejFxlTODH4fX8gru66ycfcnWXu', 'Ukydzqfrt', 'Agbphslaf', 'userImg.png', '2024-02-03 00:00:00'),
-('08144321-bfbd-11ee-9ccc-e86f3893ce31', 0, 'fra.matao@outlook.it', '$2y$10$rUYLL1JMLJ3Z3QM4CMjh2OBuxD12h4PzW/2SP8d0XAfhM6dlyjLKS', 'Arun', 'Mathiyalakan', '', '2024-01-30 00:00:00'),
-('086bbe4c-c1c7-11ee-ad7c-e86f3893ce31', 0, 'trsop@jhwyutsgxe.qho', '$2y$10$EZFWpblgQI9pRWKlfV84Me2io9ZaSt4Lscx9/rgu6f6.i9MNymipm', 'Sgadhrocv', 'Sjuvclxfy', 'userImg.png', '2024-02-03 00:00:00'),
-('0f87cc40-bfc6-11ee-9ccc-e86f3893ce31', 0, 'el', '$2y$10$qLvD66jmMY5DNOaum0ITR.E3YIACUWe.kqVnWBpbfpGyYEEgYt7gu', 'firstName', 'lastName', 'https://ui-avatars.com/api/?name=firstName+lastName&background=random', '2024-01-31 00:00:00'),
+('0f87cc40-bfc6-11ee-9ccc-e86f3893ce31', 1, 'el', '$2y$10$qLvD66jmMY5DNOaum0ITR.E3YIACUWe.kqVnWBpbfpGyYEEgYt7gu', 'firstName', 'lastName', 'https://ui-avatars.com/api/?name=firstName+lastName&background=random', '2024-01-31 00:00:00'),
 ('1012b5e6-c1c7-11ee-ad7c-e86f3893ce31', 0, 'aywxt@fusmcyxjaw.ywl', '$2y$10$yZNSY9ehPLmDYOa8DbXgluoDqemAmd5bXhkTLEt1YquNfXjPjN7Jm', 'Idmpnyfzt', 'Eugtzawnm', 'userImg.png', '2024-02-03 00:00:00'),
 ('110107d1-be51-11ee-a276-e86f3893ce31', 0, 'aaaaaassaaaaaaaaaaaaaaa@asdassssssssssssssd.com', 'aalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafabeto', 'sadasd', 'asd', 'asdasd', '2024-01-29 00:00:00'),
 ('180f005e-c1d2-11ee-ad7c-e86f3893ce31', 0, 'leo@outlook.it', '$2y$10$BvEBAhkMi6u6ck0su85f/.3gzRraTXPrPgEUlGScDAFgofI0KUmb.', 'asd', 'asd', 'userImg.png', '2024-02-03 00:00:00'),
@@ -191,13 +147,11 @@ INSERT INTO `USER` (`userID`, `role`, `email`, `pwd`, `firstName`, `lastName`, `
 ('2b9d44c3-c1c7-11ee-ad7c-e86f3893ce31', 0, 'ntwvy@glhwayrcqm.wnf', '$2y$10$NgmhgvIEiU2wVv4GnCio6eiaC0Fw1zDc2B9/6jrmyGo71zrNWrsZq', 'Wzplayecr', 'Pqkoanmrf', 'userImg.png', '2024-02-03 00:00:00'),
 ('2be5cb04-c1c7-11ee-ad7c-e86f3893ce31', 0, 'ainsf@vbiomqekpl.crv', '$2y$10$E4fXyKqW9w/E3bV36HNm1Ol8TbPzH.ynZujuDPiagi2GTTDoqLeX2', 'Yxvokmhgi', 'Dytldiukp', 'userImg.png', '2024-02-03 00:00:00'),
 ('2c22622a-c1c7-11ee-ad7c-e86f3893ce31', 0, 'bpiuf@dmptswkhqn.pjx', '$2y$10$cxvziUaLxJnkyMarcnxN.OkWxjGzdLkRqTaq/MxQnMITJzayO6TGK', 'Fzkpjxrws', 'Yfzkymcau', 'userImg.png', '2024-02-03 00:00:00'),
-('2c624c76-c1c7-11ee-ad7c-e86f3893ce31', 0, 'ykthg@vegkauyrfj.zho', '$2y$10$ORgFj4cTysR9isqoc8OiEe6PI9MtzxYYJJJ0csqlq2cz5NhKuPxl.', 'Gcdwtgxiy', 'Hvowedlzi', 'userImg.png', '2024-02-03 00:00:00'),
+('2c624c76-c1c7-11ee-ad7c-e86f3893ce31', 1, 'ykthg@vegkauyrfj.zho', '$2y$10$ORgFj4cTysR9isqoc8OiEe6PI9MtzxYYJJJ0csqlq2cz5NhKuPxl.', 'Gcdwtgxiy', 'Hvowedlzi', 'userImg.png', '2024-02-03 00:00:00'),
 ('2d252162-be52-11ee-a276-e86f3893ce31', 0, 'fra.matano@outlook.it', 'francescoFrancescoFrancesco', 'fra', 'matano', 'sissa.jpg', '2024-01-29 00:00:00'),
 ('2d801cc7-c1c8-11ee-ad7c-e86f3893ce31', 0, 'cnidt@cozjbpteau.rhu', '$2y$10$uIbs1V81e5aWos54IbpGqebTX.Xd/Cl4Vqkj5wxLQ8wKQ/hCuj/S6', 'Mqruchiem', 'Orqhdvapz', 'userImg.png', '2024-02-03 00:00:00'),
 ('2ec9cf6e-be44-11ee-a276-e86f3893ce31', 0, '(\'email\')', '(\'pwd\')', '(\'firstName\')', '(\'lastName\')', '(\'img\')', '2024-01-29 00:00:00'),
-('2f71ab4d-be51-11ee-a276-e86f3893ce31', 0, 's@asdassssssssssssssd.com', 'w', 'sadasd', 'asd', 'asdasd', '2024-01-29 00:00:00'),
 ('35257097-c1c7-11ee-ad7c-e86f3893ce31', 0, 'mdvcn@reaosqvtbk.mtk', '$2y$10$1iPX6XVbm7p74N74ikPoWOaU7/oqrAXDoEMFUVZII59XWQNT.vnn2', 'Jpmvdkwfi', 'Irlaxqnsf', 'userImg.png', '2024-02-03 00:00:00'),
-('387cfd7b-be36-11ee-a276-e86f3893ce31', 0, 'asd', 'asdsdads', 'ASDASDA', 'AAAAAAAAA', 'asdasdasdsad', '2024-01-29 00:00:00'),
 ('3f386ac4-c1c6-11ee-ad7c-e86f3893ce31', 0, 'ekhxl@nwgxyhptej.mwz', '$2y$10$qACFx39pAAB1mAm6wBADLeKdT81c.2W51JNISp35i0EoWCILOXXma', 'Zkicrfpgw', 'Eamopsjdr', 'userImg.png', '2024-02-03 00:00:00'),
 ('3f8a3bf5-c1c6-11ee-ad7c-e86f3893ce31', 0, 'xhgrk@wgkcmnrzqi.sub', '$2y$10$Z9o.chyuFGA0gZNqfQdtC.ri.8py5YqPFyJfpRazVv4l3fmCVrrQ2', 'Cqmxktazh', 'Ijolqpgum', 'userImg.png', '2024-02-03 00:00:00'),
 ('3fcd6aff-c1c6-11ee-ad7c-e86f3893ce31', 0, 'zekdo@ptfnvoghar.jek', '$2y$10$AT8WnttUsUoZV71ERPKlLOCoNT7ktCc8DB0azZFuvyj0uCQuJGFAq', 'Ridjmtbzc', 'Wjekznyvl', 'userImg.png', '2024-02-03 00:00:00'),
@@ -225,6 +179,7 @@ INSERT INTO `USER` (`userID`, `role`, `email`, `pwd`, `firstName`, `lastName`, `
 ('7861133d-c1c8-11ee-ad7c-e86f3893ce31', 0, 'nemga@fymxltisev.tnm', '$2y$10$D08t2j/xhp7PXq3Uw5m6P.aQpXJulMaQkkpFy2jU/5CeyxNOaqjVa', 'Ljsdmwxir', 'Vvrhuxsbw', 'userImg.png', '2024-02-03 00:00:00'),
 ('808747fc-c1d6-11ee-ad7c-e86f3893ce31', 0, 'asd@asd.com', '$2y$10$IFPMEaTc13WxqlUOK06sz.Zo92I9tH82W/.HCxd110q9Bk/OdRHXy', 'asd', 'asd', 'userImg.png', '2024-02-04 00:00:00'),
 ('80ecbb43-be43-11ee-a276-e86f3893ce31', 0, 'asdsadasdasdasdasdasdasdasdasdasd', 'asdddddddddddddddddddddddsdasdasd', 'asdasdasd', 'asdasdasdasdasd', 'asdasdasd.png', '2024-01-29 00:00:00'),
+('8395495c-c233-11ee-ad7c-e86f3893ce31', 0, 'f.f@f.com', '$2y$10$M5.Bav9u3usFCBIXthXJBeqAm/cRtY7sAGT4L9L57ie7lgne4.h4G', 'asd', 'asd', 'userImg.png', '2024-02-04 00:00:00'),
 ('89752eb8-bfc5-11ee-9ccc-e86f3893ce31', 0, 'eml', '$2y$10$EXy4LZnSy.A3m4Gv1/6tqe/zbyllALeFLdQXVFWtq8TF6.f/N9oVK', 'firstName', 'lastName', 'https://ui-avatars.com/api/?name=firstName+lastName&background=random', '2024-01-31 00:00:00'),
 ('8b70ee11-c1c7-11ee-ad7c-e86f3893ce31', 0, 'ufbra@vgnxcjtemk.zlk', '$2y$10$k8xe.ds.6iM6jkc435mFfulULFpxumAxl9CiG/zjVflRK4kuEWkBy', 'Cbgualmzt', 'Jcbewrizk', 'userImg.png', '2024-02-03 00:00:00'),
 ('8c0aae1b-c066-11ee-ad7c-e86f3893ce31', 0, 'friday99@outlook.it', '$2y$10$8iDWuC1Ilj.U0SxJWIaXzODfVywzreY/VuYhy6sGZD64xrciUAx6C', 'Arun', 'Mathiyalakan', 'https://ui-avatars.com/api/?name=Arun+Mathiyalakan&background=random', '2024-01-31 00:00:00'),
@@ -282,16 +237,9 @@ ALTER TABLE `STAR`
 --
 ALTER TABLE `SUB`
   ADD PRIMARY KEY (`subID`),
-  ADD UNIQUE KEY `subName` (`subName`),
-  ADD KEY `userFK` (`userFK`);
-
---
--- Indexes for table `SUBSTAR`
---
-ALTER TABLE `SUBSTAR`
-  ADD PRIMARY KEY (`substarID`),
-  ADD UNIQUE KEY `starFK` (`starFK`,`subFK`),
-  ADD KEY `subFK` (`subFK`);
+  ADD UNIQUE KEY `subUKFK` (`starFK`,`userFK`),
+  ADD KEY `userFK` (`userFK`),
+  ADD KEY `starFK` (`starFK`);
 
 --
 -- Indexes for table `USER`
@@ -321,14 +269,8 @@ ALTER TABLE `STAR`
 -- Constraints for table `SUB`
 --
 ALTER TABLE `SUB`
-  ADD CONSTRAINT `SUB_ibfk_1` FOREIGN KEY (`userFK`) REFERENCES `USER` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `SUBSTAR`
---
-ALTER TABLE `SUBSTAR`
-  ADD CONSTRAINT `SUBSTAR_ibfk_1` FOREIGN KEY (`subFK`) REFERENCES `SUB` (`subID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `SUBSTAR_ibfk_2` FOREIGN KEY (`starFK`) REFERENCES `STAR` (`starID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `SUB_ibfk_1` FOREIGN KEY (`userFK`) REFERENCES `USER` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `SUB_ibfk_2` FOREIGN KEY (`starFK`) REFERENCES `STAR` (`starID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
