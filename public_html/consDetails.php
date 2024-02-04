@@ -36,7 +36,6 @@
 
         function displayAllStars() {
             stars = <?php echo json_encode($starResult);?>;
-            console.log(stars);
             outString = "<table><tr><th>Nome</th><th>Distanza</th><th>Prezzo</th></tr>";
             stars.forEach(element => {
                 outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + element.starName + "</a></td><td>" + element.dLY + " Anni Luce</td><td>" + element.price + "</td></tr>";
