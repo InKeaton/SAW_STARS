@@ -27,14 +27,11 @@
         </div>
     </body>
     <script>
-        function Update() {
-            const form = document.getElementById('update')
-            fetch('/api/updateUser.php', { method: 'POST', body : new FormData(form) })
-            .then(response => response.json())
-            .then(result => { 
-                if(result.status == 200) 
-                    alert("modifica avvenuta con successo");
-            })
+        async function Update() {
+            const form = document.getElementById('update');
+            let response = await fetch('/api/updateUser.php', { method: 'POST', body : new FormData(form)});
+            result = await response.json();
+            if(result.status == 200)  alert("modifica avvenuta con successo");
         }
     </script>
 </html>

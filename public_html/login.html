@@ -34,15 +34,12 @@
         </div>
     </body>
     <script>
-        function Login() {
+        async function Login() {
             const form = document.getElementById('login')
-            fetch('/api/login.php', { method: 'POST', body : new FormData(form) })
-            .then(response => response.json())
-            .then(result => { 
-                if(result.status == 200) 
-                    location.replace("/public_html/home.php"); 
-                alert(result.message);
-            })
+            let response = await fetch('/api/login.php', { method: 'POST', body : new FormData(form) });
+            result = await response.json();
+            if(result.status == 200) location.replace("/public_html/home.php"); 
+            alert(result.message);
         }
     </script>
 </html>

@@ -4,7 +4,9 @@
     $star = new Star();
     $star->starID =  $_GET['starID'] ;
     $result = $star->Select()[0];
+
 ?>
+
 <!DOCTYPE html>
 
 <html>

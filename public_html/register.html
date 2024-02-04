@@ -26,13 +26,12 @@
         </form>
     </body>
     <script>
-        function Insert() {
+        async function Insert() {
             const form = document.getElementById('insert')
-            fetch('../api/registration.php', { method: 'POST', body : new FormData(form) })
-            .then(response => response.json()).then(result => { 
-                if(result.status == 200) location.replace("/public_html/login.html")
-                alert(result.message);
-            })
+            let response = await fetch('/api/registration.php', { method: 'POST', body : new FormData(form) });
+            result = await response.json();
+            if(result.status == 200) location.replace("/public_html/login.html");
+            alert(result.message);
         }
     </script>
 

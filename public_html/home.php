@@ -1,5 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';
+    if($_SESSION['role']) header('Location: /public_html/admin/adminHome.php');
 ?>
 
 <!DOCTYPE html>

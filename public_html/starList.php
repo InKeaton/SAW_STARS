@@ -18,14 +18,14 @@
                 background-color: whitesmoke;
             }
 
-            #pageDiv > form {
+            #pageDiv > #inputDiv {
                 position:inherit;
                 width: 80%;
                 height: 20%;
                 left: 10%;
             }
-            form > input { width: 80%; }
-            form > label, button { width: 10%; }
+            #inputDiv > input { width: 80%; }
+            #inputDiv > label, button { width: 10%; }
            
             #pageDiv > table {
                 position: inherit;
@@ -60,11 +60,10 @@
     </head>
     <body>
         <div id="pageDiv">
-            <form id="pageForm">
+            <div id="inputDiv">
                 <label>Search Star: </label>
                 <input id="inputName" name="starName" type="text" value="" placeholder="search star....">
-                <button>search ... </button>
-            </form>
+            </div>
             <table id="result">
             
             </table>
@@ -74,7 +73,7 @@
         var starList;
         
         window.onload = getAllStar();
-
+        
         document.getElementById("inputName").addEventListener("change", changeSearch);
         document.getElementById("inputName").value = "";
         
