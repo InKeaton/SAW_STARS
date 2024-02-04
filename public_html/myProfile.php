@@ -10,7 +10,7 @@
 
     $sub = new Sub();
     $sub->userFK = $_SESSION['uuid'];
-    $subs = $sub->SelectUserSub();
+    $subsResult = $sub->SelectUserSub();
 ?>
 
 <!DOCTYPE html>
@@ -30,18 +30,17 @@
         </section>
         Stars : <br>
         <section id="stars_info">
-        
-</section>
+        </section>
         
     </body>
 
     <script>
         displayAllSubs();
         function displayAllSubs() {
-            stars = <?php echo json_encode($subs);?>;
+            stars = <?php echo json_encode($subsResult);?>;
             outString = "<table><tr><th>Nome</th><th>Prezzo</th><th>Data d'inizio</th><th>Durata</th></tr>";
             stars.forEach(element => {
-                outString += "<tr><td>" + element.starName + "</td><td>" + element.price + "</td><td>" + element.startDate + "</td><td>" + element.life + " Mesi </td></tr>";
+                outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + element.starName + "</td><td>" + element.price + "</td><td>" + element.startDate + "</td><td>" + element.life + " Mesi </td></tr>";
             });
             outString += "</table>";
             document.getElementById("stars_info").innerHTML = outString;

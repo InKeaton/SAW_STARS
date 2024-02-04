@@ -13,6 +13,10 @@
             return $this->GetQuery('SELECT  * FROM STAR WHERE starID = ?', 's', array($this->starID));
         }
 
+        public function SelectConsStar() {
+            return $this->GetQuery('SELECT  * FROM STAR WHERE consFK = ?', 's', array($this->consFK));
+        }
+
         public function SelectAll() {
             return $this->GetQuery('SELECT * FROM STAR');
         }

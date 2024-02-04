@@ -59,6 +59,10 @@
         </style>
     </head>
     <body>
+        <?php
+            // navigation bar
+            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+        ?>
         <div id="pageDiv">
             <div id="inputDiv">
                 <label>Search Star: </label>

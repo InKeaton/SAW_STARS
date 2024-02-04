@@ -112,11 +112,42 @@ DROP TABLE IF EXISTS `SUB`;
 CREATE TABLE `SUB` (
   `subID` varchar(36) NOT NULL DEFAULT uuid(),
   `userFK` varchar(36) NOT NULL,
-  `starFK` varchar(36) NOT NULL,
+  `subName` varchar(20) NOT NULL,
   `startDate` date DEFAULT current_timestamp(),
   `life` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `SUB`
+--
+
+INSERT INTO `SUB` (`subID`, `userFK`, `subName`, `startDate`, `life`) VALUES
+('0c1a8378-c059-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'sad', '2024-02-13', 155),
+('1c9d4c11-c058-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'fra.matao@outlook.it', '2024-01-31', 12),
+('2d0a7b97-c05b-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'cc', '2024-01-11', 100),
+('5a5c5182-c05c-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'ccs', '2024-01-31', 12),
+('5b4d29f3-c058-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', 'fra.matao@sad.it', '2024-01-31', 12),
+('e0757aac-c057-11ee-ad7c-e86f3893ce31', '08144321-bfbd-11ee-9ccc-e86f3893ce31', '', '2024-01-31', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SUBSTAR`
+--
+
+DROP TABLE IF EXISTS `SUBSTAR`;
+CREATE TABLE `SUBSTAR` (
+  `substarID` varchar(36) NOT NULL DEFAULT uuid(),
+  `starFK` varchar(36) NOT NULL,
+  `subFK` varchar(36) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `SUBSTAR`
+--
+
+INSERT INTO `SUBSTAR` (`substarID`, `starFK`, `subFK`) VALUES
+('a439ca16-c066-11ee-ad7c-e86f3893ce31', '97a31a97-c009-11ee-9ccc-e86f3893ce31', 'e0757aac-c057-11ee-ad7c-e86f3893ce31');
 
 -- --------------------------------------------------------
 
@@ -251,9 +282,16 @@ ALTER TABLE `STAR`
 --
 ALTER TABLE `SUB`
   ADD PRIMARY KEY (`subID`),
-  ADD UNIQUE KEY `subUKFK` (`starFK`,`userFK`),
-  ADD KEY `userFK` (`userFK`),
-  ADD KEY `starFK` (`starFK`);
+  ADD UNIQUE KEY `subName` (`subName`),
+  ADD KEY `userFK` (`userFK`);
+
+--
+-- Indexes for table `SUBSTAR`
+--
+ALTER TABLE `SUBSTAR`
+  ADD PRIMARY KEY (`substarID`),
+  ADD UNIQUE KEY `starFK` (`starFK`,`subFK`),
+  ADD KEY `subFK` (`subFK`);
 
 --
 -- Indexes for table `USER`
@@ -283,8 +321,15 @@ ALTER TABLE `STAR`
 -- Constraints for table `SUB`
 --
 ALTER TABLE `SUB`
-  ADD CONSTRAINT `SUB_ibfk_1` FOREIGN KEY (`userFK`) REFERENCES `USER` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `SUB_ibfk_2` FOREIGN KEY (`starFK`) REFERENCES `STAR` (`starID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `SUB_ibfk_1` FOREIGN KEY (`userFK`) REFERENCES `USER` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `SUBSTAR`
+--
+ALTER TABLE `SUBSTAR`
+  ADD CONSTRAINT `SUBSTAR_ibfk_1` FOREIGN KEY (`subFK`) REFERENCES `SUB` (`subID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `SUBSTAR_ibfk_2` FOREIGN KEY (`starFK`) REFERENCES `STAR` (`starID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

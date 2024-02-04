@@ -18,6 +18,10 @@
         <title></title>
     </head>
     <body>
+        <?php
+            // navigation bar
+            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+        ?>
         Star Name : <?php echo $starResult->starName ?> <br>
         Star Price : <?php echo $starResult->price?> <br>
         Star Distance Ligh Year : <?php echo $starResult->dLY?><br>
