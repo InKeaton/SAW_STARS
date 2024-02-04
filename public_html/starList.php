@@ -62,7 +62,7 @@
         <div id="pageDiv">
             <form id="pageForm">
                 <label>Search Star: </label>
-                <input id="inputName" name="starName" type="text" placeholder="search star....">
+                <input id="inputName" name="starName" type="text" value="" placeholder="search star....">
                 <button>search ... </button>
             </form>
             <table id="result">
@@ -74,8 +74,10 @@
         var starList;
         
         window.onload = getAllStar();
-        document.getElementById("inputName").addEventListener("change", changeSearch);
 
+        document.getElementById("inputName").addEventListener("change", changeSearch);
+        document.getElementById("inputName").value = "";
+        
         async function getAllStar() {
             let response = await fetch('/api/getAllStar.php', { method: 'POST' });
             starList = await response.json();
@@ -102,7 +104,6 @@
             if(index%5!=0 || index == 0) outString += "</tr>";
             document.getElementById("result").innerHTML = outString;
         }
-
     </script>
 
 </html>
