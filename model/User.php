@@ -34,6 +34,13 @@
                                     array($this->role, $this->email, $this->pwd, $this->firstName, $this->lastName, $this->img, $this->createDate, $this->userID));
         }
 
+        public function UpdateRole() {
+            return $this->ModelQuery('UPDATE USER SET role = ? WHERE userID = ?', 
+            'ss',
+            array($this->role, $this->userID));
+
+        }
+
         public function Delete() {
             return $this->ModelQuery('DELETE FROM USER WHERE userID = ?', 's', array($this->userID));
         }
