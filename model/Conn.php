@@ -8,7 +8,7 @@
 	class Conn {
 		private $conn;
 		function __construct() {
-			$this->conn = new mysqli(SERVER_NAME, USERNAME, PASSWORD, DB_NAME);;
+			$this->conn = new mysqli(SERVER_NAME, USERNAME, PASSWORD, DB_NAME);
 			if($this->conn->connect_errno) 
 				die(json_encode(array('status' => 0, 'message' => 'Connection: ' . $this->conn->connect_error)));
 		}

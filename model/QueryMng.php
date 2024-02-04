@@ -21,7 +21,7 @@
                 $result = ($typeData === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $typeData, $data);
                 return ($result === false)? true : $result;     
             } catch(mysqli_sql_exception $e) {
-                die(json_encode(array('status' => 500, 'message' => 'Error in db', 'query' => $query)));
+                die(json_encode(array('status' => 500, 'message' =>  $e->getMessage())));
             }
         }
     }

@@ -15,13 +15,17 @@
             return $this->GetQuery('SELECT  * FROM USER WHERE userID = ?', 's', array($this->userID));
         }
 
+        public function SelectEmail() {
+            return $this->GetQuery('SELECT * FROM USER WHERE email = ?', 's', array($this->email));
+        }
+
         public function SelectAll() {
             return $this->GetQuery('SELECT * FROM USER ');
         }
 
         public function Insert() {
-            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?, img = ?, role = ?', 'ssssss', 
-                                array($this->email, $this->pwd, $this->firstName, $this->lastName, $this->img, $this->role));
+            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?',  'ssss', 
+                                array($this->email, $this->pwd, $this->firstName, $this->lastName));
         }
 
         public function Update() {  

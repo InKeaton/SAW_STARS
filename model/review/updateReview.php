@@ -1,13 +1,4 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/header.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/customs.php';
-
-  validMethod('POST');
-
-  session_start();
-
-  // isUser(); \\ da errore se non lo commento
-
   include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Review.php';
   
   $rev = new Review();
@@ -17,11 +8,11 @@
   if(!isset($result))
     die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
   
-  $rev->starFK = (empty($_POST["starFK"]))? $result->starFK : $_POST["starFK"];
-  $rev->userFK = (empty($_POST["userFK"]))? $result->userFK : $_POST["userFK"];
-  $rev->vote = (empty($_POST["vote"]))? $result->vote : $_POST["vote"];
-  $rev->note = (empty($_POST["note"]))? $result->note : $_POST["note"];
-  $rev->revDate = (empty($_POST["revDate"]))? $result->revDate : $_POST["revDate"];
+  $rev->starFK =  $_POST["starFK"];
+  $rev->userFK =  $_POST["userFK"];
+  $rev->vote =  $_POST["vote"];
+  $rev->note =  $_POST["note"];
+  $rev->revDate =  $_POST["revDate"];
 
   if(!($rev->Update())) 
     die(json_encode(array('status' => 0, 'message' => 'Failed to Update Star!')));
