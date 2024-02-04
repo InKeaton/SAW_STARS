@@ -38,8 +38,10 @@
             const form = document.getElementById('login')
             let response = await fetch('/api/login.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
-            if(result.status == 200) location.replace("/public_html/home.php"); 
-            alert(result.message);
+            if(result.status == 200) 
+                location.replace("/public_html/home.php"); 
+            else 
+                alert(result.message);
         }
     </script>
 </html>

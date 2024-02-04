@@ -17,6 +17,11 @@
         
     </head>
     <body> 
+        <?php
+            // navigation bar
+            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+        ?>
+
         <div id="top">
             <h1>HOME</h1>
             <div>

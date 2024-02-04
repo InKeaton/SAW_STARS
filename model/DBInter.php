@@ -18,7 +18,7 @@
 
 		private function PushOutField($input) { array_push( $this->outField, $input);  }
 
-         	private function PopOutField() { 
+        private function PopOutField() { 
 			$ret = $this->outField; 
 			unset($this->outField);
 			$this->outField = [];

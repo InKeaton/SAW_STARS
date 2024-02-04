@@ -4,7 +4,7 @@
   $sub = new Sub();
 
   $sub->userFK = $_POST["userFK"];
-  $sub->subName = $_POST["subName"];
+  $sub->starFK = $_POST["starFK"];
   $sub->life = $_POST["life"];
   
   if(!$sub->Insert())
