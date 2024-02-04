@@ -60,7 +60,7 @@
     </head>
     <body>
         <div id="pageDiv">
-            <form id="pageForm" action="javascript:script()">
+            <form id="pageForm">
                 <label>Search Star: </label>
                 <input id="inputName" name="starName" type="text" placeholder="search star....">
                 <button>search ... </button>
@@ -71,21 +71,34 @@
         </div>        
     </body>
     <script>
-        window.onload = getAllStar();
+        var starList;
         
-        function getAllStar() {
-            fetch('/api/getAllStar.php', { method: 'POST' })
-            .then(response => response.json()).then(result => { displayStar(result); })
+        window.onload = getAllStar();
+        document.getElementById("inputName").addEventListener("change", changeSearch);
+
+        async function getAllStar() {
+            let response = await fetch('/api/getAllStar.php', { method: 'POST' });
+            starList = await response.json();
+            displayStar(starList);
         }
 
-        function displayStar(starList) {
+        function changeSearch() {
+            var changeResult=[];
+            const search =  document.getElementById("inputName").value;
+            var cI = 0;
+            for(i=0;i<starList.length;i++)
+                if(starList[i].starName.search(search) != -1) 
+                    changeResult[cI++] = starList[i];
+            displayStar(changeResult);
+        }
+
+        function displayStar(list) {
             outString = "<tr>";
             index = 0;
-            do {
-                outString += "<td><div><img src='img/starImg.png'></div><hr><p><a href='/public_html/starDetails.php?starID="+starList[index].starID +"'>" + starList[index].starName + "</a></p></td>";
-                index++;
+            while(index<list.length && (list[index])) {
+                outString += "<td><div><img src='img/starImg.png'></div><hr><p><a href='/public_html/starDetails.php?starID="+list[index].starID +"'>" + list[index++].starName + "</a></p></td>";
                 if(index%5 == 0) outString += "</tr><tr>";    
-            }while(index<starList.length);
+            }
             if(index%5!=0 || index == 0) outString += "</tr>";
             document.getElementById("result").innerHTML = outString;
         }
