@@ -1,16 +1,24 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/header.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/customs.php';
+    /*   
+     * API che serve per la gestione della fase di login dell'utente.
+     * Viene controllato che il metodo con cui è stata effettuata la richiesta sia un metodo POST.
+     * Viene controllato che i campi email e pass siano presenti, e non siano vuoti, all'interno della richiesta.
+     * Viene fatta la select con l'email passata dal client
+     * Viene verificato che la riga recuperata dal server abbia l'hash corrispondente alla password passata dal client.
+     * Se tutte le operazioni descritte prima vanno ha buon fine si manda al client come risposta una 200 iniziando una nuova sessione
+    */
+    
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/apiUtils.php';
 
-  validMethod('POST');
+    isMethod('POST');
+    postEmptyField('email', 'pass');
 
-  validEmailAndPwd();
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/user/getUser.php';
 
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/models/user/getUser.php';
-  if (password_verify($_POST['pwd'], $user->GetField('pwd'))) {
+    if(!password_verify($_POST['pass'], $result->pwd)) 
+        die(json_encode(array('status' => 404, 'message' => 'Password must be the same')));
+
     session_start();
-    $_SESSION['userID'] = $user->GetField("userID");
-    $_SESSION['role'] = $user->GetField("role");
-    echo json_encode(array('status' => 200, 'message' => 'Successfully Logged In!'));
-  } else die(json_encode(array('status' => 401, 'message' => 'Incorrect Email or Password!')));
+    $_SESSION['uuid'] = $result->userID;
+    echo json_encode(array('status'=>200, 'message' => $result->userID));
 ?>
