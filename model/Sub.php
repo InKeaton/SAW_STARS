@@ -5,7 +5,7 @@
      
         public $subID;
         public $userFK;
-        public $subName;
+        public $starFK;
         public $startDate;
         public $life;
 
@@ -19,13 +19,13 @@
         }
 
         public function Insert() {
-            return $this->ModelQuery('INSERT INTO SUB SET subName = ?, userFK = ?, life = ?',   'sss', 
-                                array( $this->subName, $this->userFK, $this->life));
+            return $this->ModelQuery('INSERT INTO SUB SET starFK = ?, userFK = ?, life = ?',   'sss', 
+                                array( $this->starFK, $this->userFK, $this->life));
         }
 
         public function Update() {  
-            return $this->ModelQuery('UPDATE SUB SET subName = ?, startDate = ?, life = ?, userFK = ? WHERE subID = ?', 'sssss',
-                                    array($this->subName, $this->startDate, $this->life, $this->userFK, $this->subID));
+            return $this->ModelQuery('UPDATE SUB SET starFK = ?, startDate = ?, life = ?, userFK = ? WHERE subID = ?', 'sssss',
+                                    array($this->starFK, $this->startDate, $this->life, $this->userFK, $this->subID));
         }
 
         public function Delete() {

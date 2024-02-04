@@ -3,7 +3,7 @@
     
     class Constellation extends DBInter {
        
-        public $consID=0;
+        public $consID;
         public $consName;
         public $startDate;
         public $endDate;
