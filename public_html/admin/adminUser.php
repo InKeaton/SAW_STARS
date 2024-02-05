@@ -65,7 +65,7 @@
         function genRow(element, id) {
             return  "<tr id=riga"+id+"><p><td>"+ 
                     "Firstname: " + element.firstName + " Lastname: "  + element.lastName + 
-                    "</td><td><a href='public_html/starDetails.php?userID='"+element.userID+"'>Details</a></td>"+ 
+                    "</td><td><a href='userDetails.php?userID="+element.userID+"'>Details</a></td>"+ 
                     "<td><form action='javascript:updateRole("+id+")' id = update"+id+">" +
                     "<label>Role: <input type='checkbox' name = 'role' value='1' " + ((element.role == 1)? "checked" : "") + ">" + 
                     "<input type = 'hidden' name='userID' value= "+element.userID+" >" + 
