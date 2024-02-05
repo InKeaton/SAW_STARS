@@ -1,6 +1,6 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';
-    if($_SESSION['role']) header('Location: /public_html/admin/adminHome.php');
+    include_once dirname(__FILE__) . '/../utils/sessionControl.php';
+    if($_SESSION['role']) header('Location: /admin/adminHome.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
     <body> 
         <?php
             // navigation bar
-            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+            include  dirname(__FILE__)  . "/modules/navbar.php"; 
         ?>
 
         <div id="top">

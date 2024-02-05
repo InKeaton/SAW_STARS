@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/User.php';
+    include_once dirname(__FILE__) .  '/../../model/User.php';
     $usr = new User();
 ?>
 
@@ -37,7 +37,7 @@
         </style>
     </head>
     <body>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/public_html/modules/navbar.php';?>
+        <?php include_once  dirname(__FILE__) .  '/../modules/navbar.php';?>
         <div id="tableDiv">
             <h1>User Table </h1>
             <div id="user">
@@ -79,14 +79,14 @@
 
         async function updateRole(userID) {
             const form = document.getElementById("update"+userID);
-            let response = await fetch('/api/updateRole.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch('../api/updateRole.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) alert("Update avvenuto con successo");
         }
 
         async function deleteUser(id) {
             const form = document.getElementById("delete"+id);
-            let response = await fetch('/api/deleteUser.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch('../api/deleteUser.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) alert("Update avvenuto con successo");
             document.getElementById("riga"+id).remove();

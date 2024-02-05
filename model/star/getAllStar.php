@@ -1,7 +1,7 @@
 <?php
-  
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Star.php';
 
+  include_once dirname(__FILE__) . '/../Star.php';
+    
   $star = new Star();
 
   if(!($result = $star->SelectAll()))

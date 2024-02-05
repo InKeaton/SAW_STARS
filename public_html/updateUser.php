@@ -1,6 +1,6 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/User.php';
+    include_once dirname(__FILE__) .  '/../utils/sessionControl.php';
+    include_once dirname(__FILE__) .  '/../model/User.php';
     $u = new User();
     $u->userID = $_SESSION['uuid'];
     $result = $u->Select()[0];
@@ -29,7 +29,7 @@
     <script>
         async function Update() {
             const form = document.getElementById('update');
-            let response = await fetch('/api/updateUser.php', { method: 'POST', body : new FormData(form)});
+            let response = await fetch('api/updateUser.php', { method: 'POST', body : new FormData(form)});
             result = await response.json();
             if(result.status == 200)  alert("modifica avvenuta con successo");
         }

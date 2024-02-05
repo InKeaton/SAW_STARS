@@ -1,11 +1,11 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/apiUtils.php';
+    include_once dirname(__FILE__) . '/../../utils/apiUtils.php';
 
     session_start();
     isLog();
     isMethod('POST');
 
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/User.php';
+    include_once dirname(__FILE__) . '/../../model/User.php';
     $user = new User();
     $user->userID = $_POST["userID"];
     $user->role = (empty($_POST["role"]))? 0 : 1;

@@ -1,6 +1,6 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Review.php';
-
+    include_once dirname(__FILE__) . '/../Review.php';
+    
     $rev = new Review();
     $rev->starFK = $_POST['starFK'];
     $result = $rev->SelectStarReviews();

@@ -2,7 +2,7 @@
 
 <html>
     <body>
-        <form type="submit" id="insert" action="javascript:Insert()" method="post">
+        <form type="submit" id="insert" action="javascript:Insert()">
             <fieldset>
                 <legend>Insert your data to create your new account!</legend>
 
@@ -27,8 +27,8 @@
     </body>
     <script>
         async function Insert() {
-            const form = document.getElementById('insert')
-            let response = await fetch('/api/registration.php', { method: 'POST', body : new FormData(form) });
+            const form = document.getElementById('insert');
+            let response = await fetch('api/registration.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) location.replace("/public_html/login.html");
             alert(result.message);

@@ -1,5 +1,6 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Sub.php';
+  include_once dirname(__FILE__) . '/../Sub.php';
+    
 
   $sub = new Sub();
 

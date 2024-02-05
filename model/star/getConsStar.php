@@ -1,6 +1,7 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Star.php';
 
+    include_once dirname(__FILE__) . '/../Star.php';
+    
     $star = new Star();
     $star->consFK = $_POST['consFK'];
     $result = $star->SelectConsStar();

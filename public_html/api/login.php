@@ -7,14 +7,13 @@
      * Viene verificato che la riga recuperata dal server abbia l'hash corrispondente alla password passata dal client.
      * Se tutte le operazioni descritte prima vanno ha buon fine si manda al client come risposta una 200 iniziando una nuova sessione
     */
-    
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/apiUtils.php';
+    include_once dirname(__FILE__) . '/../../utils/apiUtils.php';
 
     isMethod('POST');
     postEmptyField('email', 'pass');
 
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/user/getUser.php';
-
+    include_once dirname(__FILE__) . '/../../model/user/getUser.php';
+    
     if(!password_verify($_POST['pass'], $result->pwd)) 
         die(json_encode(array('status' => 404, 'message' => 'Password must be the same')));
 

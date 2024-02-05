@@ -1,8 +1,8 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';  
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/User.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Sub.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Star.php';
+    include_once dirname(__FILE__) . '/../utils/sessionControl.php';  
+    include_once dirname(__FILE__) . '/../model/User.php';
+    include_once dirname(__FILE__) . '/../model/Sub.php';
+    include_once dirname(__FILE__) . '/../model/Star.php';
 
     $user = new User();
     $user->userID =  $_SESSION['uuid'];
@@ -20,7 +20,7 @@
     </head>
     <?php
         // navigation bar
-        include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+        include dirname(__FILE__) .  "/modules/navbar.php"; 
     ?>
     <body>
         <section id="user_info">

@@ -1,7 +1,7 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';  
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Constellation.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Star.php';
+    include_once  dirname(__FILE__) . '/../utils/sessionControl.php';  
+    include_once  dirname(__FILE__) . '/../model/Constellation.php';
+    include_once  dirname(__FILE__) . '/../model/Star.php';
     
     $cons = new Constellation();
     $cons->consID = $_GET['consID'];
@@ -19,7 +19,7 @@
     <body> 
     <?php
         // navigation bar
-        include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+        include  dirname(__FILE__) . "/modules/navbar.php"; 
     ?>
     <section id="cons_info">
         Cons Name: <?php echo $consResult->consName; ?><br>

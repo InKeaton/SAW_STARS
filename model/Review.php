@@ -1,5 +1,5 @@
 <?php
-    include_once  $_SERVER['DOCUMENT_ROOT'] . '/model/DBInter.php';
+    include_once  dirname(__FILE__). '/DBInter.php';
 
     class Review extends DBInter {
       

@@ -61,7 +61,7 @@
     <body>
         <?php
             // navigation bar
-            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+            include  dirname(__FILE__) .  "/modules/navbar.php"; 
         ?>
         <div id="pageDiv">
             <div id="inputDiv">
@@ -82,7 +82,7 @@
         document.getElementById("inputName").value = "";
         
         async function getAllStar() {
-            let response = await fetch('/api/getAllStar.php', { method: 'POST' });
+            let response = await fetch('api/getAllStar.php', { method: 'POST' });
             starList = await response.json();
             displayStar(starList);
         }
@@ -101,7 +101,7 @@
             outString = "<tr>";
             index = 0;
             while(index<list.length && (list[index])) {
-                outString += "<td><div><img src='img/starImg.png'></div><hr><p><a href='/public_html/starDetails.php?starID="+list[index].starID +"'>" + list[index++].starName + "</a></p></td>";
+                outString += "<td><div><img src='img/starImg.png'></div><hr><p><a href='starDetails.php?starID="+list[index].starID +"'>" + list[index++].starName + "</a></p></td>";
                 if(index%5 == 0) outString += "</tr><tr>";    
             }
             if(index%5!=0 || index == 0) outString += "</tr>";

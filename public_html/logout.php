@@ -4,7 +4,7 @@
 
     <?php 
         // session/remember me check
-        include_once $_SERVER['DOCUMENT_ROOT'] . '/utils/sessionControl.php';
+        include_once dirname(__FILE__) . '/../utils/sessionControl.php';
     ?>
     <head>
         <Title>End Session</Title>
@@ -18,7 +18,7 @@
 
         <?php
             // navigation bar
-            include  $_SERVER['DOCUMENT_ROOT'] . "/public_html/modules/navbar.php"; 
+            include  dirname(__FILE__)  . "/modules/navbar.php"; 
         ?>
 
         <main>
@@ -33,10 +33,10 @@
 
         <script>
             async function Logout() {
-                let response = await fetch('/api/logout.php', { method: 'POST'});
+                let response = await fetch('api/logout.php', { method: 'POST'});
                 result = await response.json();
                 if(result.status == 200) 
-                    location.replace("/public_html/index.html"); 
+                    location.replace("index.html"); 
                 else 
                     alert(result.message);
             }

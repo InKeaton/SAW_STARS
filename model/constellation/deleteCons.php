@@ -1,5 +1,6 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Constellation.php';
+    include_once dirname(__FILE__) . '/../Constellation.php';
+    
     $cons = new Constellation();
 
     $cons->consID = $_POST['consID'];

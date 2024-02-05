@@ -1,6 +1,6 @@
 <?php
+    include_once dirname(__FILE__). '/Conn.php';
 
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/model/Conn.php';
     class QueryMng {
         private $conn;
         public function __construct() { $this->conn = new Conn(); }
