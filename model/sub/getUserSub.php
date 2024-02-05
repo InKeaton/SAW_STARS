@@ -2,8 +2,8 @@
   include_once dirname(__FILE__) . '/../Sub.php';
 
   $sub = new Sub();
-  $sub->subID = $_POST["userFK"];
-  $result = $sub->Select()[0];
+  $sub->userFK = $_POST["userFK"];
+  $result = $sub->SelectUserSub();
   
   if(!isset($result)) 
     die(json_encode(array('status' => 404, 'message' => 'Review not find in db')));

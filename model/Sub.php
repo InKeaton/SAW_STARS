@@ -35,5 +35,9 @@
         public function Delete() {
             return $this->ModelQuery('DELETE FROM SUB WHERE subID = ?', 's', array($this->subID));
         }
+
+        public function DeleteCoupleSub() {
+            return $this->ModelQuery('DELETE FROM SUB WHERE userFK = ? AND starFK = ?', 'ss', array($this->userFK, $this->starFK));
+        }
     }
 ?>
