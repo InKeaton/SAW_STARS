@@ -6,60 +6,38 @@
 
 * {
     font-family: "Latina Essential";
+    max-width: 960px;
     margin: auto;
+
     --main-bg: #141D5F;
     --second-bg: #88B43C;
     --light-fg: #F1ECD2;
     --dark-fg: #161617;
+
     -webkit-transition: 0.2s;
     transition: 0.2s;
 }
 
 body {
-    background-color: var(--main-bg);
-    color: var(--light-fg);
-    text-align: center;
+    background: var(--dark-fg);
 }
 
 .logo {
-    font-size: 1.5em;
-    font-weight: bold;
     text-align: center;
-    background-color: var(--second-bg);
-    color: var(--dark-fg);
-    border-radius: 15px;
-    margin: 6px 30%;
-    margin-bottom: 3%;
-    padding: 5px 10px;
+    color: var(--light-fg);
 }
 
-main {
-    width: 30%;
-    background-color: var(--second-bg);
-    color: var(--dark-fg);
-    border-radius: 15px;
-    border: none;
-    align-items: center;
-}
+.main_container {
+    background: var(--main-bg);
+    color: var(--light-fg);
 
-legend {
-    display: block;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--dark-fg);
-    color: var(--second-bg);
-    margin-top: 20px;
-    padding: 3px 10px;
-}
-
-fieldset {
-    width: 80%;
-    align-items: start;
-    border: none;
+    border-radius: 25px;
+    width: 50%;
+    text-align: center;
 }
 
 input[type=text], input[type=email], input[type=password] {
-    width: 100%;
+    width: 70%;
     padding: 12px 20px;
     margin: 10px 0;
     background-color: var(--light-fg);
@@ -74,36 +52,17 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     color: var(--light-fg);
     outline: none;
 }
-  
-input[type=submit] {
-    width: 100%;
-    background-color: var(--dark-fg);
-    color: var(--light-fg);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-}
-  
-input[type=submit]:hover {
-    background-color: var(--main-bg);
-    color: var(--light-fg);
+
+.login_form {
+    background: var(--second-bg);
+    color: var(--dark-fg);
+
+    border-radius: 25px;
+    width: 50%;
 }
 
-.error, .confirmation {
-    background-color: #da5b28;
-    width: 70%;
-    padding: 14px 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-.confirmation {
-    background-color: var(--main-bg);
-    color: var(--light-fg);
+.sepline {
+    width: 50%;
 }
 
 

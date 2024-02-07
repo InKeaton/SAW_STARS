@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<?php session_start() ?>
+<html lang="it">
     <head>
-        <title>Login</title>
-        <style>
+        <title>Accedi</title>
+        <link rel="stylesheet" href="style/main.css">
+        <!-- <style>
             #regDIV {
                 position: absolute;
                 width: 30%;
@@ -18,22 +20,29 @@
             }
             form > label {width: 20%;}
             form > input {width: 80%;}
-        </style>
+        </style> -->
     </head>
     <body>
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/modules/navbar.php"; ?>
-        <div id = "regDIV">
-            <h1>FORM pe il LOGIN</h1>
-            <hr>
-            <form action="javascript:Login()" id = "login" method="post">
-                <label>Email: </label><input type="email" name="email" required> <br>
-                <label>Password: </label><input type="password" name="pass" required> <br>
+
+        <header class = "logo">
+            <h1>Accedi!</h1>
+        </header>
+
+        <main class = "main_container">
+            <form class = "login_form" action="javascript:Login()" id = "login" method="post">
+                <label>Email </label><br>
+                <input type="email" name="email" required> <br>
+
+                <label>Password </label><br>
+                <input type="password" name="pass" required> <br>
+
                 <input type="submit" name="submit" value="LOGIN">
             </form>
-            <hr>
-            <button  onclick="location.href='register.html'" > Register </a>
-        </div>
+            <hr class = "sepline">
+            <button onclick="location.href='register.php'" > Register </a>
+        </main>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
