@@ -11,37 +11,47 @@
     $stars->consFK = $_GET['consID'];
     $starResult = $stars->SelectConsStar();
 ?>
-
+<!------------------------------------------------------------------------------------------------------------>
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Scheda di <?php echo $consResult->consName ?> </title>
     </head>
     <body> 
-    <?php
-        // navigation bar
-        include  dirname(__FILE__) . "/modules/navbar.php"; 
-    ?>
-    <section id="cons_info">
-        Cons Name: <?php echo $consResult->consName; ?><br>
-        Data Inizio: <?php echo $consResult->startDate;?><br>
-        Data Fine: <?php echo $consResult->endDate; ?><br>
-        Descrizione: <?php echo $consResult->description; ?><br>
-        Stars : <br>
-    </section>
-    <section id="stars_info">
-    </section>
+        <!-- navbar -->
+        <?php include  dirname(__FILE__) . "/modules/navbar.php"; ?>
+        <section id="cons_info">
+            Cons Name:   <?php echo $consResult->consName;    ?><br>
+            Data Inizio: <?php echo $consResult->startDate;   ?><br>
+            Data Fine:   <?php echo $consResult->endDate;     ?><br>
+            Descrizione: <?php echo $consResult->description; ?><br>
+        </section>
+        <section id="stars_info">
+            Stelle appartenenti alla costellazione: <br>
+            <table id="stars_table"></table>
+        </section>
     </body>
+<!------------------------------------------------------------------------------------------------------------>
     <script>
-        displayAllStars();
-
-        function displayAllStars() {
+        async function displayAllStars() {
             stars = <?php echo json_encode($starResult);?>;
-            outString = "<table><tr><th>Nome</th><th>Distanza</th><th>Prezzo</th></tr>";
+
+            outString = "<tr>" +
+                            "<th>Nome</th>"     +
+                            "<th>Distanza</th>" +
+                            "<th>Prezzo</th>"   +
+                        "</tr>";
+
             stars.forEach(element => {
-                outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + element.starName + "</a></td><td>" + element.dLY + " Anni Luce</td><td>" + element.price + "</td></tr>";
+                outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + 
+                                element.starName + "</a></td><td>" + 
+                                element.dLY      + "</td><td>"     + 
+                                element.price    + "</td></tr>";
             });
-            outString += "</table>";
-            document.getElementById("stars_info").innerHTML = outString;
+            document.getElementById("stars_table").innerHTML = outString;
         }   
+
+        displayAllStars();
+        
     </script>
 </html>

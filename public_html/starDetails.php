@@ -3,21 +3,25 @@
 <?php
     include_once dirname(__FILE__) . '/../utils/sessionControl.php';  
     include_once dirname(__FILE__) . '/../model/Star.php';
-    include_once dirname(__FILE__) . '/../model/Constellation.php';
+    include_once dirname(__FILE__) . '/../model/Review.php';
     
+    // Get star and its constellation data
     $star = new Star();
     $star->starID =  $_GET['starID'] ;
     $starResult = $star->SelectStarCons()[0];
+
+    // Get its memories
+    $reviews = new Review();
+    $reviews->starFK = $_GET['starID'] ;
+    $reviews_list = $reviews->SelectStarReviews();
 ?>
 <!------------------------------------------------------------------------------------------------------------>
     <head>
-        <title></title>
+        <title>Scheda di <?php echo $starResult->starName ?> </title>
     </head>
     <body>
-        <?php
-            // navigation bar
-            include dirname(__FILE__) . "/modules/navbar.php"; 
-        ?>
+        <!-- navbar -->
+        <?php include  dirname(__FILE__) . "/modules/navbar.php"; ?>
         <section id="star_info">
             Star Name : <?php echo $starResult->starName ?> <br>
             Star Price : <?php echo $starResult->price?> <br>
@@ -32,8 +36,7 @@
                 <input type="submit" name="submit" value="Abbonati!">
             </form><br>
         </section>
-        <section id="reviews">
-        </section>
+        <section id="reviews"></section>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
@@ -54,32 +57,28 @@
         }
 
         async function displayAllReviews() {
-            // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
-            let response = await fetch('api/getStarReview.php', { method: 'POST', 
-                                                                  headers: { "Content-type": "application/x-www-form-urlencoded" },
-                                                                  body : new URLSearchParams({
-                                                                    'starFK': '<?php echo $_GET['starID']?>',
-                                                                  })});
-            let reviews = await response.json();
+            reviews = subs = <?php echo json_encode($reviews_list);?>;
 
             outString = "<div id=\"addMemoryForm\">" +
                             "<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">" +
                         "</div>" +
                         "Ricordi: <br>" +
-                        "<section id=\"reviews_list\">" +
-                            "<table>" +
+                            "<table id=\"reviews_list\">" +
                                 "<tr>" +
                                     "<th>Utente</th>" +
                                     "<th>Voto</th>" +
                                     "<th>Ricordo</th>" +
                                     "<th>Data</th>" +
-                            "</tr>" +
-                        "</section>";
+                            "</tr>";
             reviews.forEach(element => {
                 outString += "<tr><td>" + element.firstName + "</td><td>" + element.vote + "</td><td>" + element.note + "</td><td>" + element.revDate + "</td></tr>";
             });
             outString += "</table>";
             document.getElementById("reviews").innerHTML = outString;
+        };
+
+        function returnButton() {
+            document.getElementById("addMemoryForm").innerHTML ="<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">";
         };
         
         async function addMemory() {
@@ -92,11 +91,23 @@
             
             if(result.status == 200){
                 alert("Ricordo inserito con successo!")
-                displayAllReviews();
+                // generate new row to insert
+                let new_review = document.getElementById("reviews_list").insertRow(1);
+                let user = new_review.insertCell(0);
+                let vote = new_review.insertCell(1);
+                let note = new_review.insertCell(2);
+                let date = new_review.insertCell(3);
+                
+                // TO FIX USER NAME RETRIVAL
+                user.innerHTML = "Tu";
+                vote.innerHTML = document.getElementById('vote').value;
+                note.innerHTML = document.getElementById('note').value;
+                date.innerHTML = new Date().toISOString().slice(0, 10).toString();
+                returnButton();
+
                 return;
-            } else {
-                alert("Errore nell'inserimento del ricordo")
-            };
+
+            } else {alert("Errore nell'inserimento del ricordo")};
         };
 
         function displayReviewBox() {
@@ -104,13 +115,13 @@
                                                                     "<input type=\"hidden\" id=\"starFK\" name=\"starFK\" value=\"<?php echo $_GET["starID"];?>\" >" +
 
                                                                     "<label for=\"vote\">Stelline (tra 1 e 5):</label>" +
-                                                                    "<input type=\"number\" id=\"reviewVote\" name=\"vote\" min=\"1\" max=\"5\"><br>" +
+                                                                    "<input type=\"number\" id=\"vote\" name=\"vote\" min=\"1\" max=\"5\"><br>" +
 
                                                                     "<textarea id=\"note\" name=\"note\" rows=\"10\" cols=\"115\"></textarea><br>" +
 
                                                                     "<input type=\"submit\" name=\"submit\" value=\"Invia il tuo ricordo!\">" +
                                                                 "</form>" +
-                                                                "<input id=\"addMemory\" type=\"button\" value=\"Annulla\" onclick=\"displayAllReviews();\"></input>";
+                                                                "<input id=\"addMemory\" type=\"button\" value=\"Annulla\" onclick=\"returnButton();\"></input>";
         };
 
         displayAllReviews();

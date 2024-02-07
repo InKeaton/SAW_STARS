@@ -18,7 +18,7 @@
             return $this->GetQuery('SELECT * FROM SUB ');
         }
 
-        public function SelectUserSub() {
+        public function SelectUserSubs() {
             return $this->GetQuery('SELECT * FROM SUB JOIN STAR ON starFK = starID WHERE userFK = ?', 's', array($this->userFK));
         }
 

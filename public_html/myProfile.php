@@ -5,27 +5,32 @@
     include_once dirname(__FILE__) . '/../model/Sub.php';
     include_once dirname(__FILE__) . '/../model/Star.php';
 
+    // Get user personal info
     $user = new User();
     $user->userID =  $_SESSION['uuid'];
     $profile = $user->Select()[0];
+
+    // Get user Star Subscriptions
+    $subs = new Sub();
+    $subs->userFK =  $_SESSION['uuid'];
+    $subs_list = $subs->SelectUserSubs();
 ?>
 <!------------------------------------------------------------------------------------------------------------>
 <html lang="it">
     <head>
-        <title>My Profile</title>
+        <title>Il Mio Profilo</title>
     </head>
-    <?php
-        // navigation bar
-        include dirname(__FILE__) .  "/modules/navbar.php"; 
-    ?>
+    <!-- navbar -->
+    <?php include  dirname(__FILE__) . "/modules/navbar.php"; ?>
     <body>
         <section id="user_info">
-        User Email : <?php echo $profile->email ?> <br>
-        User Name : <?php echo $profile->firstName ?> <br>
-        User Surname : <?php echo $profile->lastName ?> <br>
+            Email : <?php echo $profile->email ?> <br>
+            Nome : <?php echo $profile->firstName ?> <br>
+            Cognome : <?php echo $profile->lastName ?> <br>
         </section>
-        Stars : <br>
-        <section id="stars_info">
+        <section id="subs">
+            Stelle seguite: <br>
+            <table id="subs_table"></table>
         </section>
         
     </body>
@@ -35,39 +40,28 @@
             // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
             let response = await fetch('api/removeSub.php', { method: 'POST', 
                                                               headers: { "Content-type": "application/x-www-form-urlencoded" },
-                                                              body : new URLSearchParams({
-                                                                  'starFK': star,
-                                                                  'userFK': '<?php echo $_SESSION['uuid']?>',
-                                                              })});
+                                                              body : new URLSearchParams({'starFK': star})});
             let result = await response.json();
 
             if(result.status == 200){
                 alert("Abbonamento annullato con successo!");
-                displayAllSubs();
+                document.getElementById("subto_" + star).remove();
                 return;
-            } else {
-                alert("Errore nella disiscrizione");
-            };
+            } else {alert("Errore nella disiscrizione");};
         };
 
-        async function displayAllSubs() {
-            // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
-            let response = await fetch('api/getUserSubs.php', { method: 'POST', 
-                                                              headers: { "Content-type": "application/x-www-form-urlencoded" },
-                                                              body : new URLSearchParams({
-                                                                  'userFK': '<?php echo $_SESSION['uuid']?>',
-                                                              })});
-            let subs = await response.json();
+        function displayAllSubs() {
+            subs = <?php echo json_encode($subs_list);?>;
 
-            outString = "<table>" +
-                            "<tr>" +
-                                "<th>Nome</th>" +
-                                "<th>Prezzo</th>" +
-                                "<th>Data d'inizio</th>" +
-                                "<th>Durata</th>" +
-                            "</tr>";
+            outString = "<tr>" +
+                            "<th>Nome</th>" +
+                            "<th>Prezzo</th>" +
+                            "<th>Data d'inizio</th>" +
+                            "<th>Durata</th>" +
+                        "</tr>";
+
             subs.forEach(element => {
-                outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + 
+                outString += "<tr id=\"subto_" + element.starID +"\"><td><a href=starDetails.php?starID=" + element.starID + ">" + 
                                 element.starName + "</td><td>" + 
                                 element.price + "</td><td>" + 
                                 element.startDate + "</td><td>" +
@@ -75,12 +69,9 @@
                                 "<input id=\"unsubscribe\" type=\"button\" value=\"Disiscriviti\" onclick=\"unsubToStar(\'" + 
                                 element.starID + "\');\"></td></tr>";
             });
-            outString += "</table>";
-            document.getElementById("stars_info").innerHTML = outString;
+
+            document.getElementById("subs_table").innerHTML = outString;
         }   
-
         displayAllSubs();
-        
     </script>
-
 </html>
