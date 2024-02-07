@@ -3,24 +3,8 @@
 <html lang="it">
     <head>
         <title>Accedi</title>
+        <!-- CSS stylesheet -->
         <link rel="stylesheet" href="style/main.css">
-        <!-- <style>
-            #regDIV {
-                position: absolute;
-                width: 30%;
-                height: 50%;
-                top: 25%;
-                left: 35%;
-                border: 2px;
-                border-color: black;
-                border-style: solid;
-            }
-            #regDIV > form {  
-                width: 100%; 
-            }
-            form > label {width: 20%;}
-            form > input {width: 80%;}
-        </style> -->
     </head>
     <body>
         <!-- navbar -->
@@ -31,18 +15,21 @@
         </header>
 
         <main class = "main_container">
-            <form class = "login_form" action="javascript:Login()" id = "login" method="post">
+            <form class = "form" action="javascript:Login()" id = "login" method="post">
                 <label>Email </label><br>
-                <input type="email" name="email" required> <br>
+                <input type="email"    name="email"  required> <br>
 
                 <label>Password </label><br>
-                <input type="password" name="pass" required> <br>
+                <input type="password" name="pass"   required> <br>
 
-                <input type="submit" name="submit" value="LOGIN">
+                <input type="submit"   name="submit" value="Accedi">
             </form>
-            <hr class = "sepline">
-            <button onclick="location.href='register.php'" > Register </a>
+            <aside class="register_link">
+            Non hai ancora un account? <br><a href="register.php"> Iscriviti alla nostra iniziativa!</a>
+            </aside>
         </main>
+        <!-- footer -->
+        <?php include  dirname(__FILE__) . "/modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>

@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-
-<html>
+<?php session_start() ?>
+<html lang="it">
+    <head>
+        <title>Registrati</title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="style/main.css">
+    </head>
     <body>
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/modules/navbar.php"; ?>
-        <form type="submit" id="insert" action="javascript:Insert()">
-            <fieldset>
-                <legend>Insert your data to create your new account!</legend>
 
-                <label for="firstname">Name </label>
-                <input type="text" id="firstname" name="firstname" placeholder="Your name.." value= "asd"><br>
+        <header class = "logo">
+            <h1>Registrati!</h1>
+        </header>
 
-                <label for="lastname">Surname </label>
-                <input type="text" id="lastname" name="lastname" placeholder="Your surname.." value="asd"><br>
+        <main class = "main_container">
+            <form class="form" type="submit" id="insert" action="javascript:Insert()">
 
-                <label for="email">Email </label>
+                <label for="firstname">Nome </label><br>
+                <input type="text" id="firstname" name="firstname" placeholder="Your name.." value= ""><br>
+
+                <label for="lastname">Cognome </label><br>
+                <input type="text" id="lastname" name="lastname" placeholder="Your surname.." value=""><br>
+
+                <label for="email">Email </label><br>
                 <input type="email" id="email" name="email" placeholder="Your email.." value=""><br>
 
-                <label for="pass">Password </label>
-                <input type="password" id="pass" name="pass" placeholder="Password" value="pr"><br>
+                <label for="pass">Password </label><br>
+                <input type="password" id="pass" name="pass" placeholder="Password" value=""><br>
 
-                <label for="confirm">Confirm Password </label>
+                <label for="confirm">Conferma la Password </label><br>
                 <input type="password" id="confirm" name="confirm"  placeholder="Confirm password"><br>
 
                 <input type="submit" value="Registrati">
-            </fieldset>
-        </form>
+            </form>
+        </main>
+        <!-- footer -->
+    <?php include  dirname(__FILE__) . "/modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>

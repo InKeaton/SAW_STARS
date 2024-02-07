@@ -1,8 +1,8 @@
 <nav>
     <?php
         if(!isset($_SESSION['uuid'])) {
-            echo("<a href=\"login.html\">Accedi</a> |");
-            echo("<a href=\"registration.html\">Registrati</a> |");
+            echo("<a href=\"login.php\">Accedi</a> |");
+            echo("<a href=\"registration.php\">Registrati</a> |");
         }
         else {
             echo("<a href=\"home.php\">Home</a> |");
