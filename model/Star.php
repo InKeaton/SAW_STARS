@@ -12,9 +12,14 @@
         public function Select() {
             return $this->GetQuery('SELECT  * FROM STAR WHERE starID = ?', 's', array($this->starID));
         }
-
+        
+        // TO BE MOVED OR RENAMED
         public function SelectConsStar() {
             return $this->GetQuery('SELECT  * FROM STAR WHERE consFK = ?', 's', array($this->consFK));
+        }
+
+        public function SelectStarCons() {
+            return $this->GetQuery('SELECT  * FROM STAR JOIN CONSTELLATION ON consFK = consID WHERE starID = ?', 's', array($this->starID));
         }
 
         public function SelectAll() {

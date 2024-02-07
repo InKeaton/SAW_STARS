@@ -7,11 +7,7 @@
     
     $star = new Star();
     $star->starID =  $_GET['starID'] ;
-    $starResult = $star->Select()[0];
-
-    $cons = new Constellation();
-    $cons->consID = $starResult->consFK;
-    $consResult =   $cons->Select()[0]; 
+    $starResult = $star->SelectStarCons()[0];
 ?>
 <!------------------------------------------------------------------------------------------------------------>
     <head>
@@ -26,8 +22,8 @@
             Star Name : <?php echo $starResult->starName ?> <br>
             Star Price : <?php echo $starResult->price?> <br>
             Star Distance Light Year : <?php echo $starResult->dLY?><br>
-            Cons Name: <a href = "/public_html/consDetails.php?consID=<?php echo $consResult->consID;?>">
-                <?php echo $consResult->consName;?><br> </a>
+            Cons Name: <a href = "/public_html/consDetails.php?consID=<?php echo $starResult->consFK;?>">
+                <?php echo $starResult->consName;?><br> </a>
             <form action="javascript:subToStar()" id = "subscribe" method="post">
                 <label for="life">Durata Abbonamento (in Mesi):</label>
                 <input type="number" id="life" name="life" min="1" max="12">
