@@ -5,5 +5,6 @@
     */
     session_start();
     if(!isset($_SESSION['uuid']))
-        header("Location: /public_html/auth/login.php");
+    // TO BE CHANGED FOR THE SERVER
+        header("Location: /auth/login.php");
 ?>

@@ -38,7 +38,7 @@
             let response = await fetch( '/../../api/auth_api/loginAPI.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) 
-                location.replace("../home.php"); 
+                location.replace("../profile/home.php"); 
             else 
                 alert(result.message);
         }

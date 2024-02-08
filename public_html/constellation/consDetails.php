@@ -43,7 +43,7 @@
                         "</tr>";
 
             stars.forEach(element => {
-                outString += "<tr><td><a href=starDetails.php?starID=" + element.starID + ">" + 
+                outString += "<tr><td><a href=../stars/starDetails.php?starID=" + element.starID + ">" + 
                                 element.starName + "</a></td><td>" + 
                                 element.dLY      + "</td><td>"     + 
                                 element.price    + "</td></tr>";
