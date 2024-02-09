@@ -32,7 +32,7 @@
 
         <section class="bento" id="star_info">
             <div class="grid1">Nome:<br><?php echo $starResult->starName ?></div>
-            <div class="grid2">Costellazione:<br><a href = "/public_html/constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></div>
+            <div class="grid2">Costellazione:<br><a href = "../constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></div>
             <div class="grid3">Distanza:<br><?php echo $starResult->dLY?> anni luce</div>
             <div class="grid4">N° Iscritti:<br>DA FARE</div>
             <div class="grid5">N° Stelline Ricevute:<br>DA FARE</div>
@@ -55,9 +55,7 @@
         async function subToStar() {
             // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
             let subscribeForm = document.getElementById('subscribe');
-            let response = await fetch('../../api/sub_api/insertSub.php', { method: 'POST', 
-                                                              body : new FormData(subscribeForm) 
-                                                            });
+            let response = await fetch('../../api/sub_api/insertSub.php', { method: 'POST', body : new FormData(subscribeForm) });
             let result = await response.json();
 
             if(result.status == 200){

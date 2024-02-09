@@ -42,10 +42,10 @@
     <script>
         async function Insert() {
             const form = document.getElementById('insert');
-            let response = await fetch('../../api/auth_api/registrationAPI.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch('../../api/auth_api/registrationApi.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
-            if(result.status == 200) location.replace("/public_html/auth/login.php");
-            alert(result.message);
+            if(result.status == 200) location.replace("login.php");
+            else alert("Errore nelal fase di insert della pagina");
         }
     </script>
 

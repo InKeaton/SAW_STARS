@@ -79,9 +79,8 @@ class CRUDTable {
         const form = document.getElementById("insert"+id);
         const response = await fetch(CRUDTable.insUrl, { method: 'POST', body : new FormData(form) });
         const result = await response.json();
-        if(result.status == 200) {
-            alert("Insert avvenuto con successo");
-            location.reload();
-        }
+        console.log(result.status);
+        if(result.status == 200) location.reload();
+        
     }
 }

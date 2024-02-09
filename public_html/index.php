@@ -13,7 +13,7 @@
         <nav>
             <a href="https://saw21.dibris.unige.it/phpmyadmin/index.php?route=/database/structure&db=S4965918">Remote DB</a> | <a 
                href="https://github.com/InKeaton/SAW_STARS"> Github Repo</a> | <a
-               href="public_html/profile/home.php"> Home</a>
+               href="profile/home.php"> Home</a>
         </nav>
 
         <section>

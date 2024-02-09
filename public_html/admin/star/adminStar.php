@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include_once dirname(__FILE__) .  '/../../../api/_model/Star.php';
     include_once dirname(__FILE__) .  '/../../../api/_model/Constellation.php';
 ?>

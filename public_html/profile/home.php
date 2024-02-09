@@ -23,9 +23,9 @@
         <section class="main_container" id="home_options">
             <div class="row">
                 <div class="column">
-                    <div class="Nome"><a href=/public_html/profile/myProfile.php> Il Mio Profilo</a></div>
-                    <div class="Cognome"><a href=/public_html/stars/starList.php> Cerca Stelle</a></div>
-                    <div class="Email"><a href=/public_html/constellation/consList.php> DA FINIRE</a></div>
+                    <div class="Nome"><a href=myProfile.php> Il Mio Profilo</a></div>
+                    <div class="Cognome"><a href=../stars/starList.php> Cerca Stelle</a></div>
+                    <div class="Email"><a href=../constellation/consList.php> DA FINIRE</a></div>
                 </div>
             </div>
         </section>

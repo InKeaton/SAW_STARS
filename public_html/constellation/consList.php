@@ -1,14 +1,12 @@
-<!DOCTYPE html>
 <?php
-    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php'; 
-    include_once  dirname(__FILE__) . '/../../api/_model/Star.php';  
+    include_once  dirname(__FILE__) . '/../../api/_utils/sessionControl.php';  
+    include_once  dirname(__FILE__) . '/../../api/_model/Constellation.php';     
 ?>
-<html lang="it">
+
+<!DOCTYPE html>
+<html>
     <head>
-        <title>starList</title>
-        <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <title>Lista delle constellazioni </title>
         <style>
             body {background-color: rgb(84, 84, 250);}
             #pageDiv {
@@ -65,25 +63,18 @@
         </style>
     </head>
     <body>
-        <?php
-            // navigation bar
-            include  dirname(__FILE__) .  "/../_modules/navbar.php"; 
-        ?>
-        <div id="pageDiv">
+        <div id = "pageDiv"> 
             <div id="inputDiv">
                 <label>Search Star: </label>
                 <input id="inputName" name="starName" type="text" value="" placeholder="search star...."> <br>
             </div>
-            <table id="result">
-            
+            <table id="constList">
             </table>
-        </div>       
-        <!-- footer -->
-        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?> 
+        </div>
     </body>
     <script>
-        const starList = <?php echo json_encode((new Star())->SelectAll());?>;
-        displayStar(starList);
+        const consList  = <?php  echo json_encode((new Constellation())->SelectAll()); ?>;
+        displayCons(consList);
 
         document.getElementById("inputName").value = "";
         document.getElementById("inputName").addEventListener("keyup", changeSearch);
@@ -91,13 +82,13 @@
         function changeSearch(e) {
             var changeResult = [];
             var cI = 0;
-            for(i=0;i<starList.length;i++)
-                if(starList[i].starName.search(document.getElementById("inputName").value) != -1) 
-                    changeResult[cI++] = starList[i];
-            displayStar(changeResult);
+            for(i=0;i<consList.length;i++)
+                if(consList[i].consName.search(document.getElementById("inputName").value) != -1) 
+                    changeResult[cI++] = consList[i];
+            displayCons(changeResult);
         }
 
-        function displayStar(list) {
+        function displayCons(list) {
             outString = "<tr>";
             index = 0;
             while(index<list.length && (list[index])) {
@@ -107,16 +98,17 @@
                                 "</div>" +
                                 "<hr>" +
                                 "<p>" +
-                                    "<a href='starDetails.php?starID="+list[index].starID +"'>" + 
-                                        list[index++].starName + 
+                                    "<a href='consDetails.php?consID="+list[index].consID +"'>" + 
+                                        list[index++].consName + 
                                     "</a>" +
                                 "</p>" +
                             "</td>";
                 if(index%5 == 0) outString += "</tr><tr>";    
             }
             if(index%5!=0 || index == 0) outString += "</tr>";
-            document.getElementById("result").innerHTML = outString;
+            document.getElementById("constList").innerHTML = outString;
         }
-    </script>
+        
 
+    </script>
 </html>
