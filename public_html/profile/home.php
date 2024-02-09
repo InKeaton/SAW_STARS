@@ -20,14 +20,10 @@
             <h1>Bentornato!</h1>
         </header>
 
-        <section class="main_container" id="home_options">
-            <div class="row">
-                <div class="column">
-                    <div class="Nome"><a href=myProfile.php> Il Mio Profilo</a></div>
-                    <div class="Cognome"><a href=../stars/starList.php> Cerca Stelle</a></div>
-                    <div class="Email"><a href=../constellation/consList.php> DA FINIRE</a></div>
-                </div>
-            </div>
+        <section class="bento" id="home_options">
+            <div class="grid1"><a href=myProfile.php> Il Mio Profilo</a></div>
+            <div class="grid2"><a href=../stars/starList.php> Cerca Stelle</a></div>
+            <div class="grid3"><a href=../constellation/consList.php> DA FINIRE</a></div>
         </section>
 
         <!-- footer -->
