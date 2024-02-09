@@ -4,7 +4,6 @@
      * Parte di controllo dei dati mandati in input
      */
     session_start();
-    isLog();
     isMethod('POST');
     postEmptyField('email', 'firstname', 'lastname', 'createDate', 'userID', 'pass');
 
@@ -18,7 +17,7 @@
     if(!isset($result))
         die(json_encode(array('status' => 0, 'message' => 'User Not Found!')));
     
-    $user->role = (empty($_POST["role"]))? $result->role : $_POST["role"];
+    $user->role = (isset($_POST["role"]))? 1 : 0;
     $user->email = (empty($_POST["email"]))? $result->email : $_POST["email"];
     $user->pwd = (empty($_POST["pass"]))? $result->pwd : $_POST["pass"];
     $user->firstName = (empty($_POST["firstname"]))? $result->firstName : $_POST["firstname"];
