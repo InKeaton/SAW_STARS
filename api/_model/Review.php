@@ -28,7 +28,7 @@
         }
     
         public function Update() {  
-            return $this->ModelQuery('UPDATE REVIEW SET starFK  = ?, userFK = ?, vote = ?, note = ?, revDate = ? , WHERE reviewID = ?', 'ssssss',
+            return $this->ModelQuery('UPDATE REVIEW SET starFK  = ?, userFK = ?, vote = ?, note = ?, revDate = ?  WHERE reviewID = ?', 'ssssss',
                                     array($this->starFK, $this->userFK, $this->vote, $this->note, $this->revDate, $this->reviewID));
         }
 
