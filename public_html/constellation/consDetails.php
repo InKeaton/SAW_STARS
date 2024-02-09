@@ -16,20 +16,37 @@
 <html>
     <head>
         <title>Scheda di <?php echo $consResult->consName ?> </title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="../_resources/style/test_bento.css">
+        <link rel="stylesheet" href="../_resources/style/main.css">
     </head>
     <body> 
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
-        <section id="cons_info">
-            Cons Name:   <?php echo $consResult->consName;    ?><br>
-            Data Inizio: <?php echo $consResult->startDate;   ?><br>
-            Data Fine:   <?php echo $consResult->endDate;     ?><br>
-            Descrizione: <?php echo $consResult->description; ?><br>
+
+        <header class = "logo">
+            <h1>Scheda di <?php echo $consResult->consName ?></h1>
+        </header>
+    
+        <section class ="main_container" id="cons_info">
+            <div class="row">
+                <div class="column">
+                    <div class="Nome">Nome:<br><?php echo $consResult->consName;?></div>
+                    <div class="Cognome">Descrizione:<br><?php echo $consResult->description;?></div>
+                    <div class="Email">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></div>
+                </div>
+                <div class="column">
+                    <div class="Data-Iscrizione">Stelle contenute:<br>DA FARE</div>
+                    <div class="N°-Sottoscrizioni">Stelline totali ricevute:<br>DA FARE</div>
+                </div>
+            </div>
         </section>
-        <section id="stars_info">
+        <section class="main_container" id="stars_info">
             Stelle appartenenti alla costellazione: <br>
             <table id="stars_table"></table>
         </section>
+        <!-- footer -->
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>

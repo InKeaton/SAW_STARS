@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-
-<html>
+<?php
+    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php'; 
+?>
+<html lang="it">
     <head>
         <title>starList</title>
         <style>
@@ -71,7 +73,9 @@
             <table id="result">
             
             </table>
-        </div>        
+        </div>       
+        <!-- footer -->
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?> 
     </body>
     <script>
         var starList;
@@ -101,7 +105,17 @@
             outString = "<tr>";
             index = 0;
             while(index<list.length && (list[index])) {
-                outString += "<td><div><img src='../_resources/img/starImg.png'></div><hr><p><a href='starDetails.php?starID="+list[index].starID +"'>" + list[index++].starName + "</a></p></td>";
+                outString += "<td>" +
+                               "<div>" +
+                                    "<img src='../_resources/img/starImg.png'>" +
+                                "</div>" +
+                                "<hr>" +
+                                "<p>" +
+                                    "<a href='starDetails.php?starID="+list[index].starID +"'>" + 
+                                        list[index++].starName + 
+                                    "</a>" +
+                                "</p>" +
+                            "</td>";
                 if(index%5 == 0) outString += "</tr><tr>";    
             }
             if(index%5!=0 || index == 0) outString += "</tr>";

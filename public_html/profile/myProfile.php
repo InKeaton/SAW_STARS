@@ -79,7 +79,7 @@
                         "</tr>";
 
             subs.forEach(element => {
-                outString += "<tr id=\"subto_" + element.starID +"\"><td><a href=starDetails.php?starID=" + element.starID + ">" + 
+                outString += "<tr id=\"subto_" + element.starID +"\"><td><a href=/public_html/stars/starDetails.php?starID=" + element.starID + ">" + 
                                 element.starName + "</td><td>" + 
                                 element.price + "</td><td>" + 
                                 element.startDate + "</td><td>" +

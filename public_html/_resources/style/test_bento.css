@@ -25,9 +25,10 @@
 .Data-Iscrizione,
 .N°-Ricordi { 
     justify-content: center;
+    overflow-wrap: break-word;
     color: black;
     background: aqua;
-    border-radius: 15px;
+    border-radius: 25px;
     padding: 2%;
     margin: 2%;
     height: 100px;

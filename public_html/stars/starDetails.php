@@ -34,7 +34,7 @@
                 <div class="column">
                     <div class="Nome">Nome:<br><?php echo $starResult->starName ?></div>
                     <div class="Cognome">Costellazione:<br><a href = "/public_html/constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></div>
-                    <div class="Email">Distanza:<br><?php echo $starResult->dLY?></div>
+                    <div class="Email">Distanza:<br><?php echo $starResult->dLY?> anni luce</div>
                 </div>
                 <div class="column">
                     <div class="Data-Iscrizione">N° Iscritti:<br>DA FARE</div>
