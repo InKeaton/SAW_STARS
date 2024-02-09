@@ -5,7 +5,6 @@
      * Parte di controllo dei dati in input
      */
     session_start();
-    isLog();
     isMethod('POST');
     /**
     * Parte di fetch dei dati e di invio al database
