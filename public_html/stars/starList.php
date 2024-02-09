@@ -5,6 +5,9 @@
 <html lang="it">
     <head>
         <title>starList</title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="../_resources/style/test_bento.css">
+        <link rel="stylesheet" href="../_resources/style/main.css">
         <style>
             body {background-color: rgb(84, 84, 250);}
             #pageDiv {
@@ -79,11 +82,11 @@
     </body>
     <script>
         var starList;
+        var inputString= "";
         
         window.onload = getAllStar();
-        
-        document.getElementById("inputName").addEventListener("change", changeSearch);
         document.getElementById("inputName").value = "";
+        document.getElementById("inputName").addEventListener("keydown", changeSearch);
         
         async function getAllStar() {
             let response = await fetch('../../api/star_api/selectAllStar.php', { method: 'POST' });
@@ -91,9 +94,11 @@
             displayStar(starList);
         }
 
-        function changeSearch() {
+        function changeSearch(e) {
+            console.log(e);
             var changeResult=[];
-            const search =  document.getElementById("inputName").value;
+            inputString += e.key;
+            const search =  inputString;
             var cI = 0;
             for(i=0;i<starList.length;i++)
                 if(starList[i].starName.search(search) != -1) 
