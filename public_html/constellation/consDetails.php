@@ -28,20 +28,14 @@
             <h1>Scheda di <?php echo $consResult->consName ?></h1>
         </header>
     
-        <section class ="main_container" id="cons_info">
-            <div class="row">
-                <div class="column">
-                    <div class="Nome">Nome:<br><?php echo $consResult->consName;?></div>
-                    <div class="Cognome">Descrizione:<br><?php echo $consResult->description;?></div>
-                    <div class="Email">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></div>
-                </div>
-                <div class="column">
-                    <div class="Data-Iscrizione">Stelle contenute:<br>DA FARE</div>
-                    <div class="N°-Sottoscrizioni">Stelline totali ricevute:<br>DA FARE</div>
-                </div>
-            </div>
+        <section class ="bento" id="cons_info">
+            <div class="grid1">Nome:<br><?php echo $consResult->consName;?></div>
+            <div class="grid2">Descrizione:<br><?php echo $consResult->description;?></div>
+            <div class="grid3">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></div>
+            <div class="grid4">Stelle contenute:<br>DA FARE</div>
+            <div class="grid5">Stelline totali ricevute:<br>DA FARE</div>
         </section>
-        <section class="main_container" id="stars_info">
+        <section class="table" id="stars_info">
             Stelle appartenenti alla costellazione: <br>
             <table id="stars_table"></table>
         </section>

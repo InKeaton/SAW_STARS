@@ -31,19 +31,13 @@
             <h1>Il tuo Profilo</h1>
         </header>
 
-        <section class="main_container" id="user_info">
-            <div class="row">
-                <div class="column">
-                    <div class="Nome">Nome:<br><?php echo $profile->firstName ?></div>
-                    <div class="Cognome">Cognome:<br><?php echo $profile->lastName ?></div>
-                    <div class="Email">Email:<br><?php echo $profile->email ?></div>
-                </div>
-                <div class="column">
-                    <div class="Data-Iscrizione">Data Iscrizione:<br><?php echo $profile->createDate ?></div>
-                    <div class="N°-Sottoscrizioni">N° Sottoscrizioni:<br>DA FARE</div>
-                    <div class="N°-Ricordi">Ricordi Condivisi:<br>DA FARE</div>
-                </div>
-            </div>
+        <section class="bento" id="user_info">
+                <div class="grid1">Nome:<br><?php echo $profile->firstName ?></div>
+                <div class="grid2">Cognome:<br><?php echo $profile->lastName ?></div>
+                <div class="grid3">Email:<br><?php echo $profile->email ?></div>
+                <div class="grid4">Data Iscrizione:<br><?php echo $profile->createDate ?></div>
+                <div class="grid5">N° Sottoscrizioni:<br>DA FARE</div>
+                <div class="grid6">Ricordi Condivisi:<br>DA FARE</div>
         </section>
         <section class="table" id="subs">
             Stelle seguite: <br>
