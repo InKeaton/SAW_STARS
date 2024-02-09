@@ -3,7 +3,7 @@
     class User extends DBInter{
 
         public $userID;
-        public $role;
+        public $role=0;
         public $email;
         public $pwd;
         public $firstName;
@@ -24,8 +24,8 @@
         }
 
         public function Insert() {
-            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?', 
-                                    array($this->email, $this->pwd, $this->firstName, $this->lastName));
+            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?, role=?', 
+                                    array($this->email, $this->pwd, $this->firstName, $this->lastName, $this->role));
         }
 
         public function Update() {  
