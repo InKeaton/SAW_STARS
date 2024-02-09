@@ -18,16 +18,30 @@
 <!------------------------------------------------------------------------------------------------------------>
     <head>
         <title>Scheda di <?php echo $starResult->starName ?> </title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="../_resources/style/test_bento.css">
+        <link rel="stylesheet" href="../_resources/style/main.css">
     </head>
     <body>
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
-        <section id="star_info">
-            Star Name : <?php echo $starResult->starName ?> <br>
-            Star Price : <?php echo $starResult->price?> <br>
-            Star Distance Light Year : <?php echo $starResult->dLY?><br>
-            Cons Name: <a href = "/public_html/constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>">
-                <?php echo $starResult->consName;?><br> </a>
+        <header class = "logo">
+            <h1>Scheda di <?php echo $starResult->starName ?></h1>
+        </header>
+
+        <section class="main_container" id="star_info">
+            <div class="row">
+                <div class="column">
+                    <div class="Nome">Nome:<br><?php echo $starResult->starName ?></div>
+                    <div class="Cognome">Costellazione:<br><a href = "/public_html/constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></div>
+                    <div class="Email">Distanza:<br><?php echo $starResult->dLY?></div>
+                </div>
+                <div class="column">
+                    <div class="Data-Iscrizione">N° Iscritti:<br>DA FARE</div>
+                    <div class="N°-Sottoscrizioni">N° Stelline Ricevute:<br>DA FARE</div>
+                    <div class="N°-Ricordi">N° Ricordi Condivisi:<br>DA FARE</div>
+                </div>
+            </div>
             <form action="javascript:subToStar()" id = "subscribe" method="post">
                 <label for="life">Durata Abbonamento (in Mesi):</label>
                 <input type="number" id="life" name="life" min="1" max="12">
@@ -36,7 +50,9 @@
                 <input type="submit" name="submit" value="Abbonati!">
             </form><br>
         </section>
-        <section id="reviews"></section>
+        <section class="table"id="reviews"></section>
+        <!-- footer -->
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>

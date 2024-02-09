@@ -1,0 +1,74 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  width: 100%;
+}
+
+.column {
+  flex: 45%;
+  max-width: 45%;
+  padding: 4px 4px;
+}
+
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.Nome,
+.Cognome,
+.Email,
+.N°-Sottoscrizioni,
+.Data-Iscrizione,
+.N°-Ricordi { 
+    justify-content: center;
+    color: black;
+    background: aqua;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 2%;
+    height: 100px;
+    vertical-align:middle
+}
+
+.Nome {
+    background: red;
+}
+
+.Cognome {
+  background: rgb(12, 200, 12);
+}
+
+.Email {
+  background: magenta;
+}
+
+.N°-Sottoscrizioni {
+  background: orange;
+}
+
+.N°-Ricordi {
+  background: brown;
+}
+
+.table {
+    background: linear-gradient(to right, 
+                                #09203f 0%, 
+                                var(--main-bg) 100%);
+    color: var(--light-fg);
+
+    /*Center in the middle of the page*/
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+
+    max-width: 60%;
+    padding: 2%;
+    border-radius: 25px;
+    text-align: center;
+}
+  

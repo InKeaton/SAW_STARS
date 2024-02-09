@@ -8,7 +8,7 @@
     <body>
         <?php session_start() ?>
         <!-- navbar -->
-        <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
+        <?php include  dirname(__FILE__) . "/../_modules/navbar.php";?>
 
         <header class = "logo">
             <h1>Accedi!</h1>
@@ -35,7 +35,7 @@
     <script>
         async function Login() {
             const form = document.getElementById('login')
-            let response = await fetch( '/../../api/auth_api/loginAPI.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch( '../../api/auth_api/loginAPI.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) 
                 location.replace("../profile/home.php"); 

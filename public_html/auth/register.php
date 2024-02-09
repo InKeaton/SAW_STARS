@@ -8,7 +8,7 @@
     <body>
         <?php session_start() ?>
         <!-- navbar -->
-        <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
+        <?php include dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 
         <header class = "logo">
             <h1>Registrati!</h1>

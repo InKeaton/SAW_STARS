@@ -19,20 +19,38 @@
 <html lang="it">
     <head>
         <title>Il Mio Profilo</title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="../_resources/style/test_bento.css">
+        <link rel="stylesheet" href="../_resources/style/main.css">
     </head>
-    <!-- navbar -->
-    <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
     <body>
-        <section id="user_info">
-            Email : <?php echo $profile->email ?> <br>
-            Nome : <?php echo $profile->firstName ?> <br>
-            Cognome : <?php echo $profile->lastName ?> <br>
+        <!-- navbar -->
+        <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
+
+        <header class = "logo">
+            <h1>Il tuo Profilo</h1>
+        </header>
+
+        <section class="main_container" id="user_info">
+            <div class="row">
+                <div class="column">
+                    <div class="Nome">Nome:<br><?php echo $profile->firstName ?></div>
+                    <div class="Cognome">Cognome:<br><?php echo $profile->lastName ?></div>
+                    <div class="Email">Email:<br><?php echo $profile->email ?></div>
+                </div>
+                <div class="column">
+                    <div class="Data-Iscrizione">Data Iscrizione:<br><?php echo $profile->createDate ?></div>
+                    <div class="N°-Sottoscrizioni">N° Sottoscrizioni:<br>DA FARE</div>
+                    <div class="N°-Ricordi">Ricordi Condivisi:<br>DA FARE</div>
+                </div>
+            </div>
         </section>
-        <section id="subs">
+        <section class="table" id="subs">
             Stelle seguite: <br>
             <table id="subs_table"></table>
         </section>
-        
+        <!-- footer -->
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
