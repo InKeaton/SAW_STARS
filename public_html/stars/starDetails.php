@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang='it'>
 <?php
     include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';  
