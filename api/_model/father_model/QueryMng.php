@@ -5,9 +5,11 @@
         private $conn;
         public function __construct() { $this->conn = new Conn(); }
 
-        private function STMTQuery($query, $typeData, $data) {
+        private function STMTQuery($query, $data) {
+            $dataType = "";
+            foreach ($data as $x ) { $dataType .= "s"; }
             $stmt = $this->conn->GetConn()->prepare($query);
-            $stmt->bind_param($typeData, ...$data);
+            $stmt->bind_param($dataType, ...$data);
             $stmt->execute();
             return  $stmt->get_result();
         }
@@ -16,9 +18,9 @@
             return $this->conn->GetConn()->query($query);
         }
 
-        public function Query($query, $typeData=NULL, $data=NULL) { 
+        public function Query($query, $data=NULL) { 
             try {
-                $result = ($typeData === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $typeData, $data);
+                $result = ($data === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $data);
                 return ($result === false)? true : $result;     
             } catch(mysqli_sql_exception $e) {
                 die(json_encode(array('status' => 500, 'message' =>  $e->getMessage())));

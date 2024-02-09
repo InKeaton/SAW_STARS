@@ -11,7 +11,7 @@
         public $revDate;
 
         public function Select() {
-            return $this->GetQuery('SELECT  * FROM REVIEW WHERE  reviewID = ?', 's', array($this->reviewID));
+            return $this->GetQuery('SELECT  * FROM REVIEW WHERE  reviewID = ?', array($this->reviewID));
         }
 
         public function SelectAll() {
@@ -19,21 +19,21 @@
         }
 
         public function SelectStarReviews() {
-            return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ?', 's', array($this->starFK));
+            return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ?', array($this->starFK));
         }
     
         public function Insert() {
             return $this->ModelQuery('INSERT INTO REVIEW SET starFK = ?, userFK = ?, vote = ?, note = ?', 
-                                'ssss', array( $this->starFK, $this->userFK, $this->vote, $this->note) );
+                                    array( $this->starFK, $this->userFK, $this->vote, $this->note));
         }
     
         public function Update() {  
-            return $this->ModelQuery('UPDATE REVIEW SET starFK  = ?, userFK = ?, vote = ?, note = ?, revDate = ?  WHERE reviewID = ?', 'ssssss',
+            return $this->ModelQuery('UPDATE REVIEW SET starFK  = ?, userFK = ?, vote = ?, note = ?, revDate = ? WHERE reviewID = ?',
                                     array($this->starFK, $this->userFK, $this->vote, $this->note, $this->revDate, $this->reviewID));
         }
 
         public function Delete() {
-            return $this->ModelQuery('DELETE FROM REVIEW WHERE reviewID = ?', 's', array($this->reviewID));
+            return $this->ModelQuery('DELETE FROM REVIEW WHERE reviewID = ?', array($this->reviewID));
         }
     }
 ?>

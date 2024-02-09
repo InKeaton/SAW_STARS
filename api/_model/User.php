@@ -12,11 +12,11 @@
         public $createDate;
 
         public function Select() {
-            return $this->GetQuery('SELECT  * FROM USER WHERE userID = ?', 's', array($this->userID));
+            return $this->GetQuery('SELECT  * FROM USER WHERE userID = ?', array($this->userID));
         }
 
         public function SelectEmail() {
-            return $this->GetQuery('SELECT * FROM USER WHERE email = ?', 's', array($this->email));
+            return $this->GetQuery('SELECT * FROM USER WHERE email = ?', array($this->email));
         }
 
         public function SelectAll() {
@@ -24,25 +24,21 @@
         }
 
         public function Insert() {
-            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?',  'ssss', 
-                                array($this->email, $this->pwd, $this->firstName, $this->lastName));
+            return $this->ModelQuery('INSERT INTO USER SET email = ?, pwd = ?, firstName = ?, lastName = ?', 
+                                    array($this->email, $this->pwd, $this->firstName, $this->lastName));
         }
 
         public function Update() {  
             return $this->ModelQuery('UPDATE USER SET role = ?, email = ?, pwd = ?, firstName = ?, lastName = ?, img = ?, createDate = ? WHERE userID = ?', 
-                                    'ssssssss',
                                     array($this->role, $this->email, $this->pwd, $this->firstName, $this->lastName, $this->img, $this->createDate, $this->userID));
         }
 
         public function UpdateRole() {
-            return $this->ModelQuery('UPDATE USER SET role = ? WHERE userID = ?', 
-            'ss',
-            array($this->role, $this->userID));
-
+            return $this->ModelQuery('UPDATE USER SET role = ? WHERE userID = ?', array($this->role, $this->userID));
         }
 
         public function Delete() {
-            return $this->ModelQuery('DELETE FROM USER WHERE userID = ?', 's', array($this->userID));
+            return $this->ModelQuery('DELETE FROM USER WHERE userID = ?', array($this->userID));
         }
     }
 ?>

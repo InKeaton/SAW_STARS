@@ -25,10 +25,10 @@
 			return $ret;
 		}
 
-		final public function ModelQuery($query, $type=NULL, $data=NULL) { return $this->qMng->Query($query, $type, $data); }
+		final public function ModelQuery($query, $data=NULL) { return $this->qMng->Query($query, $data); }
 		
-		final public function GetQuery($query, $type=NULL, $data=NULL) {
-			$result = $this->qMng->Query($query, $type, $data);
+		final public function GetQuery($query, $data=NULL) {
+			$result = $this->qMng->Query($query, $data);
 			if(!$result) return false;
 			while ($row = $result->fetch_object()) $this->PushOutField($row);
 			return $this->PopOutField();

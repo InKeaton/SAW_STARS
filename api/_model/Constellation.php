@@ -11,7 +11,7 @@
         public $consImg;
 
         public function Select() {
-            return $this->GetQuery('SELECT  * FROM CONSTELLATION WHERE consID = ?', 's', array($this->consID));
+            return $this->GetQuery('SELECT  * FROM CONSTELLATION WHERE consID = ?', array($this->consID));
         }
         
         public function SelectAll() {
@@ -20,18 +20,16 @@
 
         public function Insert() {
             return $this->ModelQuery(  'INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ?', 
-                                'sssss',  array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg) );
+                                array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg) );
         }
 
         public function Update() {  
-            return $this->ModelQuery('UPDATE CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ? WHERE consID = ?', 'ssssss',
-                                    array(
-                                        $this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg, $this->consID
-                                    ));
+            return $this->ModelQuery('UPDATE CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ? WHERE consID = ?', 
+                                    array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg, $this->consID));
         }
 
         public function Delete() {
-            return $this->ModelQuery('DELETE FROM CONSTELLATION WHERE consID = ?', 's', array($this->consID));
+            return $this->ModelQuery('DELETE FROM CONSTELLATION WHERE consID = ?', array($this->consID));
         }
     }
 

@@ -10,16 +10,16 @@
         public $price;
 
         public function Select() {
-            return $this->GetQuery('SELECT  * FROM STAR WHERE starID = ?', 's', array($this->starID));
+            return $this->GetQuery('SELECT  * FROM STAR WHERE starID = ?', array($this->starID));
         }
         
         // TO BE MOVED OR RENAMED
         public function SelectConsStar() {
-            return $this->GetQuery('SELECT  * FROM STAR WHERE consFK = ?', 's', array($this->consFK));
+            return $this->GetQuery('SELECT  * FROM STAR WHERE consFK = ?', array($this->consFK));
         }
 
         public function SelectStarCons() {
-            return $this->GetQuery('SELECT  * FROM STAR JOIN CONSTELLATION ON consFK = consID WHERE starID = ?', 's', array($this->starID));
+            return $this->GetQuery('SELECT  * FROM STAR JOIN CONSTELLATION ON consFK = consID WHERE starID = ?', array($this->starID));
         }
 
         public function SelectAll() {
@@ -28,16 +28,16 @@
 
         public function Insert() {
             return $this->ModelQuery('INSERT INTO STAR SET starName = ?, consFK = ?, price = ?, dLY = ?', 
-                                'ssss', array( $this->starName, $this->consFK, $this->price, $this->dLY));
+                                    array( $this->starName, $this->consFK, $this->price, $this->dLY));
         }
         
         public function Update() {  
-            return $this->ModelQuery('UPDATE STAR SET consFK = ?, price = ?, dLY = ?, starName = ? WHERE starID = ?', 'sssss',
+            return $this->ModelQuery('UPDATE STAR SET consFK = ?, price = ?, dLY = ?, starName = ? WHERE starID = ?',
                                     array($this->consFK, $this->price, $this->dLY, $this->starName, $this->starID));
         }
 
         public function Delete() {
-            return $this->ModelQuery('DELETE FROM STAR WHERE starID = ?', 's', array($this->starID));
+            return $this->ModelQuery('DELETE FROM STAR WHERE starID = ?', array($this->starID));
         }
     }
 ?>
