@@ -28,6 +28,14 @@
      */
     function isLog() {
         if(!isset($_SESSION["uuid"])) 
-            echo json_encode(array('status'=>100, 'message'=>'You don"t have a sessione here'));
+            die(json_encode(array('status'=>100, 'message'=>'You don"t have a sessione here')));
+    }
+
+    /**
+     * Controlla se la sessione è attiva
+     */
+    function isAdmin() {
+        if(!isset($_SESSION['uuid']) or $_SESSION['role']!==1)
+            die(json_encode(array('status'=>100, 'message'=>$_SESSION['role'])));
     }
 ?>
