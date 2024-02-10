@@ -11,9 +11,9 @@ class Review extends CRUDTable {
     }
 
     init() { 
-        CRUDTable.updUrl = '../../../_api/admin_api/review/adUpdate.php';
-        CRUDTable.insUrl = '../../../_api/admin_api/review/adInsert.php';
-        CRUDTable.delUrl = '../../../_api/admin_api/review/adDelete.php';
+        CRUDTable.updUrl = '../../_api/admin_api/review/adUpdate.php';
+        CRUDTable.insUrl = '../../_api/admin_api/review/adInsert.php';
+        CRUDTable.delUrl = '../../_api/admin_api/review/adDelete.php';
         Review.userList.forEach(el => { Review.userMenu[el.userID] = "<option value="+el.userID+" unselected>"+el.email+"</option>";    });
         Review.starList.forEach(el => { Review.starMenu[el.starID] = "<option value="+el.starID+" unselected>"+el.starName+"</option>"; });
         this.h1Element = "Constellation"; 
