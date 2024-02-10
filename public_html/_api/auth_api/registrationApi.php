@@ -11,13 +11,21 @@
      */
     isMethod('POST');
     postEmptyField('email', 'pass', 'confirm', 'firstname', 'lastname');
-
-    if($_POST['pass'] !== $_POST['confirm'])
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+        die(json_encode(array('status' => 100, 'message' => 'Email syntax is not correct' )));
+    
+    if(strlen($_POST['pass']) < 10)
+        die(json_encode(array('status' => 100, 'message' => 'Password must have at least 10 characters' )));
+        
+    if($_POST['pass'] !== $_POST['confirm'] )
         die(json_encode(array('status' => 100, 'message' => 'Confirm password must be equal to password' )));
-    /**
+
+
+        /**
      * Fetch dei dati ed invio dei dati al database
      */
     include_once dirname(__FILE__) . '/../_model/User.php';
+    
     $user = new User();
     $user->email = $_POST["email"];
     $user->pwd = password_hash($_POST['pass'], PASSWORD_DEFAULT);
@@ -26,5 +34,5 @@
     
     if(!$user->Insert())
         die(json_encode(array('status' => 500, 'message' => 'Failed To Add User To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+    echo json_encode(array('status' => 200, 'message' => strlen($_POST['pass'])));
 ?>
