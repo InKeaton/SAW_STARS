@@ -2,7 +2,7 @@
 
 <?php
     include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';
-    if($_SESSION['role']) header('Location: /admin/adminHome.php');
+    if($_SESSION['role']) header('Location: /public_html/admin/adminHome.php');
 ?>
 <!------------------------------------------------------------------------------------------------------------>
 <html lang="it">

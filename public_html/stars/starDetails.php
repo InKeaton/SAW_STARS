@@ -37,18 +37,23 @@
             <article class="grid2">N° Stelline Ricevute:<br>DA FARE</article>
             <article class="grid2">N° Ricordi Condivisi:<br>DA FARE</article>
             <article class="grid10">
+                <h2> È questa la tua buona stella? </h2>
+                <p> Abbonati per sostenerla! </p><br>
                 <form action="javascript:subToStar()" id = "subscribe" method="post">
-                    <label for="life">Durata Abbonamento (in Mesi):</label>
-                    <input type="number" id="life" name="life" min="1" max="12">
+                    <label for="life">Durata Abbonamento (in Mesi):
+                        <input type="number" id="life" name="life" min="1" max="12">
+                    </label>
                     <input type="hidden" id="starFK" name="starFK" value="<?php echo $_GET["starID"];?>">
-                    <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>">
-                    <input type="submit" name="submit" value="Abbonati!">
+                    <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>"><br>
+                    <input class="button" type="submit" name="submit" value="Abbonati!">
                 </form>
             </article>
         </section>
 
         <section class="table_container"id="add_review">
-            <input id="addMemory" type="button" value="Condividi un tuo ricordo!" onclick="displayReviewBox();">
+            <h2> <i>Rimembri ancora?</i> </h2>
+            <p> Condividi ricordi su questa stella</p><br>
+            <button class="button" onclick="javascript:displayReviewBox();">Condividi un tuo ricordo!</button>
         </section>
 
         <section class="table_container"id="reviews">
@@ -90,7 +95,9 @@
         };
 
         function returnButton() {
-            document.getElementById("add_review").innerHTML ="<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">";
+            document.getElementById("add_review").innerHTML = "<h2> <i>Rimembri ancora?</i> </h2>" +
+                                                              "<p> Condividi ricordi su questa stella</p><br>" +
+                                                              "<button class=\"button\" onclick=\"javascript:displayReviewBox();\">Condividi un tuo ricordo!</button>";
         };
         
         async function addMemory() {
@@ -129,11 +136,11 @@
                                                                     "<label for=\"vote\">Stelline (tra 1 e 5):</label>" +
                                                                     "<input type=\"number\" id=\"vote\" name=\"vote\" min=\"1\" max=\"5\"><br>" +
 
-                                                                    "<textarea id=\"note\" name=\"note\" rows=\"10\" cols=\"80\"></textarea><br>" +
+                                                                    "<textarea class= \"comment\" id=\"note\" name=\"note\" rows=\"10\" cols=\"80\"></textarea><br>" +
 
                                                                     "<input type=\"submit\" name=\"submit\" value=\"Invia il tuo ricordo!\">" +
                                                                 "</form>" +
-                                                                "<input id=\"addMemory\" type=\"button\" value=\"Annulla\" onclick=\"returnButton();\"></input>";
+                                                                "<button class=\"button\" onclick=\"javascript:returnButton();\">Annulla</button>";
         };
 
         displayAllReviews();
