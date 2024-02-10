@@ -6,8 +6,7 @@
     <head>
         <Title>Terima Sessione</Title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <link rel="stylesheet" href="../_resources/style/form.css">
     </head>
 
     <body>
@@ -22,9 +21,7 @@
             <p class="confirmation"> Sicuro? </p>
 
             <form type="submit" action="javascript:Logout()" method="post">
-                <fieldset>
-                    <input type="submit" value="End Session">
-                </fieldset>
+                <input type="submit" value="Termina la sessione">
             </form> 
         </main>
         <!-- footer -->

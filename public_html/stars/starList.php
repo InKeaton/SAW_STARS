@@ -6,9 +6,6 @@
 <html lang="it">
     <head>
         <title>starList</title>
-        <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
         <style>
             body {background-color: rgb(84, 84, 250);}
             #pageDiv {

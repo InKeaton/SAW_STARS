@@ -20,8 +20,7 @@
     <head>
         <title>Scheda di <?php echo $starResult->starName ?> </title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <link rel="stylesheet" href="../_resources/style/details.css">
     </head>
     <body>
         <!-- navbar -->
@@ -31,24 +30,33 @@
         </header>
 
         <section class="bento" id="star_info">
-            <div class="grid1">Nome:<br><?php echo $starResult->starName ?></div>
-            <div class="grid2">Costellazione:<br><a href = "../constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></div>
-            <div class="grid3">Distanza:<br><?php echo $starResult->dLY?> anni luce</div>
-            <div class="grid4">N° Iscritti:<br>DA FARE</div>
-            <div class="grid5">N° Stelline Ricevute:<br>DA FARE</div>
-            <div class="grid6">N° Ricordi Condivisi:<br>DA FARE</div>
-
-            <form action="javascript:subToStar()" id = "subscribe" method="post">
-                <label for="life">Durata Abbonamento (in Mesi):</label>
-                <input type="number" id="life" name="life" min="1" max="12">
-                <input type="hidden" id="starFK" name="starFK" value="<?php echo $_GET["starID"];?>">
-                <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>">
-                <input type="submit" name="submit" value="Abbonati!">
-            </form><br>
+            <article class="grid5">Nome:<br><?php echo $starResult->starName ?></article>
+            <article class="grid5">Costellazione:<br><a href = "../constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></article>
+            <article class="grid3">Distanza:<br><?php echo $starResult->dLY?> anni luce</article>
+            <article class="grid3">N° Iscritti:<br>DA FARE</article>
+            <article class="grid2">N° Stelline Ricevute:<br>DA FARE</article>
+            <article class="grid2">N° Ricordi Condivisi:<br>DA FARE</article>
+            <article class="grid10">
+                <form action="javascript:subToStar()" id = "subscribe" method="post">
+                    <label for="life">Durata Abbonamento (in Mesi):</label>
+                    <input type="number" id="life" name="life" min="1" max="12">
+                    <input type="hidden" id="starFK" name="starFK" value="<?php echo $_GET["starID"];?>">
+                    <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>">
+                    <input type="submit" name="submit" value="Abbonati!">
+                </form>
+            </article>
         </section>
-        <section class="table"id="reviews"></section>
+
+        <section class="table_container"id="add_review">
+            <input id="addMemory" type="button" value="Condividi un tuo ricordo!" onclick="displayReviewBox();">
+        </section>
+
+        <section class="table_container"id="reviews">
+            <h2> Ricordi</h2>
+            <table class="table" id="reviews_list"></table>
+        </section>
         <!-- footer -->
-        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html";?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
@@ -69,26 +77,20 @@
         async function displayAllReviews() {
             reviews = subs = <?php echo json_encode($reviews_list);?>;
 
-            outString = "<div id=\"addMemoryForm\">" +
-                            "<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">" +
-                        "</div>" +
-                        "Ricordi: <br>" +
-                            "<table id=\"reviews_list\">" +
-                                "<tr>" +
-                                    "<th>Utente</th>" +
-                                    "<th>Voto</th>" +
-                                    "<th>Ricordo</th>" +
-                                    "<th>Data</th>" +
-                            "</tr>";
+            outString = "<tr>" +
+                            "<th>Utente</th>" +
+                            "<th>Voto</th>" +
+                            "<th>Ricordo</th>" +
+                            "<th>Data</th>" +
+                        "</tr>";
             reviews.forEach(element => {
                 outString += "<tr><td>" + element.firstName + "</td><td>" + element.vote + "</td><td>" + element.note + "</td><td>" + element.revDate + "</td></tr>";
             });
-            outString += "</table>";
-            document.getElementById("reviews").innerHTML = outString;
+            document.getElementById("reviews_list").innerHTML = outString;
         };
 
         function returnButton() {
-            document.getElementById("addMemoryForm").innerHTML ="<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">";
+            document.getElementById("add_review").innerHTML ="<input id=\"addMemory\" type=\"button\" value=\"Condividi un tuo ricordo!\" onclick=\"displayReviewBox();\">";
         };
         
         async function addMemory() {
@@ -121,13 +123,13 @@
         };
 
         function displayReviewBox() {
-            document.getElementById("addMemoryForm").innerHTML ="<form action=\"javascript:addMemory()\" id = \"review\" method=\"post\">" +
+            document.getElementById("add_review").innerHTML ="<form action=\"javascript:addMemory()\" id = \"review\" method=\"post\">" +
                                                                     "<input type=\"hidden\" id=\"starFK\" name=\"starFK\" value=\"<?php echo $_GET["starID"];?>\" >" +
 
                                                                     "<label for=\"vote\">Stelline (tra 1 e 5):</label>" +
                                                                     "<input type=\"number\" id=\"vote\" name=\"vote\" min=\"1\" max=\"5\"><br>" +
 
-                                                                    "<textarea id=\"note\" name=\"note\" rows=\"10\" cols=\"115\"></textarea><br>" +
+                                                                    "<textarea id=\"note\" name=\"note\" rows=\"10\" cols=\"80\"></textarea><br>" +
 
                                                                     "<input type=\"submit\" name=\"submit\" value=\"Invia il tuo ricordo!\">" +
                                                                 "</form>" +

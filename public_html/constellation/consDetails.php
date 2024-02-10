@@ -17,8 +17,7 @@
     <head>
         <title>Scheda di <?php echo $consResult->consName ?> </title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <link rel="stylesheet" href="../_resources/style/details.css">
     </head>
     <body> 
         <!-- navbar -->
@@ -29,15 +28,15 @@
         </header>
     
         <section class ="bento" id="cons_info">
-            <div class="grid1">Nome:<br><?php echo $consResult->consName;?></div>
-            <div class="grid2">Descrizione:<br><?php echo $consResult->description;?></div>
-            <div class="grid3">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></div>
-            <div class="grid4">Stelle contenute:<br>DA FARE</div>
-            <div class="grid5">Stelline totali ricevute:<br>DA FARE</div>
+            <article class="grid5">Nome:<br><?php echo $consResult->consName;?></article>
+            <article class="grid5">Descrizione:<br><?php echo $consResult->description;?></article>
+            <article class="grid5">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></article>
+            <article class="grid2">Stelle contenute:<br>DA FARE</article>
+            <article class="grid3">Stelline totali ricevute:<br>DA FARE</article>
         </section>
-        <section class="table" id="stars_info">
-            Stelle appartenenti alla costellazione: <br>
-            <table id="stars_table"></table>
+        <section class="table_container" id="stars_info">
+            <h2>Stelle appartenenti alla costellazione </h2>
+            <table class="table" id="stars_table"></table>
         </section>
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>

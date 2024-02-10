@@ -3,7 +3,7 @@
     <head>
         <title>Accedi</title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <link rel="stylesheet" href="../_resources/style/form.css">
     </head>
     <body>
         <?php session_start() ?>

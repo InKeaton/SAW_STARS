@@ -20,28 +20,27 @@
     <head>
         <title>Il Mio Profilo</title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/test_bento.css">
-        <link rel="stylesheet" href="../_resources/style/main.css">
+        <link rel="stylesheet" href="../_resources/style/details.css">
     </head>
     <body>
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 
         <header class = "logo">
-            <h1>Il tuo Profilo</h1>
+            <h1>Il mio Profilo</h1>
         </header>
 
         <section class="bento" id="user_info">
-                <div class="grid1">Nome:<br><?php echo $profile->firstName ?></div>
-                <div class="grid2">Cognome:<br><?php echo $profile->lastName ?></div>
-                <div class="grid3">Email:<br><?php echo $profile->email ?></div>
-                <div class="grid4">Data Iscrizione:<br><?php echo $profile->createDate ?></div>
-                <div class="grid5">N° Sottoscrizioni:<br>DA FARE</div>
-                <div class="grid6">Ricordi Condivisi:<br>DA FARE</div>
+            <article class="grid5">Nome:<br><?php echo $profile->firstName ?></article>
+            <article class="grid5">Cognome:<br><?php echo $profile->lastName ?></article>
+            <article class="grid3">Email:<br><?php echo $profile->email ?></article>
+            <article class="grid3">Data Iscrizione:<br><?php echo $profile->createDate ?></article>
+            <article class="grid2">N° Sottoscrizioni:<br>DA FARE</article>
+            <article class="grid2">Ricordi Condivisi:<br>DA FARE</article>
         </section>
-        <section class="table" id="subs">
-            Stelle seguite: <br>
-            <table id="subs_table"></table>
+        <section class="table_container" id="subs">
+            <h2>Stelle seguite:</h2> 
+            <table class="table" id="subs_table"></table>
         </section>
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>

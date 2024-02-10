@@ -63,6 +63,8 @@
         </style>
     </head>
     <body>
+        <!-- navbar -->
+        <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
         <div id = "pageDiv"> 
             <div id="inputDiv">
                 <label>Search Star: </label>
