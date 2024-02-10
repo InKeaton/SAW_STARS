@@ -33,7 +33,7 @@
     <script>
         async function Update() {
             const form = document.getElementById("update");
-            const response = await fetch("../api/adminUpdateUser.php", {method: 'POST', body: new FormData(form)});
+            const response = await fetch("../_api/adminUpdateUser.php", {method: 'POST', body: new FormData(form)});
             const result = await response.json();
             console.log(result.status);
         }

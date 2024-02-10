@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once dirname(__FILE__) .  '/../../../api/_model/User.php';
+    include_once dirname(__FILE__) .  '/../../../_api/_model/User.php';
 ?>
 
 <!DOCTYPE html>

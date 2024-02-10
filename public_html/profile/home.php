@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';
+    include_once dirname(__FILE__) . '/../_api/_utils/sessionControl.php';
     if($_SESSION['role']) header('Location: /public_html/admin/adminHome.php');
 ?>
 <!------------------------------------------------------------------------------------------------------------>

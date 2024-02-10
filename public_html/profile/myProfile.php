@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';  
-    include_once dirname(__FILE__) . '/../../api/_model/User.php';
-    include_once dirname(__FILE__) . '/../../api/_model/Sub.php';
-    include_once dirname(__FILE__) . '/../../api/_model/Star.php';
+    include_once dirname(__FILE__) . '/../_api/_utils/sessionControl.php';  
+    include_once dirname(__FILE__) . '/../_api/_model/User.php';
+    include_once dirname(__FILE__) . '/../_api/_model/Sub.php';
+    include_once dirname(__FILE__) . '/../_api/_model/Star.php';
 
     // Get user personal info
     $user = new User();
@@ -49,7 +49,7 @@
     <script>
         async function unsubToStar(star) {
             // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
-            let response = await fetch('../../api/sub_api/deleteSubUserStar.php', { method: 'POST', 
+            let response = await fetch('../_api/sub_api/deleteSubUserStar.php', { method: 'POST', 
                                                               headers: { "Content-type": "application/x-www-form-urlencoded" },
                                                               body : new URLSearchParams({'starFK': star})});
             let result = await response.json();

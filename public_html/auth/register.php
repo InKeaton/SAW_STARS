@@ -42,7 +42,7 @@
     <script>
         async function Insert() {
             const form = document.getElementById('insert');
-            let response = await fetch('../../api/auth_api/registrationApi.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch('../_api/auth_api/registrationApi.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) location.replace("login.php");
             else alert("Errore nelal fase di insert della pagina");

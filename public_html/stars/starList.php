@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php'; 
-    include_once  dirname(__FILE__) . '/../../api/_model/Star.php';  
+    include_once dirname(__FILE__) . '/../_api/_utils/sessionControl.php'; 
+    include_once  dirname(__FILE__) . '/../_api/_model/Star.php';  
 ?>
 <html lang="it">
     <head>

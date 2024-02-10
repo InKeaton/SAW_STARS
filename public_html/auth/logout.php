@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="it">
-    <?php include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';?>
+    <?php include_once dirname(__FILE__) . '/../_api/_utils/sessionControl.php';?>
 
     <head>
         <Title>Terima Sessione</Title>
@@ -30,7 +30,7 @@
 <!------------------------------------------------------------------------------------------------------------>
     <script>
         async function Logout() {
-            let response = await fetch('../../api/auth_api/logoutAPI.php', { method: 'POST'});
+            let response = await fetch('../_api/auth_api/logoutAPI.php', { method: 'POST'});
             result = await response.json();
             if(result.status == 200) 
                 location.replace("../index.php"); 

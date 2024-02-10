@@ -17,6 +17,6 @@
 
   function isUser() {
     if (!empty($_COOKIE['PHPSESSID']) && empty($_SESSION['userID']))
-      include_once $_SERVER['DOCUMENT_ROOT'] . '/api/auth/logout.php';
+      include_once $_SERVER['DOCUMENT_ROOT'] . '/_api/auth/logout.php';
   }
 ?>

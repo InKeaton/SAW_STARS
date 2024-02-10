@@ -2,9 +2,9 @@
 
 <html lang='it'>
 <?php
-    include_once dirname(__FILE__) . '/../../api/_utils/sessionControl.php';  
-    include_once dirname(__FILE__) . '/../../api/_model/Star.php';
-    include_once dirname(__FILE__) . '/../../api/_model/Review.php';
+    include_once dirname(__FILE__) . '/../_api/_utils/sessionControl.php';  
+    include_once dirname(__FILE__) . '/../_api/_model/Star.php';
+    include_once dirname(__FILE__) . '/../_api/_model/Review.php';
     
     // Get star and its constellation data
     $star = new Star();
@@ -68,7 +68,7 @@
         async function subToStar() {
             // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
             let subscribeForm = document.getElementById('subscribe');
-            let response = await fetch('../../api/sub_api/insertSub.php', { method: 'POST', body : new FormData(subscribeForm) });
+            let response = await fetch('../_api/sub_api/insertSub.php', { method: 'POST', body : new FormData(subscribeForm) });
             let result = await response.json();
 
             if(result.status == 200){
@@ -103,7 +103,7 @@
         async function addMemory() {
             // MODIFY LATER TO AVOID USING TEMPORARY VARIABLES!!!
             let reviewForm = document.getElementById('review');
-            let response = await fetch('../../api/review_api/insertReview.php', { method: 'POST', 
+            let response = await fetch('../_api/review_api/insertReview.php', { method: 'POST', 
                                                               body : new FormData(reviewForm) 
                                                             });
             result = await response.json();

@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include_once dirname(__FILE__) .  '/../../../api/_model/Review.php';
-    include_once dirname(__FILE__) .  '/../../../api/_model/User.php';
-    include_once dirname(__FILE__) .  '/../../../api/_model/Star.php';
+    include_once dirname(__FILE__) .  '/../../../_api/_model/Review.php';
+    include_once dirname(__FILE__) .  '/../../../_api/_model/User.php';
+    include_once dirname(__FILE__) .  '/../../../_api/_model/Star.php';
 ?>
 
 <!DOCTYPE html>

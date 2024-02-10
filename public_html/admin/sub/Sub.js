@@ -11,9 +11,9 @@ class Sub extends CRUDTable {
     }
 
     init() { 
-        CRUDTable.updUrl = '../../../api/admin_api/sub/adUpdate.php';
-        CRUDTable.insUrl = '../../../api/admin_api/sub/adInsert.php';
-        CRUDTable.delUrl = '../../../api/admin_api/sub/adDelete.php';
+        CRUDTable.updUrl = '../../../_api/admin_api/sub/adUpdate.php';
+        CRUDTable.insUrl = '../../../_api/admin_api/sub/adInsert.php';
+        CRUDTable.delUrl = '../../../_api/admin_api/sub/adDelete.php';
         Sub.userList.forEach(el => { Sub.userMenu[el.userID] = "<option value="+el.userID+" unselected>"+el.email+"</option>";    });
         Sub.starList.forEach(el => { Sub.starMenu[el.starID] = "<option value="+el.starID+" unselected>"+el.starName+"</option>"; });
         this.h1Element = "Sub"; 

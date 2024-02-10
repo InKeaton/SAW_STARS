@@ -35,7 +35,7 @@
     <script>
         async function Login() {
             const form = document.getElementById('login')
-            let response = await fetch( '../../api/auth_api/loginApi.php', { method: 'POST', body : new FormData(form) });
+            let response = await fetch( '../_api/auth_api/loginApi.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) 
                 location.replace("../profile/home.php"); 

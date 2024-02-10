@@ -8,9 +8,9 @@ class Star extends CRUDTable {
     }
 
     init() { 
-        CRUDTable.updUrl = '../../../api/admin_api/star/adUpdate.php';
-        CRUDTable.insUrl = '../../../api/admin_api/star/adInsert.php';
-        CRUDTable.delUrl = '../../../api/admin_api/star/adDelete.php';
+        CRUDTable.updUrl = '../../../_api/admin_api/star/adUpdate.php';
+        CRUDTable.insUrl = '../../../_api/admin_api/star/adInsert.php';
+        CRUDTable.delUrl = '../../../_api/admin_api/star/adDelete.php';
         this.GenConsMenu();
         this.h1Element = "Star"; 
     }

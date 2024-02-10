@@ -5,9 +5,9 @@ class Constellation extends CRUDTable {
     }
 
     init() { 
-        CRUDTable.updUrl = '../../../api/admin_api/constellation/adUpdate.php';
-        CRUDTable.insUrl = '../../../api/admin_api/constellation/adInsert.php';
-        CRUDTable.delUrl = '../../../api/admin_api/constellation/adDelete.php';
+        CRUDTable.updUrl = '../../../_api/admin_api/constellation/adUpdate.php';
+        CRUDTable.insUrl = '../../../_api/admin_api/constellation/adInsert.php';
+        CRUDTable.delUrl = '../../../_api/admin_api/constellation/adDelete.php';
         this.h1Element = "Constellation"; 
     }
 
