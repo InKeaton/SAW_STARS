@@ -18,6 +18,11 @@
             return $this->GetQuery('SELECT * FROM CONSTELLATION');
         }
 
+        public function SelectConsCountStar() {
+            //Seleziona il numero di stelle presente per ogni costellazione
+            return $this->GetQuery('SELECT COUNT(S.starID)  , C.consName, C.consID  FROM CONSTELLATION	AS C LEFT JOIN STAR AS S ON C.consID = S.consFK GROUP BY C.consID');
+        }
+
         public function Insert() {
             return $this->ModelQuery(  'INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ?', 
                                 array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg) );

@@ -16,6 +16,8 @@
 			$this->qMng = new QueryMng();
 		}
 
+		final function __destruct() { unset($this->conn); }
+
 		private function PushOutField($input) { array_push( $this->outField, $input);  }
 
         private function PopOutField() { 

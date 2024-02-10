@@ -13,7 +13,6 @@
             return $this->GetQuery('SELECT  * FROM STAR WHERE starID = ?', array($this->starID));
         }
         
-        // TO BE MOVED OR RENAMED
         public function SelectConsStar() {
             return $this->GetQuery('SELECT  * FROM STAR WHERE consFK = ?', array($this->consFK));
         }
@@ -24,6 +23,11 @@
 
         public function SelectAll() {
             return $this->GetQuery('SELECT * FROM STAR');
+        }
+
+        public function SelectStarAvg() {
+            //Media dei voti delle recensioni per le stelle che hanno delle valutaizioni
+            return $this->GetQuery(' SELECT AVG(R.vote), S.starID, S.starName FROM STAR AS S INNER JOIN REVIEW AS R ON S.starID = R.starFK GROUP BY S.starID');
         }
 
         public function Insert() {
