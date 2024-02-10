@@ -20,15 +20,15 @@
     */
     $user = new User();
     $user->email = $_POST['email'];
-    $result = $user->SelectEmail()[0];
+    $result = $user->SelectEmail();
     if(!isset($result)) 
       die(json_encode(array('status' => 404, 'message' => 'User not find in db')));
   
-    if(!password_verify($_POST['pass'], $result->pwd)) 
+    if(!password_verify($_POST['pass'], $result[0]->pwd)) 
         die(json_encode(array('status' => 404, 'message' => 'Password must be the same')));
 
     session_start();
-    $_SESSION['uuid'] = $result->userID;
-    $_SESSION['role'] = $result->role;
-    echo json_encode(array('status'=>200, 'message' => $result->userID));
+    $_SESSION['uuid'] = $result[0]->userID;
+    $_SESSION['role'] = $result[0]->role;
+    echo json_encode(array('status'=>200, 'message' => $result[0]->userID));
 ?>
