@@ -17,20 +17,25 @@
         <main class = "main_container">
             <form class="form" type="submit" id="insert" action="javascript:Insert()">
 
-                <label for="firstname">Nome </label><br>
-                <input type="text" id="firstname" name="firstname" placeholder="Your name.." value= ""><br>
+                <label for="firstname">Nome<br>
+                    <input type="text" id="firstname" name="firstname" placeholder="Your name.." value= "">
+                </label>
 
-                <label for="lastname">Cognome </label><br>
-                <input type="text" id="lastname" name="lastname" placeholder="Your surname.." value=""><br>
+                <label for="lastname">Cognome<br>
+                    <input type="text" id="lastname" name="lastname" placeholder="Your surname.." value="">
+                </label>
 
-                <label for="email">Email </label><br>
-                <input type="email" id="email" name="email" placeholder="Your email.." value=""><br>
+                <label for="email">Email<br>
+                    <input type="email" id="email" name="email" placeholder="Your email.." value="">
+                </label>
 
-                <label for="pass">Password </label><br>
-                <input type="password" id="pass" name="pass" placeholder="Password" value=""><br>
+                <label for="pass">Password<br>
+                    <input type="password" id="pass" name="pass" placeholder="Password" value="">
+                </label>
 
-                <label for="confirm">Conferma la Password </label><br>
-                <input type="password" id="confirm" name="confirm"  placeholder="Confirm password"><br>
+                <label for="confirm">Conferma la Password<br>
+                    <input type="password" id="confirm" name="confirm"  placeholder="Confirm password">
+                </label>
 
                 <input type="submit" value="Registrati">
             </form>

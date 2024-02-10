@@ -16,11 +16,13 @@
 
         <main class = "main_container">
             <form class = "form" action="javascript:Login()" id = "login" method="post">
-                <label>Email </label><br>
-                <input type="email"    name="email"  required> <br>
+                <label>Email <br>
+                    <input type="email"    name="email"  required> <br>
+                </label>
 
-                <label>Password </label><br>
-                <input type="password" name="pass"   required> <br>
+                <label>Password <br>
+                    <input type="password" name="pass"   required> <br>
+                </label>
 
                 <input type="submit"   name="submit" value="Accedi">
             </form>

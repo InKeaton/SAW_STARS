@@ -38,10 +38,18 @@
             <article class="grid2">N° Sottoscrizioni:<br>DA FARE</article>
             <article class="grid2">Ricordi Condivisi:<br>DA FARE</article>
         </section>
+
         <section class="table_container" id="subs">
             <h2>Stelle seguite:</h2> 
             <table class="table" id="subs_table"></table>
         </section>
+
+        <section class="table_container"id="update">
+            <h2> Cambiato idea? </h2>
+            <p> Modifica le informazioni del tuo account!</p><br>
+            <button class="button" onclick="location.href='updateProfile.php';">Modifica Profilo</button>
+        </section>
+        
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
