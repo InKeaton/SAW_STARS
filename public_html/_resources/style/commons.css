@@ -21,6 +21,12 @@ body {
     /* To avoid navbar overlapping*/
     padding-top: 70px;
     margin: 0px;
+
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-around;
 }
 
 .logo {

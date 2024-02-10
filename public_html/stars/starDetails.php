@@ -36,18 +36,19 @@
             <article class="grid3">N° Iscritti:<br>DA FARE</article>
             <article class="grid2">N° Stelline Ricevute:<br>DA FARE</article>
             <article class="grid2">N° Ricordi Condivisi:<br>DA FARE</article>
-            <article class="grid10">
-                <h2> È questa la tua buona stella? </h2>
-                <p> Abbonati per sostenerla! </p><br>
-                <form action="javascript:subToStar()" id = "subscribe" method="post">
-                    <label for="life">Durata Abbonamento (in Mesi):
-                        <input type="number" id="life" name="life" min="1" max="12">
-                    </label>
-                    <input type="hidden" id="starFK" name="starFK" value="<?php echo $_GET["starID"];?>">
-                    <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>"><br>
-                    <input class="button" type="submit" name="submit" value="Abbonati!">
-                </form>
-            </article>
+        </section>
+
+        <section class="table_container">
+            <h2> È questa la tua buona stella? </h2>
+            <p> Abbonati per sostenerla! </p><br>
+            <form action="javascript:subToStar()" id = "subscribe" method="post">
+                <label for="life">Durata Abbonamento (in Mesi):
+                    <input type="number" id="life" name="life" min="1" max="12">
+                </label>
+                <input type="hidden" id="starFK" name="starFK" value="<?php echo $_GET["starID"];?>">
+                <input type="hidden" id="userFK" name="userFK" value="<?php echo $_SESSION["uuid"];?>"><br>
+                <input class="button" type="submit" name="submit" value="Abbonati!">
+            </form>
         </section>
 
         <section class="table_container"id="add_review">
