@@ -3,7 +3,6 @@
     /**
      * Parte di controllo dei dati mandati in input
      */
-    session_start();
     isMethod('POST');
     postEmptyField('email', 'firstname', 'lastname', 'createDate', 'userID', 'pass');
 

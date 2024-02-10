@@ -24,7 +24,7 @@
         }
 
         public function Insert() {
-            return $this->ModelQuery(  'INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ?', 
+            return $this->ModelQuery('INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ?', 
                                 array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg) );
         }
 

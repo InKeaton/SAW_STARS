@@ -3,7 +3,6 @@
     /**
      * Parte di controllo dei dati inviati in input
      */
-    session_start();
     isMethod('POST');
     postEmptyField('consID');
     /**
