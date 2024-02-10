@@ -37,6 +37,7 @@ class CRUDTable {
         childDiv.id = "CRUD";
         table.id = "CRUDtable";
         button.innerHTML = "INSERT NEW ROW";
+        button.id = "insertButton";
         h1.innerHTML = this.#h1Element;
         style.innerText = this.#pageStyle;
         button.onclick = function() { CRUDTable.ButtonInsert(callClass); };
@@ -55,14 +56,13 @@ class CRUDTable {
         document.getElementById("CRUDtable").innerHTML = outString;
     }
 
-    static ButtonInsert(obj)    {  obj.InsertRow(CRUDTable.id++);   }
-    static Back(id)             {   document.getElementById(id).remove();   }
+    static ButtonInsert(obj)    {   document.getElementById("insertButton").disabled = true; obj.InsertRow(CRUDTable.id++);   }
+    static Back(id)             {   document.getElementById("insertButton").disabled = false; document.getElementById(id).remove();   }
 
     static async Update(id) {
         const form = document.getElementById("update"+id);
         const response = await fetch(CRUDTable.updUrl, { method: 'POST', body : new FormData(form) });
         const result = await response.json();
-        if(result.status == 200) alert("Update avvenuto con successo");
     }
 
     static async Delete(id) {
@@ -70,7 +70,6 @@ class CRUDTable {
         const response = await fetch(CRUDTable.delUrl, { method: 'POST', body : new FormData(form) });
         const result = await response.json();
         if(result.status == 200) {
-            alert("Update avvenuto con successo");
             document.getElementById(id).remove();
         }
     }
@@ -79,7 +78,6 @@ class CRUDTable {
         const form = document.getElementById("insert"+id);
         const response = await fetch(CRUDTable.insUrl, { method: 'POST', body : new FormData(form) });
         const result = await response.json();
-        console.log(result.status);
         if(result.status == 200) location.reload();
         
     }
