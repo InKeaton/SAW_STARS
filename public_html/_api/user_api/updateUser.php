@@ -6,7 +6,7 @@
     session_start();
     isLog();
     isMethod('POST');
-    postEmptyField('email', 'firstname', 'lastname');
+    postEmptyField('email', 'firstname', 'lastname', 'createDate');
     $_POST['userID'] = $_SESSION['uuid'];
     /**
      * Parte di fetch dei dati e di comunicazione con il database

@@ -16,7 +16,7 @@
 
     $user->userID = $_POST["userID"];
     $result = $user->Select()[0];
-    if(!isset($result))
+    if(count($result) === 0)
         die(json_encode(array('status' => 0, 'message' => 'User Not Found!')));
     
     $user->role = (empty($_POST["role"]))? $result->role : $_POST["role"];

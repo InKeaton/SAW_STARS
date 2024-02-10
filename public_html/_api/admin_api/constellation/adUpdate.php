@@ -3,7 +3,7 @@
     $cons = new Constellation();
     $cons->consID = $_POST['consID'];
     $result = $cons->Select();
-    if(!isset($result))
+    if(count($result) === 0)
       die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
 
     $cons->consName    =  (empty($_POST['consName']))    ?   $result[0]->consName    : $_POST['consName'];

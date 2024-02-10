@@ -12,7 +12,7 @@
     $rev->reviewID = $_POST['reviewID'];
     
     $result = $rev->Select();
-    if(!isset($result))
+    if(count($result) === 0)
       die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
 
     $rev->starFK     =   (empty($_POST["starFK"]))     ?   $result[0]->starFK  : $_POST["starFK"];

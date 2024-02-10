@@ -19,5 +19,5 @@
     
     if(!$user->Insert())
         die(json_encode(array('status' => 500, 'message' => 'Failed To Add User To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!', 'role' => $_POST["role"]));
+    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
 ?>

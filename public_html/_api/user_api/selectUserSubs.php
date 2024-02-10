@@ -12,7 +12,7 @@
     $sub->userFK = $_POST["userFK"];
     $result = $sub->SelectUserSub();
     
-    if(!isset($result)) 
+    if(count($result) === 0) 
       die(json_encode(array('status' => 404, 'message' => 'Review not find in db')));
     echo json_encode($result);
 ?>

@@ -12,7 +12,7 @@
     $rev = new Review();
     $rev->starFK = $_POST['starFK'];
     $result = $rev->SelectStarReviews();
-    if(!isset($result)) 
+    if(count($result) === 0) 
         die(json_encode(array('status' => 404, 'message' => 'Reviews not found in db')));
     echo json_encode($result);
 ?>

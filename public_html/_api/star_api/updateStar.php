@@ -12,7 +12,7 @@
     $star->starID = $_POST['starID'];
     
     $result = $star->Select();
-    if(!isset($result))
+    if(count($result) === 0)
       die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
 
     $star->consFK   =   (empty($_POST["consFK"]))   ?   $result[0]->consFK   : $_POST["consFK"];

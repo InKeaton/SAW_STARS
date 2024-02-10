@@ -21,7 +21,7 @@
     $user = new User();
     $user->email = $_POST['email'];
     $result = $user->SelectEmail();
-    if(!isset($result)) 
+    if(count($result)===0) 
       die(json_encode(array('status' => 404, 'message' => 'User not find in db')));
   
     if(!password_verify($_POST['pass'], $result[0]->pwd)) 

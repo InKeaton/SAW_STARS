@@ -12,7 +12,7 @@
     $sub->subID = $_POST['subID'];
     
     $result = $sub->Select();
-    if(!isset($result))
+    if(count($result) === 0)
       die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
 
     $sub->userFK      =   (empty($_POST["userFK"]))       ?   $result[0]->userFK     : $_POST["userFK"];
