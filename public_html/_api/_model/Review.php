@@ -21,7 +21,11 @@
         public function SelectStarReviews() {
             return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ?', array($this->starFK));
         }
-    
+
+        public function SelectCountReview() {
+            return $this->GetQuery('SELECT  * FROM REVIEW  WHERE starFK = ? AND userFK = ?', array($this->starFK, $this->userFK));
+        }
+
         public function Insert() {
             return $this->ModelQuery('INSERT INTO REVIEW SET starFK = ?, userFK = ?, vote = ?, note = ?', 
                                     array( $this->starFK, $this->userFK, $this->vote, $this->note));
