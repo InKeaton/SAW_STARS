@@ -39,9 +39,18 @@
             <article class="grid2">Ricordi Condivisi:<br>DA FARE</article>
         </section>
 
-        <section class="table_container" id="subs">
-            <h2>Stelle seguite:</h2> 
-            <table class="table" id="subs_table"></table>
+        <section class="table_container" id="subs"> 
+            <?php
+            if(count($subs_list)) {
+                echo "<h2>Stelle seguite:</h2> 
+                      <table class=\"table\" id=\"subs_table\"></table>";
+            } 
+            else {
+                echo "<h2>Qui è tutto vuoto...</h2>
+                      <p>Scorri la lista di stelle disponibili!</p>
+                      <button class=\"button\" onclick=\"location.href='../stars/starList.php';\">Cerca Stelle</button>";
+            }
+            ?>
         </section>
 
         <section class="table_container"id="update">
@@ -62,11 +71,17 @@
                                                               body : new URLSearchParams({'starFK': star})});
             let result = await response.json();
 
-            if(result.status == 200){
+            if (result.status == 200){
                 alert("Abbonamento annullato con successo!");
                 document.getElementById("subto_" + star).remove();
+                if(document.getElementById("subs_table").rows.length == 1) {
+                    document.getElementById("subs").innerHTML = "<h2>Qui è tutto vuoto...</h2>" +
+                                                                "<p>Scorri la lista di stelle disponibili!</p>" +
+                                                                "<button class=\"button\" onclick=\"location.href='../stars/starList.php';\">Cerca Stelle</button>";
+                }
                 return;
-            } else {alert("Errore nella disiscrizione");};
+            } 
+            else {alert("Errore nella disiscrizione");};
         };
 
         function displayAllSubs() {
