@@ -8,7 +8,7 @@
     <head>
         <title> Home </title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/details.css">
+        <link rel="stylesheet" href="../_resources/style/adDetails.css">
     </head>
     <body> 
         <!-- navbar -->
@@ -20,11 +20,11 @@
         </header>
 
         <section class="bento" id="home_options">
-            <button class="grid5" onclick="location.href='user/adminUser.php';">Utenti</button>
-            <button class="grid5" onclick="location.href='star/adminStar.php';">Stelle</button>
-            <button class="grid3" onclick="location.href='sub/adminSub.php';">Abbonamenti</button>
-            <button class="grid4" onclick="location.href='constellation/adminConstellation.php';">Costellazioni</button>
-            <button class="grid3" onclick="location.href='review/adminReview.php';">Ricordi</button>
+            <button class="grid2" onclick="location.href='user/adminUser.php';">Utenti</button>
+            <button class="grid2" onclick="location.href='star/adminStar.php';">Stelle</button>
+            <button class="grid2" onclick="location.href='sub/adminSub.php';">Abbonamenti</button>
+            <button class="grid2" onclick="location.href='constellation/adminConstellation.php';">Costellazioni</button>
+            <button class="grid2" onclick="location.href='review/adminReview.php';">Ricordi</button>
         </section>
 
         <!-- footer -->
