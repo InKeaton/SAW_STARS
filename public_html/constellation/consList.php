@@ -1,6 +1,6 @@
 <?php
-    include_once  dirname(__FILE__) . '/../../_api/_utils/sessionControl.php';  
-    include_once  dirname(__FILE__) . '/../../_api/_model/Constellation.php';     
+    include_once  dirname(__FILE__) . '/../_api/_utils/sessionControl.php';  
+    include_once  dirname(__FILE__) . '/../_api/_model/Constellation.php';     
 ?>
 
 <!DOCTYPE html>

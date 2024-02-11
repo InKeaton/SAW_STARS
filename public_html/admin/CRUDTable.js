@@ -36,7 +36,7 @@ class CRUDTable {
         div.id = "CRUDdiv";
         childDiv.id = "CRUD";
         table.id = "CRUDtable";
-        button.innerHTML = "INSERT NEW ROW";
+        button.innerHTML = "Inserisci un nuovo elemento";
         button.id = "insertButton";
         h1.innerHTML = this.#h1Element;
         style.innerText = this.#pageStyle;
