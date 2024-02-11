@@ -20,7 +20,9 @@
 
         public function SelectConsCountStar() {
             //Seleziona il numero di stelle presente per ogni costellazione
-            return $this->GetQuery('SELECT COUNT(S.starID)  , C.consName, C.consID  FROM CONSTELLATION	AS C LEFT JOIN STAR AS S ON C.consID = S.consFK GROUP BY C.consID');
+            return $this->GetQuery('SELECT COUNT(S.starID) AS conStar, SUM(R.vote)  AS numVote, AVG(R.vote) AS consAvg, C.*
+                                    FROM CONSTELLATION	AS C LEFT JOIN STAR AS S ON C.consID = S.consFK LEFT JOIN REVIEW AS R ON R.starFK = S.starID 
+                                    WHERE C.consID = ? GROUP BY C.consID ',   array($this->consID) );
         }
 
         public function Insert() {
