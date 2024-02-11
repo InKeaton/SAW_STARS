@@ -9,9 +9,9 @@
 
     <body>
         <nav class="navbar">
-            <button class="navbar_right" onclick="location.href='profile/home.php';">     Home</button>
-            <button class="navbar_left"  onclick="location.href='auth/login.php';">       Accedi</button>
-            <button class="navbar_left"  onclick="location.href='auth/register.php';">    Registrati</button>
+            <button class="navbar_right" onclick="location.href='profile/home.php';">         Home</button>
+            <button class="navbar_left"  onclick="location.href='auth/login.php';">           Accedi</button>
+            <button class="navbar_left"  onclick="location.href='auth/registration.php';">    Registrati</button>
         </nav><br>
 
         <header class="logo">

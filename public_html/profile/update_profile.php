@@ -49,7 +49,7 @@
             console.log(result);
             if(result.status == 200){
                 alert("Modifica avvenuta con successo");
-                location.replace("myProfile.php");
+                location.replace("show_profile.php");
             }  
             else alert("Errore durante l'aggiornamento: riprovare");
         }

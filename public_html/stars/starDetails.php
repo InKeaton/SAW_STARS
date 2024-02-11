@@ -33,7 +33,7 @@
             <article class="grid5">Nome:<br><?php echo $starResult->starName ?></article>
             <article class="grid5">Costellazione:<br><a href = "../constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></article>
             <article class="grid3">Distanza:<br><?php echo $starResult->dLY?> anni luce</article>
-            <article class="grid3">N° Iscritti:<br>DA FARE</article>
+            <article class="grid3">N° Iscritti:         <br>DA FARE</article>
             <article class="grid2">N° Stelline Ricevute:<br>DA FARE</article>
             <article class="grid2">N° Ricordi Condivisi:<br>DA FARE</article>
         </section>

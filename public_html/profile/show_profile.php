@@ -106,7 +106,7 @@
 
             document.getElementById("subs_table").innerHTML = outString;
         }   
-        
-        displayAllSubs();
+
+        if (<?php echo count($subs_list)?>)displayAllSubs();
     </script>
 </html>
