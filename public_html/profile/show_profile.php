@@ -31,10 +31,10 @@
         </header>
 
         <section class="bento" id="user_info">
-            <article class="grid5">Nome:<br><?php echo $profile->firstName ?></article>
-            <article class="grid5">Cognome:<br><?php echo $profile->lastName ?></article>
-            <article class="grid3">Email:<br><?php echo $profile->email ?></article>
-            <article class="grid3">Data Iscrizione:<br><?php echo $profile->createDate ?></article>
+            <article class="grid5">Nome:<br>             <?php echo $profile->firstName ?></article>
+            <article class="grid5">Cognome:<br>          <?php echo $profile->lastName ?></article>
+            <article class="grid3">Email:<br>            <?php echo $profile->email ?></article>
+            <article class="grid3">Data Iscrizione:<br>  <?php echo $profile->createDate ?></article>
             <article class="grid2">N° Sottoscrizioni:<br>DA FARE</article>
             <article class="grid2">Ricordi Condivisi:<br>DA FARE</article>
         </section>
@@ -56,7 +56,7 @@
         <section class="table_container"id="update">
             <h2> Cambiato idea? </h2>
             <p> Modifica le informazioni del tuo account!</p><br>
-            <button class="button" onclick="location.href='updateProfile.php';">Modifica Profilo</button>
+            <button class="button" onclick="location.href='update_profile.php';">Modifica Profilo</button>
         </section>
         
         <!-- footer -->

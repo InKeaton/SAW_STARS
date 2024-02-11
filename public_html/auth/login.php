@@ -27,7 +27,7 @@
                 <input type="submit"   name="submit" value="Accedi">
             </form>
             <aside class="register_link">
-            Non hai ancora un account? <br><a href="register.php"> Iscriviti alla nostra iniziativa!</a>
+            Non hai ancora un account? <br><a href="registration.php"> Iscriviti alla nostra iniziativa!</a>
             </aside>
         </main>
         <!-- footer -->
