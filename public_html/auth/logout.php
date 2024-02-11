@@ -30,7 +30,7 @@
 <!------------------------------------------------------------------------------------------------------------>
     <script>
         async function Logout() {
-            let response = await fetch('../_api/auth_api/logoutAPI.php', { method: 'POST'});
+            let response = await fetch('../_api/auth_api/logoutApi.php', { method: 'POST'});
             result = await response.json();
             if(result.status == 200) 
                 location.replace("../index.php"); 
