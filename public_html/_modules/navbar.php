@@ -1,4 +1,4 @@
-<nav class="navbar_test">
+<nav class="navbar">
     <?php
     // maybe switch to buttons
         if(!isset($_SESSION['uuid'])) {

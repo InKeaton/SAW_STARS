@@ -53,6 +53,7 @@
 
 .grid2,
 .grid3,
+.grid4,
 .grid5,
 .grid10 {
     display: flex;
@@ -77,6 +78,10 @@
 
 .grid3 {
   grid-column: span 3/auto;
+}
+
+.grid4 {
+  grid-column: span 4/auto;
 }
 
 .grid5 {

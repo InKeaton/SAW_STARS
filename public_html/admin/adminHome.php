@@ -15,13 +15,16 @@
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 
         <header class = "logo">
-            <h1>Bentornato!</h1>
+            <h1>Bentornato, Amministratore!</h1>
+            <h2> Cosa devi controllare oggi?</h2>
         </header>
 
         <section class="bento" id="home_options">
-            <button class="grid10" onclick="location.href='../profile/myProfile.php';">Il Mio Profilo</button>
-            <button class="grid5" onclick="location.href='../stars/starList.php';">Cerca Stelle</button>
-            <button class="grid5" onclick="location.href='../constellation/consList.php';">Cerca Costellazioni</button>
+            <button class="grid5" onclick="location.href='user/adminUser.php';">Utenti</button>
+            <button class="grid5" onclick="location.href='star/adminStar.php';">Stelle</button>
+            <button class="grid3" onclick="location.href='sub/adminSub.php';">Abbonamenti</button>
+            <button class="grid4" onclick="location.href='constellation/adminConstellation.php';">Costellazioni</button>
+            <button class="grid3" onclick="location.href='review/adminReview.php';">Ricordi</button>
         </section>
 
         <!-- footer -->

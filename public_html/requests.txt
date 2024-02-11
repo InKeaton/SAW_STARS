@@ -1,0 +1,22 @@
+
+PROFILO: -------------------------
+
++ Prendere nome, cognome, data iscrizione, email, dell'utente
++ N° stelle a cui è iscritto
++ N° Review fatte
++ Info stelle a cui è iscritto
+
+STAR DETAILS: --------------------
+
++ Prendere nome, nome della costellazione, distanza, della stella
++ N° stelline ricevute/stelline medie
++ N° iscritti
++ N° review ricevute
++ Info review ricevute
+
+CONS DETAILS: --------------------
+
++ Prendere nome, descrizione, Date di visibilità, della costellazione
++ N° stelline ricevute/stelline medie
++ N° stelle ricevute
++ info stelle contenute
