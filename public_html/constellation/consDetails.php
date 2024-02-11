@@ -5,7 +5,7 @@
     
     $cons = new Constellation();
     $cons->consID = $_GET['consID'];
-    $consResult =   $cons->Select()[0]; 
+    $consResult =  $cons->SelectConsCountStar()[0]; 
 
     $stars = new Star();
     $stars->consFK = $_GET['consID'];
@@ -31,8 +31,10 @@
             <article class="grid5">Nome:<br><?php echo $consResult->consName;?></article>
             <article class="grid5">Descrizione:<br><?php echo $consResult->description;?></article>
             <article class="grid5">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></article>
-            <article class="grid2">Stelle contenute:<br>DA FARE</article>
-            <article class="grid3">Stelline totali ricevute:<br>DA FARE</article>
+            <article class="grid2">Stelle contenute:<br><?php echo $consResult->conStar;?></article>
+            <article class="grid3">Stelline totali ricevute:<br><?php echo $consResult->numVote;?></article>
+            <article class="grid3">Media Valutazioni:<br><?php echo $consResult->consAvg;?></article>
+            
         </section>
         <section class="table_container" id="stars_info">
             <h2>Stelle appartenenti alla costellazione </h2>
@@ -43,7 +45,7 @@
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
-        async function displayAllStars() {
+        function displayAllStars() {
             stars = <?php echo json_encode($starResult);?>;
 
             outString = "<tr>" +
