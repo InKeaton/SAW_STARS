@@ -4,11 +4,15 @@
     include_once dirname(__FILE__) . '/../_api/_model/User.php';
     include_once dirname(__FILE__) . '/../_api/_model/Sub.php';
     include_once dirname(__FILE__) . '/../_api/_model/Star.php';
+    include_once dirname(__FILE__) . '/../_api/_model/Review.php';
 
     // Get user personal info
     $user = new User();
     $user->userID =  $_SESSION['uuid'];
     $profile = $user->Select()[0];
+
+    $rev = new Review();
+    $rev->userFK = $_SESSION['uuid'];
 
     // Get user Star Subscriptions
     $subs = new Sub();
@@ -35,8 +39,8 @@
             <article class="grid5">Cognome:<br>          <?php echo $profile->lastName ?></article>
             <article class="grid3">Email:<br>            <?php echo $profile->email ?></article>
             <article class="grid3">Data Iscrizione:<br>  <?php echo $profile->createDate ?></article>
-            <article class="grid2">N° Sottoscrizioni:<br>DA FARE</article>
-            <article class="grid2">Ricordi Condivisi:<br>DA FARE</article>
+            <article class="grid2">N° Sottoscrizioni:<br><output id="numSub"></output></article>
+            <article class="grid2">Ricordi Condivisi:<br><?php echo $rev->SelectCountUser()[0]->revCount; ?></article>
         </section>
 
         <section class="table_container" id="subs"> 
@@ -85,9 +89,9 @@
         };
 
         function displayAllSubs() {
-            subs = <?php echo json_encode($subs_list);?>;
-
-            outString = "<tr>" +
+            var subs = <?php echo json_encode($subs_list);?>;
+            var countSub = 0;
+            var outString = "<tr>" +
                             "<th>Nome</th>" +
                             "<th>Prezzo</th>" +
                             "<th>Data d'inizio</th>" +
@@ -95,6 +99,7 @@
                         "</tr>";
 
             subs.forEach(element => {
+                countSub++;
                 outString += "<tr id=\"subto_" + element.starID +"\"><td><a href=../stars/starDetails.php?starID=" + element.starID + ">" + 
                                 element.starName + "</td><td>" + 
                                 element.price + "</td><td>" + 
@@ -105,6 +110,7 @@
             });
 
             document.getElementById("subs_table").innerHTML = outString;
+            document.getElementById("numSub").innerHTML = countSub;
         }   
 
         if (<?php echo count($subs_list)?>)displayAllSubs();
