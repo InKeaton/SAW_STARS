@@ -21,6 +21,14 @@
         public function SelectUserSub() {
             return $this->GetQuery('SELECT * FROM SUB JOIN STAR ON starFK = starID WHERE userFK = ?', array($this->userFK));
         }
+        
+        public function SelectCountStarSub() {
+            return $this->GetQuery('SELECT COUNT(userFK) AS countSub FROM SUB WHERE starFK = ?', array($this->starFK));
+        }
+
+        public function SelectUserSubStar() {
+            return $this->GetQuery('SELECT * FROM SUB WHERE starFK = ? AND userFK = ?', array($this->starFK, $this->userFK));
+        }
 
         public function Insert() {
             return $this->ModelQuery('INSERT INTO SUB SET starFK = ?, userFK = ?, life = ?', array( $this->starFK, $this->userFK, $this->life));
