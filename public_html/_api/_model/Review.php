@@ -22,6 +22,10 @@
             return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ?', array($this->starFK));
         }
 
+        public function SelectCountUser() {
+            return $this->GetQuery('SELECT  COUNT(*) AS revCount FROM REVIEW  WHERE userFK = ?', array($this->userFK));    
+        }
+
         public function SelectCountReview() {
             return $this->GetQuery('SELECT  * FROM REVIEW  WHERE starFK = ? AND userFK = ?', array($this->starFK, $this->userFK));
         }
