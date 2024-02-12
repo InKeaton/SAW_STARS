@@ -39,7 +39,7 @@
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(80em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(3em, 1fr));
 }
 

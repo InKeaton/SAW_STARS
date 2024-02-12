@@ -16,13 +16,13 @@
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 
         <header class = "logo">
-            <h1>Cerca una Costellazione!</h1>
+            <h1 id="search">Cerca una Costellazione!</h1>
             <h2>Scorri nel nostro database</h2>
         </header>
 
-        <input class="searchbar" type="text" id="search" placeholder="Cerca..."></input>
+        <input class="searchbar" type="text" aria-labelledby="search" id="search" placeholder="Cerca..."></input>
         
-        <section class = "grid-container" id="contain"> 
+        <section class="grid-container" id="contain"> 
         </section>
     </body>
 <!------------------------------------------------------------------------------------------------------------>

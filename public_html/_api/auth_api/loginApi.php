@@ -30,5 +30,6 @@
     session_start();
     $_SESSION['uuid'] = $result[0]->userID;
     $_SESSION['role'] = $result[0]->role;
+    $_SESSION['email'] = $result[0]->email;
     echo json_encode(array('status'=>200, 'message' => $result[0]->userID));
 ?>
