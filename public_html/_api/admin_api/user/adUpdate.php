@@ -26,4 +26,5 @@
     
     if(!($user->Update())) 
         die(json_encode(array('status' => 0, 'message' => 'Failed to Update User!')));
+    json_encode(array('status' => 200, 'message' => 'Success!!'));
 ?> 
