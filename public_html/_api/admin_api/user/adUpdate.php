@@ -5,7 +5,8 @@
      */
     isMethod('POST');
     postEmptyField('email', 'firstname', 'lastname', 'createDate', 'userID', 'pass');
-
+    if((strlen($_POST['pass'])<10)) 
+        die(json_encode(array('status' => 0, 'message' => 'Pass must have more than 10 characters')));
     /**
      * Parte di fetch dei dati e invio dei dati al database
      */
