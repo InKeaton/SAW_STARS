@@ -40,6 +40,9 @@
                 <input type='submit' value="Aggiorna">
             </form>
         </main>
+
+        <!-- navbar -->
+        <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>

@@ -21,7 +21,7 @@
             <h2>Scorri nel nostro database</h2>
         </header>
 
-        <input class="searchbar" type="text" aria-labelledby="search" id="search" placeholder="Cerca..."></input>
+        <input class="searchbar" type="text" aria-labelledby="search" id="searchbar" placeholder="Cerca..."></input>
         
         <section class="grid-container" id="contain"> 
         </section>
@@ -31,15 +31,14 @@
         const consList  = <?php  echo json_encode((new Constellation())->SelectAll()); ?>;
         displayConstellation(consList);
 
-        document.getElementById("search").value = "";
-        document.getElementById("search").addEventListener("keyup", changeSearch);
+        document.getElementById("searchbar").value = "";
+        document.getElementById("searchbar").addEventListener("keyup", changeSearch);
     
         function changeSearch(e) {
             var changeResult = [];
             var cI = 0;
-            console.log(document.getElementById("search").value);
             for(i=0; i<consList.length; i++)
-                if(consList[i].consName.toLowerCase().search(document.getElementById("search").value) != -1)
+                if(consList[i].consName.toLowerCase().search(document.getElementById("searchbar").value) != -1)
                     changeResult[cI++] = consList[i];
             if(cI){
                 displayConstellation(changeResult);

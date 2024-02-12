@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: space-around;
 
-    width: 30%;
+    width: 90%;
     padding: 2%;
     border-radius: 25px;
     text-align: center;
@@ -58,7 +58,7 @@ input[type=password] {
     background-color: var(--light-fg);
     display: inline-block;
     border: none;
-    border-radius: 15px;
+    border-radius: 15vw;
     box-sizing: border-box;
     margin: auto;
   }

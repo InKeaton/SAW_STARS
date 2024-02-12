@@ -21,9 +21,9 @@
             <h2>Scorri nel nostro database</h2>
         </header>
 
-        <input class="searchbar" aria-labelledby="search" type="text" id="search" placeholder="Cerca..."></input>
+        <input class="searchbar" aria-labelledby="search" type="text" id="searchbar" placeholder="Cerca..."></input>
         
-        <section class = "grid-container" id="contain"> 
+        <section class="grid-container" id="contain"> 
         </section>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
@@ -31,15 +31,14 @@
         const starList  = <?php  echo json_encode((new Star())->SelectAll()); ?>;
         displayStar(starList);
 
-        document.getElementById("search").value = "";
-        document.getElementById("search").addEventListener("keyup", changeSearch);
+        document.getElementById("searchbar").value = "";
+        document.getElementById("searchbar").addEventListener("keyup", changeSearch);
     
         function changeSearch(e) {
             var changeResult = [];
             var cI = 0;
-            console.log(document.getElementById("search").value);
             for(i=0; i<starList.length; i++)
-                if(starList[i].starName.toLowerCase().search(document.getElementById("search").value) != -1)
+                if(starList[i].starName.toLowerCase().search(document.getElementById("searchbar").value) != -1)
                     changeResult[cI++] = starList[i];
             if(cI){
                 displayStar(changeResult);
