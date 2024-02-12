@@ -96,7 +96,7 @@ CREATE TABLE `SUB` (
   `userFK` varchar(36) NOT NULL,
   `starFK` varchar(36) NOT NULL,
   `startDate` date DEFAULT current_timestamp(),
-  `life` int(10) NOT NULL CHECK (`life` > 0)
+  `life` int(10) NOT NULL CHECK (`life` > 0 AND `life` <= 12)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
