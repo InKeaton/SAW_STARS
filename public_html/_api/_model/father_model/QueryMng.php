@@ -29,7 +29,7 @@
 
         public function ModelQuery($query, $data=NULL) {
             $result = ($data === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $data);
-            return $result->affected_rows;
+            return $result;
         }
 
         public function GetQuery($query, $data=NULL) { 
