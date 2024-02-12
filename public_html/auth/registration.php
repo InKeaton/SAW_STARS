@@ -42,6 +42,7 @@
         </main>
         <!-- footer -->
     <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
+     <?php include  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
@@ -50,7 +51,7 @@
             let response = await fetch('../_api/auth_api/registrationApi.php', { method: 'POST', body : new FormData(form) });
             result = await response.json();
             if(result.status == 200) location.replace("login.php");
-            else alert("Errore nelal fase di insert della pagina");
+            else DisplayModal(0, result.message);
         }
     </script>
 
