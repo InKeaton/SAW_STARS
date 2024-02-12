@@ -1,0 +1,22 @@
+<div id='modal' class='modal-base'> 
+    <div class='modal-content'>  
+        <span id='modButton' class='close-button'>&times;</span>
+        <h1 id='msg'></h1>
+    </div>
+</div>
+<script>
+    document.getElementById("modButton").addEventListener('click', CloseModal);
+
+    function CloseModal(e) {
+        document.getElementById("modal").classList.remove("modal-right");
+        document.getElementById("modal").classList.remove("modal-wrong");
+        document.getElementById("modal").classList.toggle("show-modal");
+    }
+
+    function DisplayModal(idClass, msg) {
+        if(idClass == 1) document.getElementById("modal").classList.add("modal-right");
+        else document.getElementById("modal").classList.add("modal-wrong");
+        document.getElementById("modal").classList.add("show-modal");
+        document.getElementById("msg").innerHTML = msg;
+    }
+</script>
