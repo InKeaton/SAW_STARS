@@ -39,6 +39,7 @@
 
                 <input type='submit' value="Aggiorna">
             </form>
+            <a href="update_pwd.php">   Modifica password   </a>
         </main>
 
         <!-- navbar -->
