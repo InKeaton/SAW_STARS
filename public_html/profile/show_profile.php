@@ -66,6 +66,7 @@
         
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
+        <?php include_once  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
@@ -77,7 +78,7 @@
             let result = await response.json();
 
             if (result.status == 200){
-                alert("Abbonamento annullato con successo!");
+                DisplayModal(1, result.message);
                 document.getElementById("subto_" + star).remove();
                 if(document.getElementById("subs_table").rows.length == 1) {
                     document.getElementById("subs").innerHTML = "<h2>Qui è tutto vuoto...</h2>" +
@@ -86,7 +87,7 @@
                 }
                 return;
             } 
-            else {alert("Errore nella disiscrizione");};
+            else {DisplayModal(0, result.message);};
         };
 
         function displayAllSubs() {
