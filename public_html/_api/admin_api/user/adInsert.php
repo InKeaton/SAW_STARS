@@ -9,7 +9,7 @@
     /**
      * Fetch dei dati ed invio dei dati al database
      */
-    include_once dirname(__FILE__) . '/../_model/User.php';
+
     $user = new User();
     $user->email =      $_POST["email"];
     $user->pwd =        password_hash($_POST['pass'], PASSWORD_DEFAULT);
