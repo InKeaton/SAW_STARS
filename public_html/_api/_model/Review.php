@@ -19,7 +19,7 @@
         }
 
         public function SelectStarReviews() {
-            return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ?', array($this->starFK));
+            return $this->GetQuery('SELECT  * FROM REVIEW JOIN USER ON userFK = userID WHERE starFK = ? ORDER BY revDate DESC', array($this->starFK));
         }
 
         public function SelectCountUser() {
