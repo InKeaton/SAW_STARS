@@ -44,19 +44,19 @@
 
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
+        <?php include  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
         async function Update() {
             const form = document.getElementById('update');
-            let response = await fetch('../_api/user_api/updateUser.php', { method: 'POST', body : new FormData(form)});
+            let response = await fetch('../_api/user_api/updatePwd.php', { method: 'POST', body : new FormData(form)});
             result = await response.json();
             console.log(result);
             if(result.status == 200){
-                alert("Modifica avvenuta con successo");
                 location.replace("show_profile.php");
             }  
-            else alert("Errore durante l'aggiornamento: riprovare");
+            else DisplayModal(0, result.message);
         }
     </script>
 </html>
