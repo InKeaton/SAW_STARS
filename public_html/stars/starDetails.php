@@ -45,18 +45,18 @@
             <article class="grid2">N° Ricordi Condivisi:<br><output id="revCount"> </output></article>
         </section>
     
-            <?php if($isSub === 0) echo "   <section class='table_container' id='sub'>
-                                              <h2> È questa la tua buona stella? </h2>
-                                              <p> Abbonati per sostenerla! </p><br>
-                                                <form action='javascript:subToStar()' id = 'subscribe' method='post'>
-                                                <label for='life'>Durata Abbonamento (in Mesi):
-                                                    <input type='number' id='life' name='life' min='1' max='12'>
-                                                </label>
-                                                    <input type='hidden' id='starFK' name='starFK' value=". $_GET["starID"].">
-                                                    <input type='hidden' id='userFK' name='userFK' value=". $_SESSION["uuid"]."><br>
-                                                    <input class='button' type='submit' name='submit' value='Abbonati!'>
-                                                </form>
-                                            </section>";
+        <?php if($isSub === 0) echo "   <section class='table_container' id='sub'>
+                                            <h2> È questa la tua buona stella? </h2>
+                                            <p> Abbonati per sostenerla! </p><br>
+                                            <form action='javascript:subToStar()' id = 'subscribe' method='post'>
+                                            <label for='life'>Durata Abbonamento (in Mesi):
+                                                <input type='number' id='life' name='life' min='1' max='12'>
+                                            </label>
+                                                <input type='hidden' id='starFK' name='starFK' value=". $_GET["starID"].">
+                                                <input type='hidden' id='userFK' name='userFK' value=". $_SESSION["uuid"]."><br>
+                                                <input class='button' type='submit' name='submit' value='Abbonati!'>
+                                            </form>
+                                        </section>";
 
             ?>
         <?php if(($isSub !== 0) && ($haveReview === 0)) echo "  <section class='table_container' id='add_review'>
@@ -91,6 +91,13 @@
                                                                                   "<td>" + new Date().toISOString().slice(0, 10).toString() + "</td></tr>";
                 document.getElementById("add_review").remove();
             } else {alert("Errore nell'inserimento del ricordo")};
+        }
+
+        function returnButton() {
+            document.getElementById("add_review").innerHTML =   "<h2> <i>Rimembri ancora?</i> </h2>" +
+                                                                "<p> Condividi ricordi su questa stella</p><br>" +
+                                                                "<button class='button' onclick='javascript:displayReviewBox();'>Condividi un tuo ricordo!</button>";
+                                                                
         }
 
         function displayAllReviews() {

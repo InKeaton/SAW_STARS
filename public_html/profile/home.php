@@ -21,7 +21,7 @@
         </header>
 
         <section class="bento" id="home_options">
-            <button class="grid10" onclick="location.href='myProfile.php';">Il Mio Profilo</button>
+            <button class="grid10" onclick="location.href='show_profile.php';">Il Mio Profilo</button>
             <button class="grid5" onclick="location.href='../stars/starList.php';">Cerca Stelle</button>
             <button class="grid5" onclick="location.href='../constellation/consList.php';">Cerca Costellazioni</button>
         </section>

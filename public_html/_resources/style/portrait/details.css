@@ -53,6 +53,7 @@ td, th, tr, td button, td a {
   border: none;
   border-radius: 25px;
   padding: 15px;
+  width: 80%;
 
   background: linear-gradient(to right, 
                               #353535 0%, 
@@ -60,7 +61,16 @@ td, th, tr, td button, td a {
   color: var(--light-fg)
 }
 
-.button {
+input[type=number] {
+  background-color: var(--light-fg);
+  padding: 0.5vw;
+  border: none;
+  border-radius: 15vw;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.button, input[type=submit] {
     border-radius: 25px;
     border: none;
     padding: 1% 3%;
@@ -71,7 +81,7 @@ td, th, tr, td button, td a {
     color: var(--main-bg);
 }
 
-.button:hover {
+.button:hover, input[type=submit]:hover {
   background-color: var(--main-bg);
   color: var(--light-fg);
 }

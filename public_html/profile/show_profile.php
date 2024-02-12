@@ -34,7 +34,7 @@
         <header class = "logo">
             <h1>Il mio Profilo</h1>
         </header>
-
+        
         <section class="bento" id="user_info">
             <article class="grid5">Nome:<br>             <?php echo $profile->firstName ?></article>
             <article class="grid5">Cognome:<br>          <?php echo $profile->lastName ?></article>
