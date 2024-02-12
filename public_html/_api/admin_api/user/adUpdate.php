@@ -5,6 +5,9 @@
      */
     isMethod('POST');
     postEmptyField('email', 'firstname', 'lastname', 'createDate', 'userID', 'pass');
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+        die(json_encode(array('status' => 100, 'message' => 'Email syntax is not correct' )));
+        
     if((strlen($_POST['pass'])<10)) 
         die(json_encode(array('status' => 0, 'message' => 'Pass must have more than 10 characters')));
     /**
