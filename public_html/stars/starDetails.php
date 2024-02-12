@@ -69,15 +69,16 @@
             <h2> Ricordi</h2>
             <table class="table" id="reviews_list"></table>
         </section>
-        <?php include_once dirname(__FILE__) . "/../_modules/footer.html";?>
+        <?php include_once  dirname(__FILE__) . "/../_modules/footer.html";?>
+        <?php include_once  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
-    <script>
+ <script>
         async function subToStar() {
             let subscribeForm = document.getElementById('subscribe');
             let response = await fetch('../_api/sub_api/insertSub.php', { method: 'POST', body : new FormData(subscribeForm) });
             let result = await response.json();
             if(result.status == 200) location.reload();
-            else alert("Errore nella sottoscrizione")
+            else  DisplayModal(0, result.message);
         }
 
         async function addMemory() {
@@ -90,7 +91,7 @@
                                                                                   "<td>" + document.getElementById('note').value + "</td>" +
                                                                                   "<td>" + new Date().toISOString().slice(0, 10).toString() + "</td></tr>";
                 document.getElementById("add_review").remove();
-            } else {alert("Errore nell'inserimento del ricordo")};
+            } else  DisplayModal(0, result.message);
         }
 
         function returnButton() {
