@@ -24,7 +24,8 @@
     <head>
         <title>Il Mio Profilo</title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/details.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/details.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/details.css">
     </head>
     <body>
         <!-- navbar -->
@@ -105,8 +106,7 @@
                                 element.price + "</td><td>" + 
                                 element.startDate + "</td><td>" +
                                 element.life + " Mesi </td><td>" +
-                                "<input id=\"unsubscribe\" type=\"button\" value=\"Disiscriviti\" onclick=\"unsubToStar(\'" + 
-                                element.starID + "\');\"></td></tr>";
+                                "<button class=\"button\" onclick=\"unsubToStar(\'" + element.starID + "\');\">Disiscriviti</button></td></tr>"; 
             });
 
             document.getElementById("subs_table").innerHTML = outString;

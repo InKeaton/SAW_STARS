@@ -6,7 +6,8 @@
     <head>
         <Title>Terima Sessione</Title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/form.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/form.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/form.css">
     </head>
 
     <body>

@@ -2,8 +2,8 @@
 <html lang="it">
     <head>
         <title>Registrati</title>
-        <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/form.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/form.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/form.css">
     </head>
     <body>
         <?php session_start() ?>

@@ -7,8 +7,8 @@
 <html lang="it">
     <head>
         <title> Home </title>
-        <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/adDetails.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/adDetails.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/adDetails.css">
     </head>
     <body> 
         <!-- navbar -->

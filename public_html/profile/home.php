@@ -9,7 +9,8 @@
     <head>
         <title> Home </title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/details.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/details.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/details.css">
     </head>
     <body> 
         <!-- navbar -->

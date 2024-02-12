@@ -8,7 +8,8 @@
     <head>
         <title>Lista delle Stelle </title>
         <!-- CSS stylesheet -->
-        <link rel="stylesheet" href="../_resources/style/search.css">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="../_resources/style/landscape/search.css">
+        <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/search.css">
     </head>
 
     <body>

@@ -1,10 +1,11 @@
 @font-face { 
     font-family: "Latina Essential"; 
-    src: url("LatinaEssential-Medium.ttf"); 
+    src: url("../LatinaEssential-Medium.ttf"); 
 }
 
 * {
     font-family: "Latina Essential";
+    font-size: 1.4em;
     /*max-width: 960px;*/
 
     --main-bg: #0d133e;
@@ -19,7 +20,8 @@
 body {
     background: var(--dark-fg);
     /* To avoid navbar overlapping*/
-    padding-top: 70px;
+    padding-top: 20%;
+    padding-bottom: 20%;
     margin: 0px;
 
     margin: auto;
@@ -37,6 +39,11 @@ body {
 /********************************************************/
 
 .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+
     background-color: var(--main-bg);
     padding: 5px 0px;
     border-radius: 0px 0px 20px 20px;
@@ -44,21 +51,19 @@ body {
     position: fixed;
     top: 0px;
     width: 100%;
-    z-index: 2;
+
+    font-size: 1.2em;
 }
 
 .navbar_right,
 .navbar_left {
-    float: left;
-    border-radius: 15px;
+    border-radius: 25px;
     margin: 0px 5px;
     padding: 5px;
     background-color: var(--second-bg);
 }
 
-.navbar_right {
-    float: right;
-}
+
 
 /********************************************************/
 
@@ -67,10 +72,9 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    font-size: 0.7em;
+    font-size: 2em;
     border-radius: 15px 15px 0px 0px;
     background-color: var(--main-bg);
     color: var(--light-fg);
     text-align: center;
-    z-index: 2;
-  }
+}
