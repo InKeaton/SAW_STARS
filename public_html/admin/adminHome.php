@@ -26,7 +26,8 @@
             <button class="grid2" onclick="location.href='constellation/adminConstellation.php';">Costellazioni</button>
             <button class="grid2" onclick="location.href='review/adminReview.php';">Ricordi</button>
         </section>
-
+        <link rel="stylesheet" href="../_resources/style/landscape/adDetails.css" media="screen and (orientation: landscape)">
+        <link rel="stylesheet" href="../_resources/style/portrait/adDetails.css" media="screen and (orientation: portrait)">
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
     </body>
