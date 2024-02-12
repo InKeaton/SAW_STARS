@@ -28,10 +28,12 @@
 }
 
 .bento {
-  background: linear-gradient(to right,  #09203f 0%, var(--main-bg) 100%);
+  background: linear-gradient(to right, 
+                                #09203f 0%, 
+                                var(--main-bg) 100%);
   color: var(--light-fg);
 
-  max-width: 60%;
+  width: 90%;
   padding: 2%;
   border-radius: 25px;
   
@@ -39,9 +41,9 @@
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(3em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(50vw, 1fr));
 }
+
 
 .comment {
   border: none;

@@ -33,7 +33,8 @@ class CRUDTable {
                                         "</div>"+
                                     "</div>";
 
-        document.head.innerHTML = "<link href= '../CRUD.css' rel = 'stylesheet'>";
+        document.head.innerHTML = "<title>Gestione Database</title>" +
+                                  "<link href= '../CRUD.css' rel = 'stylesheet'>";
         document.body.appendChild(mainDiv);
         document.getElementById("modButton").addEventListener("click", CRUDTable.ModButton);    
         document.getElementById("insertButton").onclick = function() { CRUDTable.ButtonInsert(callClass); };
