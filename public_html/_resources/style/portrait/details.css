@@ -110,6 +110,6 @@ input[type=number] {
     border-radius: 25px;
     padding: 20px;
     text-align: center;
-    
+    word-break: break-word;
 }
 
