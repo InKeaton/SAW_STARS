@@ -50,7 +50,7 @@
     <script>
         async function Update() {
             const form = document.getElementById('update');
-            let response = await fetch('../_api/user_api/updatePwd.php', { method: 'POST', body : new FormData(form)});
+            let response = await fetch('../_api/user_api/updateUser.php', { method: 'POST', body : new FormData(form)});
             result = await response.json();
             console.log(result);
             if(result.status == 200){
