@@ -33,6 +33,7 @@
         </main>
         <!-- footer -->
         <?php include  dirname(__FILE__) . "/../_modules/footer.html"; ?>
+        <?php include  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
 <!------------------------------------------------------------------------------------------------------------>
     <script>
@@ -42,8 +43,7 @@
             result = await response.json();
             if(result.status == 200) 
                 location.replace("../profile/home.php"); 
-            else 
-                alert(result.message);
+            else DisplayModal(0, result.message);
         }
     </script>
 </html>
