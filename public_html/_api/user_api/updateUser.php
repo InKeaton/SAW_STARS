@@ -7,6 +7,10 @@
     isLog();
     isMethod('POST');
     postEmptyField('email', 'firstname', 'lastname');
+
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+        die(json_encode(array('status' => 100, 'message' => 'Email syntax is not correct' )));
+    
     $_POST['userID'] = $_SESSION['uuid'];
     /**
      * Parte di fetch dei dati e di comunicazione con il database
