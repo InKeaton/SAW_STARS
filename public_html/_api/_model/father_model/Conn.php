@@ -1,5 +1,4 @@
 <?php
-    include_once dirname(__FILE__). '/../../_utils/header.php';
 	class Conn {
 		private $conn;
 		function __construct() {

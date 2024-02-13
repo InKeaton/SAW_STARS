@@ -12,6 +12,6 @@
     $sub = new Sub();
     $sub->subID =  $_POST['subID'];
     if(!$sub->Delete())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Add User To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to remove subscription from database')));
+    echo json_encode(array('status' => 200, 'message' => 'Subscription '. $_POST['subID'] .' correctly removed from database'));
 ?>

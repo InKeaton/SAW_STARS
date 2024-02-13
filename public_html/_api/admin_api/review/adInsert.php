@@ -16,6 +16,6 @@
     $rev->revDate   =   $_POST['revDate'];
 
     if(!$rev->Insert())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Add Const To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to add memory to database!')));
+    echo json_encode(array('status' => 200, 'message' => 'Memory correctly added to database'));
 ?>

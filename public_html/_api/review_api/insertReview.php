@@ -18,6 +18,6 @@
     $rev->vote = $_POST["vote"];
     $rev->note = $_POST["note"]; 
     if(!$rev->Insert())
-        die(json_encode(array('status' => 500, 'message' => 'Failed To Add Memory To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Errore nell\'inserimento del ricordo')));
+    echo json_encode(array('status' => 200, 'message' => 'Ricordo inserito con successo'));
 ?>

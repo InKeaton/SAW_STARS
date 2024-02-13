@@ -12,6 +12,6 @@
     $rev->reviewID = $_POST['reviewID'];
 
     if(!$rev->Delete())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Add Const To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+      die(json_encode(array('status' => 500, 'message' => 'Failed to remove memory from database')));
+    echo json_encode(array('status' => 200, 'message' => 'Memory '. $_POST['reviewID'] .' correctly removed from database'));
 ?>

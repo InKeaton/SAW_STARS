@@ -22,14 +22,14 @@
     $user->email = $_POST['email'];
     $result = $user->SelectEmail();
     if(count($result)===0) 
-      die(json_encode(array('status' => 404, 'message' => 'User not find in db')));
+      die(json_encode(array('status' => 404, 'message' => 'Email o password incorretta, riprovare')));
   
     if(!password_verify($_POST['pass'], $result[0]->pwd)) 
-        die(json_encode(array('status' => 404, 'message' => 'Password must be the same')));
+        die(json_encode(array('status' => 404, 'message' => 'Email o password incorretta, riprovare')));
 
     session_start();
     $_SESSION['uuid'] = $result[0]->userID;
     $_SESSION['role'] = $result[0]->role;
     $_SESSION['email'] = $result[0]->email;
-    echo json_encode(array('status'=>200, 'message' => $result[0]->userID));
+    echo json_encode(array('status'=>200, 'message' =>'Login avvenuto con successo. Bentornato!'));
 ?>

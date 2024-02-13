@@ -21,7 +21,6 @@
     $sub->life        =   (empty($_POST["life"]))         ?   $result[0]->life       : $_POST["life"];
   
     if(!($sub->Update())) 
-      die(json_encode(array('status' => 0, 'message' => 'Failed to Update Star!')));
- 
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to update subscription')));
+    echo json_encode(array('status' => 200, 'message' => 'Subscription '. $_POST['subID'] .' correctly updated'));
 ?>

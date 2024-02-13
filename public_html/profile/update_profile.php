@@ -52,7 +52,6 @@
             const form = document.getElementById('update');
             let response = await fetch('../_api/user_api/updateUser.php', { method: 'POST', body : new FormData(form)});
             result = await response.json();
-            console.log(result);
             if(result.status == 200){
                 location.replace("show_profile.php");
             }  

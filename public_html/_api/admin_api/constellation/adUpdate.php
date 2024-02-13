@@ -12,6 +12,6 @@
     $cons->description =  (empty($_POST['description'])) ?   $result[0]->description : $_POST['description'];
     $cons->consImg     =  (empty($_POST['consImg']))     ?   $result[0]->consImg     : $_POST['consImg'];
     if(!$cons->Update()) 
-        die(json_encode(array('status' => 500, 'message' => 'Failed To Add Const To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to update constellation')));
+    echo json_encode(array('status' => 200, 'message' => 'Constellation '. $_POST['consID'] .' correctly updated'));
 ?>

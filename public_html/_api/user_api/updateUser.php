@@ -20,8 +20,13 @@
     
     $user->userID = $_POST["userID"];
     $result = $user->Select();
+    
     if(!isset($result))
-        die(json_encode(array('status' => 0, 'message' => 'User Not Found!')));
+        die(json_encode(array('status' => 0, 'message' => 'Utente non trovato nel database')));
+
+    $user->email = $_POST["email"];
+    if($user->SelectEmail() && $result[0]->email != $user->email)
+        die(json_encode(array('status' => 500, 'message' => 'L\'email è già registrata, utilizzarne una diversa')));
     
     $user->role         = (empty($_POST["role"]))?       $result[0]->role       : $_POST["role"];
     $user->email        = (empty($_POST["email"]))?      $result[0]->email      : $_POST["email"];
@@ -32,6 +37,6 @@
     $user->createDate   = (empty($_POST["createDate"]))? $result[0]->createDate : $_POST["createDate"];
 
     if(!($user->Update())) 
-        die(json_encode(array('status' => 0, 'message' => 'Failed to Update User!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 0, 'message' => 'Errore nell\'aggiornamento dei dati dell\'utente')));
+    echo json_encode(array('status' => 200, 'message' => 'Aggiornamento del profilo avvenuto con successo'));
 ?>

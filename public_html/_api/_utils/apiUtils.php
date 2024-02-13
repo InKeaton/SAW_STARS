@@ -9,7 +9,7 @@
      */
     function isMethod($method) {
         if($_SERVER['REQUEST_METHOD'] !== 'POST') 
-            die(json_encode(array('status' => 300, 'message' => 'Un Correct Method')));
+            die(json_encode(array('status' => 300, 'message' => 'The method used is not the one expected')));
     }
 
     /**
@@ -19,7 +19,7 @@
     function postEmptyField(...$fields) {
         foreach ($fields as $f) {
             if(empty($_POST[$f]))
-                die(json_encode(array('status' => 100, 'message' => 'Insert value in all the field')));  
+                die(json_encode(array('status' => 100, 'message' => 'Missing values in fields')));  
         }
     }
 
@@ -28,7 +28,7 @@
      */
     function isLog() {
         if(!isset($_SESSION["uuid"])) 
-            die(json_encode(array('status'=>100, 'message'=>'You don"t have a sessione here')));
+            die(json_encode(array('status'=>100, 'message'=>'Only authenticated users can access')));
     }
 
     /**
@@ -36,6 +36,6 @@
      */
     function isAdmin() {
         if(!isset($_SESSION['uuid']) or $_SESSION['role']!==1)
-            die(json_encode(array('status'=>100, 'message'=>$_SESSION['role'])));
+            die(json_encode(array('status'=>100, 'message'=>'Only admin users can access')));
     }
 ?>

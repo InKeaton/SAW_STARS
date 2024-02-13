@@ -53,7 +53,6 @@
                                                 <input type='number' id='life' name='life' min='1' max='12'>
                                             </label>
                                                 <input type='hidden' id='starFK' name='starFK' value=". $_GET["starID"].">
-                                                <input type='hidden' id='userFK' name='userFK' value=". $_SESSION["uuid"]."><br>
                                                 <input class='button' type='submit' name='submit' value='Abbonati!'>
                                             </form>
                                         </section>";

@@ -138,7 +138,7 @@ button:hover, input[type=submit]:hover{
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 24rem;
+    width: 30vw;
     border-radius: 0.5rem;
 }
 

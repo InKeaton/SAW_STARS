@@ -13,7 +13,7 @@
     
     $result = $rev->Select();
     if(count($result) === 0)
-      die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
+        die(json_encode(array('status' => 0, 'message' => 'Star Not Found!')));
 
     $rev->starFK     =   (empty($_POST["starFK"]))     ?   $result[0]->starFK  : $_POST["starFK"];
     $rev->userFK     =   (empty($_POST["userFK"]))     ?   $result[0]->userFK  : $_POST["userFK"];
@@ -22,7 +22,6 @@
     $rev->revDate    =   (empty($_POST["revDate "]))   ?   $result[0]->revDate : $_POST["revDate"];
   
     if(!($rev->Update())) 
-      die(json_encode(array('status' => 0, 'message' => 'Failed to Update Star!')));
- 
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to update memory')));
+    echo json_encode(array('status' => 200, 'message' => 'Memory '. $_POST['reviewID'] .' correctly updated'));
 ?>

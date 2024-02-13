@@ -21,7 +21,6 @@
     $star->price     =   (empty($_POST["price"]))    ?   $result[0]->price : $_POST["price"];
   
     if(!($star->Update())) 
-      die(json_encode(array('status' => 0, 'message' => 'Failed to Update Star!')));
- 
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to update star')));
+    echo json_encode(array('status' => 200, 'message' => 'Star '. $_POST['consID'] .' correctly updated'));
 ?>

@@ -15,6 +15,6 @@
     $sub->userFK = $_SESSION['uuid'];
     
     if(!$sub->DeleteSubUserStar())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Delete SUB From Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+      die(json_encode(array('status' => 500, 'message' => 'Errore nella cancellazione dell\'abbonamento')));
+    echo json_encode(array('status' => 200, 'message' => 'Abbonamento cancellato con successo'));
 ?>

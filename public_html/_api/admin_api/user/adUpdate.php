@@ -29,6 +29,6 @@
     $user->createDate   =   (empty($_POST["createDate"]))   ? $result[0]->createDate :   $_POST["createDate"];
     
     if(!($user->Update())) 
-        die(json_encode(array('status' => 0, 'message' => 'Failed to Update User!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to update user')));
+    echo json_encode(array('status' => 200, 'message' => 'User '. $_POST['userID'] .' correctly updated'));
 ?> 

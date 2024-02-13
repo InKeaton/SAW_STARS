@@ -24,6 +24,6 @@
     $user->role     =   (isset($_POST["role"]))? 1: 0;
     
     if(!$user->Insert())
-        die(json_encode(array('status' => 500, 'message' => 'Failed To Add User To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'Success!!'));
+        die(json_encode(array('status' => 500, 'message' => 'Failed to add user to database!')));
+    echo json_encode(array('status' => 200, 'message' => 'User '. $_POST['email'] .' correctly added to database'));
 ?>

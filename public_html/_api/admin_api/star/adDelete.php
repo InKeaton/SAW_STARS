@@ -12,6 +12,6 @@
     $star->starID = $_POST['starID'];
 
     if(!$star->Delete())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Add Const To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+      die(json_encode(array('status' => 500, 'message' => 'Failed to remove star from database')));
+    echo json_encode(array('status' => 200, 'message' => 'Star '. $_POST['starID'] .' correctly removed from database'));
 ?>

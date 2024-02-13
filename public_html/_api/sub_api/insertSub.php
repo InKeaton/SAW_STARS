@@ -3,14 +3,15 @@
     /**
      * Parte di controllo dei dati in input
      */
+    session_start();
     isMethod('POST');
-    postEmptyField('userFK', 'starFK', 'life');
+    postEmptyField('starFK', 'life');
     /**
     * Parte di fetch dei dati e di invio al db
     */
     $sub = new Sub();
 
-    $sub->userFK = $_POST["userFK"];
+    $sub->userFK = $_SESSION["uuid"];
     $sub->starFK = $_POST["starFK"];
     $sub->life   = $_POST["life"];
     

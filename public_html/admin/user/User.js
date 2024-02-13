@@ -14,7 +14,6 @@ class User extends CRUDTable {
 
     SelectRow (id, element) {
         const data = new Date(element.createDate);
-        console.log("Valore di role: " + element.role);
         const role = (element.role == 1)? "checked" : "unchecked"; 
         return "<tr id = " +id+ "><td>"+
                "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" +

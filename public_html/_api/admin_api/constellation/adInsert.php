@@ -15,6 +15,6 @@
     $cons->description = $_POST['description'];
     $cons->consImg     =  "cons.png";
     if(!$cons->Insert())
-      die(json_encode(array('status' => 500, 'message' => 'Failed To Add Const To Database!')));
-    echo json_encode(array('status' => 200, 'message' => 'success'));
+      die(json_encode(array('status' => 500, 'message' => 'Failed to add constellation to database!')));
+    echo json_encode(array('status' => 200, 'message' => 'Constellation '. $_POST['consName'] .' correctly added to database'));
 ?>

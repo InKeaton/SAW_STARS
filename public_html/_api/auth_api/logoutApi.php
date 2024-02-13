@@ -5,7 +5,7 @@
      */
     session_start();
     if(!isset($_SESSION["uuid"])) 
-        echo json_encode(array('status'=>100, 'message'=>'You don"t have a sessione here'));
+        echo json_encode(array('status'=>100, 'message'=>'You need to be logged to logout'));
     session_destroy();
-    echo json_encode(array('status'=>200, 'message'=>'Success operation'));
+    echo json_encode(array('status'=>200, 'message'=>'Logout avvenuto con successo. Arrivederci!'));
 ?>
