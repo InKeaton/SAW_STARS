@@ -33,7 +33,6 @@
     $user->pwd          = $result[0]->pwd;
     $user->firstName    = (empty($_POST["firstname"]))?  $result[0]->firstName  : htmlspecialchars($_POST["firstname"]);
     $user->lastName     = (empty($_POST["lastname"]))?   $result[0]->lastName   : htmlspecialchars($_POST["lastname"]);
-    $user->img          = $result[0]->img;
     $user->createDate   = $result[0]->createDate;
 
     if(!($user->Update())) 
