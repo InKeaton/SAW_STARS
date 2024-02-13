@@ -35,8 +35,7 @@ CREATE TABLE `CONSTELLATION` (
   `consName` varchar(36) NOT NULL,
   `startDate` date NOT NULL DEFAULT current_timestamp(),
   `endDate` date NOT NULL DEFAULT current_timestamp() CHECK (`endDate` >= `startDate`),
-  `description` varchar(1000) NOT NULL,
-  `consImg` varchar(30) NOT NULL
+  `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -112,8 +111,7 @@ CREATE TABLE `USER` (
   `email` varchar(50) NOT NULL,
   `pwd` varchar(60) NOT NULL,
   `firstName` varchar(50) NOT NULL,
-  `lastName` varchar(50) NOT NULL,
-  `img` varchar(150) NOT NULL DEFAULT 'userImg.png',
+  `lastName` varchar(50) NOT NULL
   `createDate` datetime NOT NULL DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
