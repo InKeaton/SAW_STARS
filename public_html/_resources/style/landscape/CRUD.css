@@ -4,6 +4,17 @@
     --light-fg: #f1d2d2;
 }
 
+td {
+    border: 2px solid white;
+    overflow: hidden;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+        
+table {
+    overflow-y: scroll;
+}
+
 button{
     border-radius: 25px;
     border: none;
@@ -47,8 +58,9 @@ button:hover  , input[type=submit]:hover{
 
 .crud {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
+    overflow: auto;
+    grid-template-columns: 80vw;
+    grid-template-rows: 10vh 60vh;
 }
 /***MODAL***/
 
