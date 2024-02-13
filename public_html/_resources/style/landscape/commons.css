@@ -34,6 +34,7 @@ body {
     color: var(--light-fg);
 }
 
+
 /********************************************************/
 
 .navbar {
@@ -51,6 +52,7 @@ body {
 .navbar_left {
     float: left;
     border-radius: 15px;
+    border: none;
     margin: 0px 5px;
     padding: 5px;
     background-color: var(--second-bg);

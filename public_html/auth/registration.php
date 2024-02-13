@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+    if(isset($_SESSION['uuid']))
+        header("Location: ../profile/home.php");
+?>
+
 <html lang="it">
     <head>
         <title>Registrati</title>
@@ -6,7 +13,6 @@
         <link rel="stylesheet" media="screen and (orientation: portrait)"  href="../_resources/style/portrait/form.css">
     </head>
     <body>
-        <?php session_start() ?>
         <!-- navbar -->
         <?php include dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 

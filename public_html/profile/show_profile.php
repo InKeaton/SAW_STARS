@@ -39,7 +39,7 @@
             <article class="grid5">Nome:<br>             <?php echo $profile->firstName ?></article>
             <article class="grid5">Cognome:<br>          <?php echo $profile->lastName ?></article>
             <article class="grid3">Email:<br>            <?php echo $profile->email ?></article>
-            <article class="grid3">Data Iscrizione:<br>  <?php echo $profile->createDate ?></article>
+            <article class="grid3">Data Iscrizione:<br>  <?php echo date("Y-m-d", strtotime($profile->createDate)); ?></article>
             <article class="grid2">N° Sottoscrizioni:<br><output id="numSub"></output></article>
             <article class="grid2">Ricordi Condivisi:<br><?php echo $rev->SelectCountUser()[0]->revCount; ?></article>
         </section>
