@@ -37,16 +37,16 @@ class Star extends CRUDTable {
     SelectRow (id, element) {
         return  "<tr id = " +id+ "><td>" +
                 "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-                "<label> Nome Stella: <input type='text' name='starName' value = '" + element.starName + "'></label> " +
-                "<label> Distanza anni luce: <input type='numeric' name='dLY' value = '" + element.dLY + "'></label> " +
-                "<label> Prezzo: <input type='numeric' name='price' value = '" + element.price +"'></label>" + 
+                "<label> Starname: <input type='text' name='starName' value = '" + element.starName + "'></label> " +
+                "<label> Distance light year: <input type='numeric' name='dLY' value = '" + element.dLY + "'></label> " +
+                "<label> Price: <input type='numeric' name='price' value = '" + element.price +"'></label>" + 
                 "<input type='hidden' value='"+element.starID+"' name='starID'> " +
                 "<label> Costellazione: <select name = 'consFK' value = "+ element.consFK +">" + Star.SelectValue(element.consFK) + "</select></label>" +  
-                "<input type='submit' value='modifica'>"+
+                "<label> <input type='submit' value='submit me'></label>"+
                 "</form></td>"+ 
                 "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
                 "<input type='hidden' name='starID' value='"+element.starID+"'>"+  
-                "<input type='submit' value='cancella'>" +
+                "<label> <input type='submit' value='delete star'></label>" +
                 "</form></td></tr>";
     }
 
@@ -59,10 +59,10 @@ class Star extends CRUDTable {
                         "<label>Distance light year: <input type='numeric' name='dLY' value = ''></label> " +
                         "<label>Price: <input type='numeric' name='price' value = ''></label> " + 
                         "<label>Costellazione: <select name = 'consFK' value = ''>" + Star.StringSelect() + "</select></label> " +  
-                        "<input type='submit' value='inserisci'>"+
+                        "<label><input type='submit' value='Insert'></label> "+
                         "</form></td>"+
                         "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"Back"+id+"'>" +
-                        "<input type='submit' value='cancella'>" +
+                        "<label><input type='submit' value='delete star'></label> " +
                         "</form></td></tr>";
     }
 }

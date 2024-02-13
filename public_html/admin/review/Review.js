@@ -35,17 +35,17 @@ class Review extends CRUDTable {
         const data = new Date(element.revDate);
         return  "<tr id = " +id+ "><td>" +
                 "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-                "<label> Nome Stella: <select name = 'starName' value = "+ element.starFK +">" + Review.SelectValue(Review.starMenu, element.starFK) + "</select></label>" +  
+                "<label> Star Name: <select name = 'starName' value = "+ element.starFK +">" + Review.SelectValue(Review.starMenu, element.starFK) + "</select></label>" +  
                 "<label> Email: <select name = 'email' value = "+ element.userFK +">" + Review.SelectValue(Review.userMenu, element.userFK) + "</select></label> " +  
-                "<label> Data Review: <input type='date' name='revDate' value = "+data.toISOString().substring(0, 10)+"></label> " + 
-                "<label> Voto: <input type='numeric' name='vote' value = '" + element.vote +"'></label> " + 
-                "<label> Nota: <input type='text' name='note' value = '" + element.note +"'></label> " + 
+                "<label> Rev Date: <input type='date' name='revDate' value = "+data.toISOString().substring(0, 10)+"></label> " + 
+                "<label> Vote: <input type='numeric' name='vote' value = '" + element.vote +"'></label> " + 
+                "<label> Note: <input type='text' name='note' value = '" + element.note +"'></label> " + 
                 "<input type='hidden' value='"+element.reviewID+"' name='reviewID'> " +
-                "<input type='submit' value='modifica'> "+
+                "<label> <input type='submit' value='submit me'></label> "+
                 "</form></td>"+ 
                 "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
                 "<input type='hidden' name='reviewID' value='"+element.reviewID+"'>"+  
-                "<input type='submit' value='cancella'>" +
+                "<label> <input type='submit' value='delete'> </label> " +
                 "</form></td></tr>";
     }
 
@@ -54,15 +54,15 @@ class Review extends CRUDTable {
         row.id = id;
         row.innerHTML = "<tr id="+id+"><td>" +
                         "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
-                        "<label> Nome Stella: <select name = 'starFK'>" + Review.StringSelect(Review.starMenu) + "</select></label> " +  
+                        "<label> Star Name: <select name = 'starFK'>" + Review.StringSelect(Review.starMenu) + "</select></label> " +  
                         "<label> Email: <select name = 'userFK' >" + Review.StringSelect(Review.userMenu) + "</select></label> " +  
-                        "<label> Data Review: <input type='date' name='revDate'></label>" + 
-                        "<label> Voto: <input type='numeric' name='vote'></label>" + 
-                        "<label> Nota: <input type='text' name='note'></label>" + 
-                        "<input type='submit' value='inserisci'>"+
+                        "<label> Rev Date: <input type='date' name='revDate'></label>" + 
+                        "<label> Vote: <input type='numeric' name='vote'></label>" + 
+                        "<label> Note: <input type='text' name='note'></label>" + 
+                        "<label> <input type='submit' value='Insert'></label>"+
                         "</form></td>"+
                         "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"Back"+id+"'>" +
-                        "<input type='submit' value='cancella'>" +
+                        "<label><input type='submit' value='delete review'></label>" +
                         "</form></td></tr>";
     }
 }

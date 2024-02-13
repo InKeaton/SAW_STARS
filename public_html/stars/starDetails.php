@@ -8,8 +8,12 @@
     include_once dirname(__FILE__) . '/../_api/_model/Sub.php'; 
     // Get star and its constellation data
     $star = new Star();
-    $star->starID =  $_GET['starID'] ;
-    $starResult = $star->SelectStarCons()[0];
+    $star->starID =  $_GET['starID'];
+    
+    // if it is given a wrong id
+    if(count($starResult = $star->SelectStarCons()) == 0) header('Location: starList.php');
+    
+    $starResult = $starResult[0];
     
     $sub = new Sub();
     $sub->starFK =  $_GET['starID'] ;

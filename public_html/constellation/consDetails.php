@@ -5,7 +5,12 @@
     
     $cons = new Constellation();
     $cons->consID = $_GET['consID'];
-    $consResult =  $cons->SelectConsCountStar()[0]; 
+    $consResult =  $cons->SelectConsCountStar(); 
+
+    // if it is given a wrong id
+    if(count($consResult = $cons->SelectConsCountStar()) == 0) header('Location: consList.php');
+    
+    $consResult = $consResult[0];
 
     $stars = new Star();
     $stars->consFK = $_GET['consID'];

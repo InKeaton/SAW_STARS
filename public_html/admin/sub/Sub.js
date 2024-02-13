@@ -35,16 +35,16 @@ class Sub extends CRUDTable {
         const data = new Date(element.startDate);
         return  "<tr id = " +id+ "><td>" +
                 "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-                "<label> Nome Stella: <select name = 'starFK' value = "+ element.starFK +">" + Sub.SelectValue(Sub.starMenu, element.starFK) + "</select></label>" +  
+                "<label> Star Name: <select name = 'starFK' value = "+ element.starFK +">" + Sub.SelectValue(Sub.starMenu, element.starFK) + "</select></label>" +  
                 "<label> Email: <select name = 'userFK' value = "+ element.userFK +">" + Sub.SelectValue(Sub.userMenu, element.userFK) + "</select></label>" +  
-                "<label> Data Inizio Sub: <input type='date' name='startDate' value = "+data.toISOString().substring(0, 10)+"></label>" + 
-                "<label> Durata: <input type='numeric' name='life' value = '" + element.life +"'></label>" + 
+                "<label> Start Date: <input type='date' name='startDate' value = "+data.toISOString().substring(0, 10)+"></label>" + 
+                "<label> Life: <input type='numeric' name='life' value = '" + element.life +"'></label>" + 
                 "<input type='hidden' value='"+element.subID+"' name='subID'> " +
-                "<input type='submit' value='modifica'>"+
+                "<label> <input type='submit' value='submit me'></label>"+
                 "</form></td>"+ 
                 "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
                 "<input type='hidden' name='subID' value='"+element.subID+"'>"+  
-                "<input type='submit' value='cancella'>" +
+                "<label> <input type='submit' value='delete sub'></label>" +
                 "</form></td></tr>";
     }
 
@@ -53,14 +53,14 @@ class Sub extends CRUDTable {
         row.id = id;
         row.innerHTML = "<tr id="+id+"><td>" +
                         "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
-                        "<label>Nome Stella: <select name = 'starFK'>" + Sub.StringSelect(Sub.starMenu) + "</select></label>" +  
+                        "<label>Star Name: <select name = 'starFK'>" + Sub.StringSelect(Sub.starMenu) + "</select></label>" +  
                         "<label>Email: <select name = 'userFK'>" + Sub.StringSelect(Sub.userMenu) + "</select></label>" +  
-                        "<label>Data Inizio Sub: <input type='date' name='startDate'></label>" + 
-                        "<label>Durata: <input type='numeric' name='life' ></label>" + 
-                        "<input type='submit' value='inserisci'></label>"+
+                        "<label>Start Date: <input type='date' name='startDate'></label>" + 
+                        "<label>Life: <input type='numeric' name='life' ></label>" + 
+                        "<label><input type='submit' value='Insert'></label>"+
                         "</form></td>"+
                         "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"Back"+id+"'>" +
-                        "<input type='submit' value='cancella'>" +
+                        "<label><input type='submit' value='delete sub'></label>" +
                         "</form></td></tr>";
     }
 }

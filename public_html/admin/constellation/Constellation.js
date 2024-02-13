@@ -17,16 +17,16 @@ class Constellation extends CRUDTable {
 
         return "<tr id = " +id+ "><td>" +
             "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-            "<label> Nome Costellazione: <input type='text' name='consName' value = '" + element.consName + "'></label> " +
-            "<label> Data Inizio: <input type='date' name='startDate' value = '" + startDate.toISOString().substring(0, 10)+ "'> </label> " +
-            "<label> Data Fine: <input type='date' name='endDate' value = '" + endDate.toISOString().substring(0, 10) +"'></label>" + 
-            "<label> Descrizione: <input type='text' name='description' value = '" + element.description +"'></label>" +
+            "<label> Cons Name: <input type='text' name='consName' value = '" + element.consName + "'></label> " +
+            "<label> Start Date: <input type='date' name='startDate' value = '" + startDate.toISOString().substring(0, 10)+ "'> </label> " +
+            "<label> End Date: <input type='date' name='endDate' value = '" + endDate.toISOString().substring(0, 10) +"'></label>" + 
+            "<label> Description: <input type='text' name='description' value = '" + element.description +"'></label>" +
             "<input type='hidden' value='"+element.consID+"' name='consID'>" +
-            "<input type='submit' value='modfica'>"+
+            "<label> <input type='submit' value='submit me'> </label>"+
             "</form></td>"+ 
             "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
             "<input type='hidden' name='consID' value='"+element.consID+"'>"+  
-            "<input type='submit' value='cancella'>" +
+            "<label><input type='submit' value='delete constellation'></label>" +
             "</form></td></tr>";
     }
 
@@ -35,14 +35,14 @@ class Constellation extends CRUDTable {
         row.id = id;
         row.innerHTML = "<tr id="+id+"><td>" +
                 "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
-                "<label> Nome Costellazione: <input type='text' name='consName' value = ''> </label> " +
-                "<label> Data Inizio: <input type='date' name='startDate' value = ''> </label> " +
-                "<label> Data Fine: <input type='date' name='endDate' value = ''></label> " + 
-                "<label> Descrizione: <input type='text' name='description' value = ''></label> " +
-                "<input type='submit' value='inserisci'>"+
+                "<label> Cons Name: <input type='text' name='consName' value = ''> </label> " +
+                "<label> Start Date: <input type='date' name='startDate' value = ''> </label> " +
+                "<label> End Date: <input type='date' name='endDate' value = ''></label> " + 
+                "<label> Description: <input type='text' name='description' value = ''></label> " +
+                "<label> <input type='submit' value='submit me'><label> "+
                 "</form></td>"+
                 "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"Back"+id+"'>" +
-                "<input type='submit' value='cancella'>" +
+                "<label><input type='submit' value='delete constellation'></label>" +
                 "</form></td></tr>";
     }
     
