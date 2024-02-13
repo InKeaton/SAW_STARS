@@ -36,11 +36,11 @@
                 </label>
 
                 <label for="pass">Password<br>
-                    <input type="password" id="pass" name="pass">
+                    <input type="password" id="pass" name="pass" placeholder="Almeno 10 caratteri">
                 </label>
 
                 <label for="confirm">Conferma la Password<br>
-                    <input type="password" id="confirm" name="confirm">
+                    <input type="password" id="confirm" name="confirm" placeholder="Almeno 10 caratteri">
                 </label>
 
                 <input type="submit" value="Registrati">
