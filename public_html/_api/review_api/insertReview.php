@@ -7,7 +7,8 @@
     session_start();
     isMethod('POST');
     postEmptyField('note', 'vote', 'starFK');
-
+    if(strlen($_POST['note']) > 1000)
+        die(json_encode(array('status' => 500, 'message' => 'La recensione deve avere meno di 1000 caratteri')));
     include_once dirname(__FILE__) . '/../_model/Review.php';
     /**
      * Parte della richiesta al DB; fetch dei dati e interazione con il DB
