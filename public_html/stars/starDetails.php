@@ -123,7 +123,7 @@
                                                                     "<label for='vote'>Voto (tra 1 e 5):<br>" +
                                                                         "<input type='number' id='vote' name='vote' min='1' max='5'></label><br>" +
                                                                     "<label for='note'>Scrivi il tuo ricordo:<br>" +
-                                                                        "<textarea class= 'comment' id='note' name='note' rows='10' cols='80'></textarea></label>" +
+                                                                        "<textarea class= 'comment' id='note' maxlength='1000' name='note' rows='10' cols='80'></textarea></label>" +
                                                                     "<input type='submit' name='submit' value='Invia il tuo ricordo!'>" +
                                                                 "</form>" +
                                                                 "<button class='button' onclick='javascript:returnButton()'> Annulla</button>";

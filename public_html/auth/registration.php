@@ -18,23 +18,23 @@
             <form class="form" type="submit" id="insert" action="javascript:Insert()">
 
                 <label for="firstname">Nome<br>
-                    <input type="text" id="firstname" name="firstname" placeholder="Your name.." value= "">
+                    <input type="text" id="firstname" name="firstname" maxlength="50">
                 </label>
 
                 <label for="lastname">Cognome<br>
-                    <input type="text" id="lastname" name="lastname" placeholder="Your surname.." value="">
+                    <input type="text" id="lastname" name="lastname" maxlength="50">
                 </label>
 
                 <label for="email">Email<br>
-                    <input type="email" id="email" name="email" placeholder="Your email.." value="">
+                    <input type="email" id="email" name="email" maxlength="50">
                 </label>
 
                 <label for="pass">Password<br>
-                    <input type="password" id="pass" name="pass" placeholder="Password" value="">
+                    <input type="password" id="pass" name="pass">
                 </label>
 
                 <label for="confirm">Conferma la Password<br>
-                    <input type="password" id="confirm" name="confirm"  placeholder="Confirm password">
+                    <input type="password" id="confirm" name="confirm">
                 </label>
 
                 <input type="submit" value="Registrati">

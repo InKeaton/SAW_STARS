@@ -18,7 +18,7 @@
         <main class = "main_container">
             <form class = "form" action="javascript:Login()" id = "login" method="post">
                 <label>Email <br>
-                    <input type="email"    name="email"  required> <br>
+                    <input type="email"  maxlength="50" name="email"  required> <br>
                 </label>
 
                 <label>Password <br>
