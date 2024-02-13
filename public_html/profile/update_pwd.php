@@ -25,13 +25,13 @@
 
         <main class = "main_container">
             <form class = "form" action="javascript:Update()" id="update">
-                <label>Old Password: <br>
+                <label>Vecchia Password: <br>
                     <input type="password" id="oldPass" name="oldPass">
                 </label>
-                <label>New Password: <br>
+                <label>Nuova Password: <br>
                     <input type="password" id="pass" name="pass">
                 </label>
-                <label>Confirm<br>
+                <label>Conferma<br>
                     <input type="password" id="confirm" name="confirm">
                 </label>
                 <input type='submit' value="Aggiorna">

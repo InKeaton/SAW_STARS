@@ -45,7 +45,7 @@ class Review extends CRUDTable {
                 "</form></td>"+ 
                 "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
                 "<input type='hidden' name='reviewID' value='"+element.reviewID+"'>"+  
-                "<input type='submit' value='delete review'>" +
+                "<input type='submit' value='delete'>" +
                 "</form></td></tr>";
     }
 

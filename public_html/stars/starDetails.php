@@ -23,7 +23,7 @@
     $haveReview = count($reviews->SelectCountReview());
 
 ?>
-
+<!------------------------------------------------------------------------------------------------------------>
     <head>
         <title>Scheda di <?php echo $starResult->starName ?> </title>
         <!-- CSS stylesheet -->
@@ -41,13 +41,13 @@
             <article class="grid5">Costellazione:<br><a href = "../constellation/consDetails.php?consID=<?php echo $starResult->consFK;?>"><?php echo $starResult->consName;?></a></article>
             <article class="grid3">Distanza:<br><?php echo $starResult->dLY?> anni luce</article>
             <article class="grid3">N° Iscritti:<br><?php echo ($sub->SelectCountStarSub())[0]->countSub; ?></article>
-            <article class="grid2">N° Stelline Ricevute:<br><output id="sumStar"> </output></article>
+            <article class="grid2">N° Punti Ricevuti:<br><output id="sumStar"> </output></article>
             <article class="grid2">N° Ricordi Condivisi:<br><output id="revCount"> </output></article>
         </section>
     
         <?php if($isSub === 0) echo "   <section class='table_container' id='sub'>
                                             <h2> È questa la tua buona stella? </h2>
-                                            <p> Abbonati per sostenerla! </p><br>
+                                            <p> Abbonati per sostenerla <br>Costa solo ". $starResult->price ."€ al mese!</p><br>
                                             <form action='javascript:subToStar()' id = 'subscribe' method='post'>
                                             <label for='life'>Durata Abbonamento (in Mesi):
                                                 <input type='number' id='life' name='life' min='1' max='12'>
@@ -72,6 +72,7 @@
         <?php include_once  dirname(__FILE__) . "/../_modules/footer.html";?>
         <?php include_once  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
+<!------------------------------------------------------------------------------------------------------------>
  <script>
         async function subToStar() {
             let subscribeForm = document.getElementById('subscribe');
@@ -116,10 +117,12 @@
         
         function displayReviewBox() {
             document.getElementById("add_review").innerHTML =   "<form action= 'javascript:addMemory()' id = 'review' method='post'>" +
+                                                                    "<h2>Scrivi!</h2>" +
                                                                     "<input type='hidden' id='starFK' name='starFK' value='<?php echo $_GET["starID"];?>'>" +
-                                                                    "<label for='vote'>Stelline (tra 1 e 5):</label>" +
-                                                                    "<input type='number' id='vote' name='vote' min='1' max='5'><br>" +
-                                                                    "<textarea class= 'comment' id='note' name='note' rows='10' cols='80'></textarea><br>" +
+                                                                    "<label for='vote'>Voto (tra 1 e 5):<br>" +
+                                                                        "<input type='number' id='vote' name='vote' min='1' max='5'></label><br>" +
+                                                                    "<label for='note'>Scrivi il tuo ricordo:<br>" +
+                                                                        "<textarea class= 'comment' id='note' name='note' rows='10' cols='80'></textarea></label>" +
                                                                     "<input type='submit' name='submit' value='Invia il tuo ricordo!'>" +
                                                                 "</form>" +
                                                                 "<button class='button' onclick='javascript:returnButton()'> Annulla</button>";

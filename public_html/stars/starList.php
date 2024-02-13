@@ -56,7 +56,7 @@
             while(index<list.length && (list[index])) {
                 outString += "<div class='grid1'>" +
                                "<div>" +
-                                    "<img src='../_resources/img/icons8-star-100.png'>" +
+                                    "<img src='../_resources/img/icons8-star-100.png' alt=\"Un icona minimale rappresentante una stella\">" +
                                 "</div>" +
                                 "<p>" +
                                     "<a href='starDetails.php?starID="+list[index].starID +"'>" + 

@@ -1,71 +1,28 @@
-@font-face { 
-    font-family: "Latina Essential"; 
-    src: url("../_resources/style/LatinaEssential-Medium.ttf"); 
-}
+@import "commons.css";
 
 * {
-    font-family: "Latina Essential";
-    --main-bg: #0d133e;
-    --second-bg: #EACD29;
     --light-fg: #f1d2d2;
-    --dark-fg: #161617;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
 }
 
-body {
-    background: var(--dark-fg);
-    padding-top: 70px;
-    margin: 0px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    justify-content: space-around;
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
 }
 
-/********************************************************/
-
-.navbar {
-    background-color: var(--main-bg);
-    padding: 5px 0px;
-    border-radius: 0px 0px 20px 20px;
-    /*Stick on top*/
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 2;
-}
-
-.navbar_right,
-.navbar_left {
-    float: left;
-    border-radius: 15px;
-    margin: 0px 5px;
-    padding: 5px;
-    background-color: var(--second-bg);
-}
-
-.navbar_right {
-    float: right;
-}
-
-/********************************************************/
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 0.7em;
-    border-radius: 15px 15px 0px 0px;
-    background-color: var(--main-bg);
+tr {
+    background: var(--main-bg);
+    border-radius: 5%;
     color: var(--light-fg);
+}
+  
+td {
     text-align: center;
-    z-index: 2;
-  }
+    padding: 3vw;
+    border: 1px solid var(--main-bg);
+    font-size: 0.5em;
+}
 
-button{
+button {
     border-radius: 25px;
     border: none;
     padding: 1% 3%;
@@ -73,6 +30,53 @@ button{
 
     background-color: var(--light-fg);
     color: var(--main-bg);
+}
+
+form {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    row-gap: 3vw;
+}
+
+option {
+    font-size: 1vw;
+}
+
+select,
+input[type=text], 
+input[type=email], 
+input[type=password],
+input[type=numeric],
+input[type=date] {
+    font-size: 0.7em;
+    width: 70%;
+    padding: 3% 4%;
+    background-color: var(--light-fg);
+    display: inline-block;
+    border: none;
+    border-radius: 15vw;
+    box-sizing: border-box;
+    margin: auto;
+  }
+
+input[type=text]:focus, 
+input[type=email]:focus, 
+input[type=password]:focus,
+input[type=numeric]:focus,
+input[type=date]:focus {
+    background-image: linear-gradient(to right, 
+                                    #09203f 0%, 
+                                    var(--main-bg) 100%);
+    color: var(--light-fg);
+    outline: none;
+}
+
+input[type=checkbox] {
+    color: var(--light-fg);
+    width: 7vw;
+    height: 7vw;
+    margin: auto;
 }
 
 input[type=submit] {
@@ -85,7 +89,7 @@ input[type=submit] {
     color: var(--main-bg);
 }
 
-button:hover  , input[type=submit]:hover{
+button:hover, input[type=submit]:hover{
   background-color: var(--main-bg);
   color: var(--light-fg);
 }
@@ -100,10 +104,10 @@ button:hover  , input[type=submit]:hover{
 
     margin: auto;
 
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-around;
 }
 
 .crud {

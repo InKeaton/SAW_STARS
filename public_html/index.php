@@ -59,7 +59,7 @@
         <section class="bento">
             <article class="grid10">
                 <h2>Ti abbiamo convinto?</h2>
-                <p>Unisciti a noi subito!</p>
+                <p>Unisciti subito a noi!</p>
                 <button class="button" onclick="location.href='auth/login.php';">Accedi</button>
             </article>
         </section>

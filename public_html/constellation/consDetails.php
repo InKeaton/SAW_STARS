@@ -33,8 +33,8 @@
             <article class="grid5">Descrizione:<br><?php echo $consResult->description;?></article>
             <article class="grid2">Visibile da:<br><?php echo $consResult->startDate;?><br>a:<br><?php echo $consResult->endDate;?></article>
             <article class="grid2">Stelle contenute:<br><?php echo $consResult->conStar;?></article>
-            <article class="grid3">Stelline totali ricevute:<br><?php echo $consResult->numVote;?></article>
-            <article class="grid3">Media Valutazioni:<br><?php echo $consResult->consAvg;?></article>
+            <article class="grid3">Punti totali ricevuti:<br><?php echo $consResult->numVote;?></article>
+            <article class="grid3">Media Valutazioni:<br><?php echo number_format((float)$consResult->consAvg, 1, '.', '');?></article>
             
         </section>
         <section class="table_container" id="stars_info">
