@@ -34,7 +34,6 @@
     $user->pwd          = password_hash($_POST['pass'], PASSWORD_DEFAULT);
     $user->firstName    = $result[0]->firstName;
     $user->lastName     = $result[0]->lastName;
-    $user->img          = $result[0]->img;
     $user->createDate   = $result[0]->createDate;
 
     if(!($user->Update())) 
