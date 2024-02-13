@@ -8,7 +8,6 @@
         public $startDate;
         public $endDate;
         public $description;
-        public $consImg;
 
         public function Select() {
             return $this->GetQuery('SELECT  * FROM CONSTELLATION WHERE consID = ?', array($this->consID));
@@ -26,13 +25,13 @@
         }
 
         public function Insert() {
-            return $this->ModelQuery('INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ?', 
-                                array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg) );
+            return $this->ModelQuery('INSERT INTO CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?', 
+                                array($this->consName, $this->startDate, $this->endDate, $this->description) );
         }
 
         public function Update() {  
-            return $this->ModelQuery('UPDATE CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?, consImg = ? WHERE consID = ?', 
-                                    array($this->consName, $this->startDate, $this->endDate, $this->description, $this->consImg, $this->consID));
+            return $this->ModelQuery('UPDATE CONSTELLATION SET consName = ?, startDate = ?, endDate = ?, description = ?  WHERE consID = ?', 
+                                    array($this->consName, $this->startDate, $this->endDate, $this->description,  $this->consID));
         }
 
         public function Delete() {
