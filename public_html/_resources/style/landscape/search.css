@@ -54,3 +54,19 @@ img {
     background-color: var(--light-fg);
     color: var(--main-bg);
 }
+
+.button {
+    border-radius: 25px;
+    border: none;
+    padding: 5% 5%;
+    margin-top: 3%;
+    margin: auto;
+
+    background-color: var(--main-bg);
+    color: var(--light-fg);
+}
+
+.button:hover {
+  background-color: var(--light-fg);
+  color: var(--main-bg);
+}

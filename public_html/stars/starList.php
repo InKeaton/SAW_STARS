@@ -59,7 +59,7 @@
                                     "<img src='../_resources/img/icons8-star-100.png' alt=\"Un icona minimale rappresentante una stella\">" +
                                 "</div>" +
                                 "<p>" +
-                                    "<button  onclick=\"location.href=\'starDetails.php?starID="+list[index].starID +"\'\";> " +list[index++].starName + 
+                                    "<button class=\"button\" onclick=\"location.href=\'starDetails.php?starID="+list[index].starID +"\'\";> " +list[index++].starName + 
                                     "</button>" +
                                 "</p>" +
                             "</div>";
