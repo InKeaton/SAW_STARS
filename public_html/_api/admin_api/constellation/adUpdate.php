@@ -10,7 +10,7 @@
     $cons->startDate   =  (empty($_POST['startDate']))   ?   $result[0]->startDate   : $_POST['startDate']; 
     $cons->endDate     =  (empty($_POST['endDate']))     ?   $result[0]->endDate     : $_POST['endDate'];
     $cons->description =  (empty($_POST['description'])) ?   $result[0]->description : htmlspecialchars($_POST['description']);
-    $cons->consImg     =  (empty($_POST['consImg']))     ?   $result[0]->consImg     : $_POST['consImg'];
+
     if(!$cons->Update()) 
         die(json_encode(array('status' => 500, 'message' => 'Failed to update constellation')));
     echo json_encode(array('status' => 200, 'message' => 'Constellation '. $_POST['consID'] .' correctly updated'));
