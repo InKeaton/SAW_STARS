@@ -6,5 +6,5 @@
     session_start();
     if(!isset($_SESSION['uuid']) or $_SESSION['role']!==1)
     // TO BE CHANGED FOR THE SERVER
-        header("Location: /~S496518/public_html/auth/login.php");
+        header("Location: /~S4965918/public_html/auth/login.php");
 ?>
