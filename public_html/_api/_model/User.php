@@ -8,7 +8,6 @@
         public $pwd;
         public $firstName;
         public $lastName;
-        public $img;
         public $createDate;
 
         public function Select() {
@@ -29,8 +28,8 @@
         }
 
         public function Update() {  
-            return $this->ModelQuery('UPDATE USER SET role = ?, email = ?, pwd = ?, firstName = ?, lastName = ?, img = ?, createDate = ? WHERE userID = ?', 
-                                    array($this->role, $this->email, $this->pwd, $this->firstName, $this->lastName, $this->img, $this->createDate, $this->userID));
+            return $this->ModelQuery('UPDATE USER SET role = ?, email = ?, pwd = ?, firstName = ?, lastName = ?, createDate = ? WHERE userID = ?', 
+                                    array($this->role, $this->email, $this->pwd, $this->firstName, $this->lastName, $this->createDate, $this->userID));
         }
 
         public function UpdateRole() {
