@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="it">
     <body>
         <!-- navbar -->
         <?php include  dirname(__FILE__) . "/../../_modules/adNavbar.php"; ?>
