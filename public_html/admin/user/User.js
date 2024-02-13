@@ -18,18 +18,19 @@ class User extends CRUDTable {
         const role = (element.role == 1)? "checked" : "unchecked"; 
         return "<tr id = " +id+ "><td>"+
                "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'></label>" +
+              
                "<label> Email: <input type='email' name='email' value = '" + element.email +"'></label>"+
                "<label> Pwd: <input type='password' name='pass' value= '" + element.pwd + "'></label>" +
-               "<label> Firstname: <input type='text' name='firstname' value = '"+element.firstName+"'></label>"+
-               "<label> Lastname: <input type='text' name='lastname' value = '"+element.lastName+"'></label>"+
-               "<label> Role: <input type='checkbox' name='role' value = '1' "+  role + "></label>"+
-               "<label> Create Date: <input type='date' name='createDate' value = '"+ data.toISOString().substring(0, 10) + "'></label>"+
+               "<label> Nome: <input type='text' name='firstname' value = '"+element.firstName+"'></label>"+
+               "<label> Cognome: <input type='text' name='lastname' value = '"+element.lastName+"'></label>"+
+               "<label> Admin <input type='checkbox' name='role' value = '1' "+  role + "></label>"+
+               "<label> Data Creazione: <input type='date' name='createDate' value = '"+ data.toISOString().substring(0, 10) + "'></label>"+
                "<input type='hidden' name='userID' value='"+element.userID+"'>"+
-               "<label> <input type='submit' value='update'></label>" +
+               "<input type='submit' value='modifica'>" +
                "</form></td>" +
                "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>"+
                "<input type='hidden' name='userID' value='"+element.userID+"'>"+
-               "<label> <input type='submit' value='delete'> </label>" +
+               "<input type='submit' value='cancella'>" +
                "</form></td></tr>";
     }
 
@@ -40,13 +41,13 @@ class User extends CRUDTable {
                         "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
                         "<label> Email: <input type='email' name='email' value = ''></label>"+
                         "<label> Pwd: <input type='password' name='pass' value= ''></label>" +
-                        "<label> Firstname: <input type='text' name='firstname' value = ''></label>"+
-                        "<label> Lastname: <input type='text' name='lastname' value = ''></label>"+
-                        "<label> Role: <input type='checkbox' name='role' value = '1' ></label>"+
-                        "<label> <input type='submit' value='update'></label>" +
+                        "<label> Nome: <input type='text' name='firstname' value = ''></label>"+
+                        "<label> Cognome: <input type='text' name='lastname' value = ''></label>"+
+                        "<label> Admin: <input type='checkbox' name='role' value = '1' ></label>"+
+                        "<input type='submit' value='inserisci'>" +
                         "</form></td>" +
                         "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"back"+id+"'>"+
-                        "<label> <input type='submit' value='delete'></label>" +
+                        "<input type='submit' value='cancella'>" +
                         "</form></td></tr>";
     }
     
