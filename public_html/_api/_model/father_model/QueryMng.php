@@ -14,7 +14,7 @@
                 $stmt->execute();
             }   
             catch(mysqli_sql_exception $e) {
-                die(json_encode(array('status' => 500, 'message' =>  $e->getMessage())));
+                die(json_encode(array('status' => 500, 'message' => "Problemi lato server, controlla di aver inserito bene i dati o riprova più tardi")));
             }
             return $stmt;
         }
@@ -22,7 +22,7 @@
         private function NORMQuery($query) {    
             try  {  return $this->conn->GetConn()->query($query); }   
             catch(mysqli_sql_exception $e) { 
-                die(json_encode(array('status' => 500, 'message' =>  $e->getMessage())));
+                die(json_encode(array('status' => 500, 'message' =>  "Problemi lato server, controlla di aver inserito bene i dati o riprova più tardi")));
             }
     
         }
