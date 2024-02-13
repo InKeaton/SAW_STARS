@@ -59,9 +59,9 @@
                                     "<img src='../_resources/img/icons8-constellation-100.png' alt=\"Un icona minimale rappresentante una constellazione\">" +
                                 "</div>" +
                                 "<p>" +
-                                    "<a href='consDetails.php?consID="+list[index].consID +"'>" + 
+                                    " <button  onclick=\"location.href=\'consDetails.php?consID="+list[index].consID +"\'\";>  " +
                                         list[index++].consName + 
-                                    "</a>" +
+                                    "</button>" +
                                 "</p>" +
                             "</div>";
             }
