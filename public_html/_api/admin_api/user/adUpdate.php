@@ -4,7 +4,7 @@
      * Parte di controllo dei dati mandati in input
      */
     isMethod('POST');
-    postEmptyField('email', 'firstname', 'lastname', 'createDate', 'userID', 'pass');
+    postEmptyField('userID');
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         die(json_encode(array('status' => 100, 'message' => 'Email syntax is not correct' )));
         
@@ -25,7 +25,6 @@
     $user->pwd          =   (empty($_POST["pass"]))         ? $result[0]->pwd        :   $_POST["pass"];
     $user->firstName    =   (empty($_POST["firstname"]))    ? $result[0]->firstName  :   htmlspecialchars($_POST["firstname"]);
     $user->lastName     =   (empty($_POST["lastname"]))     ? $result[0]->lastName   :   htmlspecialchars($_POST["lastname"]);
-    $user->img          =   (empty($_POST["img"]))          ? $result[0]->img        :   $_POST["img"];
     $user->createDate   =   (empty($_POST["createDate"]))   ? $result[0]->createDate :   $_POST["createDate"];
     
     if(!($user->Update())) 
