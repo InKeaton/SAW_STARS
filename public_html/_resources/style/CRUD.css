@@ -84,7 +84,17 @@ input[type=submit] {
     background-color: var(--light-fg);
     color: var(--main-bg);
 }
+td {
+    border: 2px solid white;
+    overflow: hidden;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
 
+
+table {
+    overflow-y: scroll;
+}
 button:hover  , input[type=submit]:hover{
   background-color: var(--main-bg);
   color: var(--light-fg);
@@ -108,8 +118,9 @@ button:hover  , input[type=submit]:hover{
 
 .crud {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
+    overflow: auto;
+    grid-template-columns: 80vw;
+    grid-template-rows: 10vh 60vh;
 }
 /***MODAL***/
 
