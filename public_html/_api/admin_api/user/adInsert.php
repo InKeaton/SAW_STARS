@@ -19,8 +19,8 @@
     $user = new User();
     $user->email =      $_POST["email"];
     $user->pwd =        password_hash($_POST['pass'], PASSWORD_DEFAULT);
-    $user->firstName =  $_POST["firstname"];
-    $user->lastName =   $_POST["lastname"];
+    $user->firstName =  htmlspecialchars($_POST["firstname"]);
+    $user->lastName =   htmlspecialchars($_POST["lastname"]);
     $user->role     =   (isset($_POST["role"]))? 1: 0;
     
     if(!$user->Insert())

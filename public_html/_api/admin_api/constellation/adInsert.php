@@ -12,7 +12,7 @@
     $cons->consName    =  $_POST['consName'];
     $cons->startDate   =  $_POST['startDate'];
     $cons->endDate     =  $_POST['endDate'];
-    $cons->description = $_POST['description'];
+    $cons->description =  htmlspecialchars($_POST['description']);
     $cons->consImg     =  "cons.png";
     if(!$cons->Insert())
       die(json_encode(array('status' => 500, 'message' => 'Failed to add constellation to database!')));

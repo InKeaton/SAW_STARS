@@ -33,8 +33,8 @@
         die(json_encode(array('status' => 500, 'message' => 'L\'email è già registrata, utilizzarne una diversa')));
 
     $user->pwd = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-    $user->firstName = $_POST["firstname"];
-    $user->lastName = $_POST["lastname"];
+    $user->firstName = htmlspecialchars($_POST["firstname"]);
+    $user->lastName = htmlspecialchars($_POST["lastname"]);
     
     if(!$user->Insert())
         die(json_encode(array('status' => 500, 'message' => 'Errore nell\'inserimento nel database')));

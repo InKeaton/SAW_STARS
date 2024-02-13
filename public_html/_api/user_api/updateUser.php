@@ -27,14 +27,14 @@
     $user->email = $_POST["email"];
     if($user->SelectEmail() && $result[0]->email != $user->email)
         die(json_encode(array('status' => 500, 'message' => 'L\'email è già registrata, utilizzarne una diversa')));
-    
-    $user->role         = (empty($_POST["role"]))?       $result[0]->role       : $_POST["role"];
-    $user->email        = (empty($_POST["email"]))?      $result[0]->email      : $_POST["email"];
-    $user->pwd          = (empty($_POST["pass"]))?       $result[0]->pwd        : $_POST["pwd"];
-    $user->firstName    = (empty($_POST["firstname"]))?  $result[0]->firstName  : $_POST["firstname"];
-    $user->lastName     = (empty($_POST["lastname"]))?   $result[0]->lastName   : $_POST["lastname"];
-    $user->img          = (empty($_POST["img"]))?        $result[0]->img        : $_POST["img"];
-    $user->createDate   = (empty($_POST["createDate"]))? $result[0]->createDate : $_POST["createDate"];
+
+    $user->role         = $result[0]->role;
+    $user->email        = (empty($_POST["email"]))?      $result[0]->email      : htmlspecialchars($_POST["email"]);
+    $user->pwd          = $result[0]->pwd;
+    $user->firstName    = (empty($_POST["firstname"]))?  $result[0]->firstName  : htmlspecialchars($_POST["firstname"]);
+    $user->lastName     = (empty($_POST["lastname"]))?   $result[0]->lastName   : htmlspecialchars($_POST["lastname"]);
+    $user->img          = $result[0]->img;
+    $user->createDate   = $result[0]->createDate;
 
     if(!($user->Update())) 
         die(json_encode(array('status' => 0, 'message' => 'Errore nell\'aggiornamento dei dati dell\'utente')));

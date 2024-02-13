@@ -21,10 +21,10 @@
         die(json_encode(array('status' => 0, 'message' => 'User Not Found!')));
     
     $user->role         =   (isset($_POST["role"]))         ? 1                      :   0;
-    $user->email        =   (empty($_POST["email"]))        ? $result[0]->email      :   $_POST["email"];
+    $user->email        =   (empty($_POST["email"]))        ? $result[0]->email      :   htmlspecialchars($_POST["email"]);
     $user->pwd          =   (empty($_POST["pass"]))         ? $result[0]->pwd        :   $_POST["pass"];
-    $user->firstName    =   (empty($_POST["firstname"]))    ? $result[0]->firstName  :   $_POST["firstname"];
-    $user->lastName     =   (empty($_POST["lastname"]))     ? $result[0]->lastName   :   $_POST["lastname"];
+    $user->firstName    =   (empty($_POST["firstname"]))    ? $result[0]->firstName  :   htmlspecialchars($_POST["firstname"]);
+    $user->lastName     =   (empty($_POST["lastname"]))     ? $result[0]->lastName   :   htmlspecialchars($_POST["lastname"]);
     $user->img          =   (empty($_POST["img"]))          ? $result[0]->img        :   $_POST["img"];
     $user->createDate   =   (empty($_POST["createDate"]))   ? $result[0]->createDate :   $_POST["createDate"];
     

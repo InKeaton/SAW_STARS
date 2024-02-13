@@ -12,7 +12,7 @@
     $rev->starFK    =   $_POST['starFK'];
     $rev->userFK    =   $_POST['userFK'];
     $rev->vote      =   $_POST['vote'];
-    $rev->note      =   $_POST['note'];
+    $rev->note      =   htmlspecialchars($_POST['note']);
     $rev->revDate   =   $_POST['revDate'];
 
     if(!$rev->Insert())

@@ -29,13 +29,13 @@
     if(!password_verify($_POST['oldPass'], $result[0]->pwd)) 
         die(json_encode(array('status' => 404, 'message' => 'Password vecchia non corretta')));
 
-    $user->role         = (empty($_POST["role"]))?       $result[0]->role       : $_POST["role"];
-    $user->email        = (empty($_POST["email"]))?      $result[0]->email      : $_POST["email"];
+    $user->role         = $result[0]->role;
+    $user->email        = $result[0]->email;
     $user->pwd          = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-    $user->firstName    = (empty($_POST["firstname"]))?  $result[0]->firstName  : $_POST["firstname"];
-    $user->lastName     = (empty($_POST["lastname"]))?   $result[0]->lastName   : $_POST["lastname"];
-    $user->img          = (empty($_POST["img"]))?        $result[0]->img        : $_POST["img"];
-    $user->createDate   = (empty($_POST["createDate"]))? $result[0]->createDate : $_POST["createDate"];
+    $user->firstName    = $result[0]->firstName;
+    $user->lastName     = $result[0]->lastName;
+    $user->img          = $result[0]->img;
+    $user->createDate   = $result[0]->createDate;
 
     if(!($user->Update())) 
         die(json_encode(array('status' => 0, 'message' => 'Errore nell\'aggiornamento della password dell\'utente')));
