@@ -64,10 +64,8 @@
                                                                     <button class='button' onclick='javascript:displayReviewBox();'>Condividi un tuo ricordo!</button>
                                                                 </section> ";
         ?>
-        <section class="table_container" id="reviews">
-            <h2> Ricordi</h2>
-            <table class="table" id="reviews_list"></table>
-        </section>
+
+        <div id="reviews_list"></div>
         <?php include_once  dirname(__FILE__) . "/../_modules/footer.html";?>
         <?php include_once  dirname(__FILE__) . "/../_modules/modal.html"; ?>
     </body>
@@ -86,11 +84,7 @@
             let response = await fetch('../_api/review_api/insertReview.php', { method: 'POST', body : new FormData(reviewForm) });
             result = await response.json();
             if(result.status == 200){
-                document.getElementById("reviews_list").insertRow(1).innerHTML  = "<tr><td>  <?php echo htmlspecialchars($_SESSION['email']); ?> </td>"+
-                                                                                  "<td>" + document.getElementById('vote').value + "</td>" +
-                                                                                  "<td>" + document.getElementById('note').value + "</td>" +
-                                                                                  "<td>" + new Date().toISOString().slice(0, 10).toString() + "</td></tr>";
-                document.getElementById("add_review").remove();
+                location.reload();
             } else  DisplayModal(0, result.message);
         }
 
@@ -104,11 +98,15 @@
         function displayAllReviews() {
             var reviews = <?php echo json_encode($reviews->SelectStarReviews());?>;
             var countStar = 0;
-            outString = "<tr>" + "<th>Utente</th>" + "<th>Voto</th>" + "<th>Ricordo</th>" + "<th>Data</th>" + "</tr>";
+            outString = "<section class=\"table_container\" id=\"reviews\">" +
+                            "<h2> Ricordi</h2>" +
+                            "<table class=\"table\">" +
+                            "<tr>" + "<th>Utente</th>" + "<th>Voto</th>" + "<th>Ricordo</th>" + "<th>Data</th>" + "</tr>";
             reviews.forEach(element => {
                 countStar +=  element.vote;
                 outString += "<tr><td>" + element.email + "</td><td>" + element.vote + "</td><td>" + element.note + "</td><td>" + element.revDate + "</td></tr>";
             });
+            outString += "</table></section>"
             document.getElementById("reviews_list").innerHTML = outString;
             document.getElementById("sumStar").innerHTML = countStar;
             document.getElementById("revCount").innerHTML = reviews.length;
@@ -127,6 +125,6 @@
                                                                 "<button class='button' onclick='javascript:returnButton()'> Annulla</button>";
         }
 
-        displayAllReviews();
+        if(<?php echo $haveReview?>) displayAllReviews();
     </script>
 </html>
