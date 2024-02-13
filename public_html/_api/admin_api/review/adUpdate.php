@@ -5,7 +5,7 @@
      */
     isMethod('POST');
     postEmptyField('reviewID');
-    if(count($_POST['note']) > 1000)
+    if(strlen($_POST['note']) > 1000)
         die(json_encode(array('status' => 500, 'message' => 'La recensione deve avere meno di 1000 caratteri')));
     /**
      * Parte di fetch dei dati e di comunicazione con il db
