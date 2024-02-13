@@ -1,6 +1,7 @@
 <?php
     include_once dirname(__FILE__) . '/includeCons.php';
     $cons = new Constellation();
+    postEmptyField('consID');
     $cons->consID = $_POST['consID'];
     $result = $cons->Select();
     if(count($result) === 0)
