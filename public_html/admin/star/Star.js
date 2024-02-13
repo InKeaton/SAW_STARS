@@ -37,16 +37,16 @@ class Star extends CRUDTable {
     SelectRow (id, element) {
         return  "<tr id = " +id+ "><td>" +
                 "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-                "Starname: <input type='text' name='starName' value = '" + element.starName + "'> " +
-                "Distance light year: <input type='numeric' name='dLY' value = '" + element.dLY + "'> " +
-                "price: <input type='numeric' name='price' value = '" + element.price +"'>" + 
+                "<label> Starname: <input type='text' name='starName' value = '" + element.starName + "'></label> " +
+                "<label> Distance light year: <input type='numeric' name='dLY' value = '" + element.dLY + "'></label> " +
+                "<label> Price: <input type='numeric' name='price' value = '" + element.price +"'></label>" + 
                 "<input type='hidden' value='"+element.starID+"' name='starID'> " +
-                "Costellazione: <select name = 'consFK' value = "+ element.consFK +">" + Star.SelectValue(element.consFK) + "</select>" +  
-                "<input type='submit' value='submit me'>"+
+                "<label> Costellazione: <select name = 'consFK' value = "+ element.consFK +">" + Star.SelectValue(element.consFK) + "</select></label>" +  
+                "<label> <input type='submit' value='submit me'></label>"+
                 "</form></td>"+ 
                 "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
                 "<input type='hidden' name='starID' value='"+element.starID+"'>"+  
-                "<input type='submit' value='delete star'>" +
+                "<label> <input type='submit' value='delete star'></label>" +
                 "</form></td></tr>";
     }
 
@@ -55,15 +55,14 @@ class Star extends CRUDTable {
         row.id = id;
         row.innerHTML = "<tr id="+id+"><td>" +
                         "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
-                        "Starname: <input type='text' name='starName' value = ''> " +
-                        "Distance light year: <input type='numeric' name='dLY' value = ''> " +
-                        "price: <input type='numeric' name='price' value = ''>" + 
-                        "Costellazione: <select name = 'consFK' value = ''>" + Star.StringSelect() + "</select>" +  
-                        "<input type='submit' value='Insert'>"+
+                        "<label>Starname: <input type='text' name='starName' value = ''> </label>" +
+                        "<label>Distance light year: <input type='numeric' name='dLY' value = ''></label> " +
+                        "<label>Price: <input type='numeric' name='price' value = ''></label> " + 
+                        "<label>Costellazione: <select name = 'consFK' value = ''>" + Star.StringSelect() + "</select></label> " +  
+                        "<label><input type='submit' value='Insert'></label> "+
                         "</form></td>"+
                         "<td><form action='javascript:CRUDTable.Back("+id+")' id='"+"Back"+id+"'>" +
-                        "<input type='hidden' name='starID' value=''>"+  
-                        "<input type='submit' value='delete star'>" +
+                        "<label><input type='submit' value='delete star'></label> " +
                         "</form></td></tr>";
     }
 }
