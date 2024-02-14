@@ -112,8 +112,8 @@
             });
             outString += "</table></section>"
             document.getElementById("reviews_list").innerHTML = outString;
-            document.getElementById("sumStar").innerHTML = countStar;
-            document.getElementById("revCount").innerHTML = reviews.length;
+            document.getElementById("sumStar").value = countStar;
+            document.getElementById("revCount").value = reviews.length;
         }
         
         function displayReviewBox() {
