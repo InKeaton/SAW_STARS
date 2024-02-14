@@ -111,5 +111,6 @@ input[type=number] {
     padding: 20px;
     text-align: center;
     word-break: break-word;
+    hyphens: auto;
 }
 
