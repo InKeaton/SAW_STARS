@@ -6,9 +6,10 @@
             echo("<button class=\"navbar_right\" onclick=\"location.href='../auth/registration.php';\">    Registrati</button>");
         }
         else {
-            echo("<button class=\"navbar_right\" onclick=\"location.href='../profile/home.php';\">       Home</button>");
-            echo("<button class=\"navbar_left\"  onclick=\"location.href='../profile/show_profile.php';\">   Il mio Profilo</button>");
-            echo("<button class=\"navbar_left\"  onclick=\"location.href='../auth/logout.php';\">     Termina Sessione</button>");
+            echo("<button class=\"navbar_left\" onclick=\"location.href='../profile/home.php';\">       Home</button>");
+            echo("<button class=\"navbar_left\" onclick=\"location.href='../game/game.php';\">       Gioco</button>");
+            echo("<button class=\"navbar_right\"  onclick=\"location.href='../profile/show_profile.php';\">   Il mio Profilo</button>");
+            echo("<button class=\"navbar_right\"  onclick=\"location.href='../auth/logout.php';\">     Termina Sessione</button>");
         }
     ?>
 </nav><br>

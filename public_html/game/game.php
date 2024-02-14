@@ -24,15 +24,15 @@
             <section id = "intro">
                 <h1>Cannoni Stellari</h1>
                 <p>
-                    Oh no!!! Una pioggia di stelle semi morenti sta cascando dal cielo <br>
-                    Utilizza il tuo cannone ad idrogeno per poter far recuperare alle stelle <br>
-                    la loro luminosità così da farle ritornare in cielo. </br>
-                    Premi su uno dei riquadri presenti nel quadrante che comparirà di seguito <br>
-                    per poter spostare il cannone e fargli sparare un colpo di idrogeno. <br>
-                    Ma attento!! Non tutte le stelle sono uguali alcune hanno bisogno di ben più <br>
-                    di un colpo per poter ritornare nel cielo. <br>
+                    Oh no! Una pioggia di stelle morenti sta cascando dal cielo!<br>
+                    Solo tu puoi aiutarci!<br>
+                    <ul>
+                        <li>Usa il cannone a idrogeno e colpisci le stelle, cliccando nella loro traiettoria</li>
+                        <li>A seconda della loro luminosità, avranno bisogno di più o meno colpi</li>
+                        <li>Continua finchè puoi!</li>
+                    </ul>
                 </p>
-                <h4>Si consiglia di usare il telefono orizzontalmente per fruire meglio del gioco</h4><br>
+                <h2><b>Su dispositivo mobile, si consiglia di usare il telefono orizzontalmente</b><br>
                 <input type="submit" id="introButton" value = "Salva le Stelle!" onclick="Start">
             </section>
         </div>
