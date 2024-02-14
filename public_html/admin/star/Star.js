@@ -12,7 +12,7 @@ class Star extends CRUDTable {
         CRUDTable.insUrl = '../../_api/admin_api/star/adInsert.php';
         CRUDTable.delUrl = '../../_api/admin_api/star/adDelete.php';
         this.GenConsMenu();
-        this.h1Element = "Star"; 
+        this.h1Element = "Stelle"; 
     }
 
     GenConsMenu() {
