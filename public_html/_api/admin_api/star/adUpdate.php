@@ -22,5 +22,5 @@
   
     if(!($star->Update())) 
         die(json_encode(array('status' => 500, 'message' => 'Failed to update star')));
-    echo json_encode(array('status' => 200, 'message' => 'Star '. $_POST['consID'] .' correctly updated'));
+    echo json_encode(array('status' => 200, 'message' => 'Star '. $_POST['starID'] .' correctly updated'));
 ?>
