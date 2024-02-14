@@ -84,7 +84,7 @@ class CRUDTable {
         if(result.status == 200) location.reload();
         else  { 
             document.getElementById("modal").classList.add("modal-wrong");
+            document.getElementById("modal").classList.toggle("show-modal");
         }
-        document.getElementById("modal").classList.toggle("show-modal");
     }
 }
