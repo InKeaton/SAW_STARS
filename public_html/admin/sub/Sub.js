@@ -16,7 +16,7 @@ class Sub extends CRUDTable {
         CRUDTable.delUrl = '../../_api/admin_api/sub/adDelete.php';
         Sub.userList.forEach(el => { Sub.userMenu[el.userID] = "<option value="+el.userID+" unselected>"+el.email+"</option>";    });
         Sub.starList.forEach(el => { Sub.starMenu[el.starID] = "<option value="+el.starID+" unselected>"+el.starName+"</option>"; });
-        this.h1Element = "Sub"; 
+        this.h1Element = "Abbonamenti"; 
     }
 
     static SelectValue(obj, val) {
