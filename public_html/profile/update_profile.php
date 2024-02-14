@@ -26,15 +26,15 @@
         <main class = "main_container">
             <form class = "form" action="javascript:Update()" id="update">
                 <label for="email">Email<br>
-                    <input type="email" id="email" autocomplete="email" name="email" value=<?php echo $result->email;?>>
+                    <input type="email" maxlength="50" id="email" autocomplete="email" name="email" value=<?php echo $result->email;?>>
                 </label>
 
                 <label for="firstname">Nome<br>
-                    <input type="text" id="firstname" autocomplete="given-name"  name="firstname" value=<?php echo $result->firstName;?>>
+                    <input type="text" maxlength="50" id="firstname" autocomplete="given-name"  name="firstname" value=<?php echo $result->firstName;?>>
                 </label>
 
                 <label for="lastname">Cognome<br>
-                    <input type="text" id="lastname" autocomplete="family-name"  name="lastname" value=<?php echo $result->lastName;?>>
+                    <input type="text" maxlength="50" id="lastname" autocomplete="family-name"  name="lastname" value=<?php echo $result->lastName;?>>
                 </label>
 
                 <input type='submit' value="Aggiorna">
