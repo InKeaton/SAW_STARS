@@ -111,9 +111,10 @@
                 outString += "<tr><td>" + element.email + "</td><td>" + element.vote + "</td><td>" + element.note + "</td><td>" + element.revDate + "</td></tr>";
             });
             outString += "</table></section>"
+            console.log("countStar: " + countStar + " || " + reviews.length );
             document.getElementById("reviews_list").innerHTML = outString;
-            document.getElementById("sumStar").value = countStar;
-            document.getElementById("revCount").value = reviews.length;
+            document.getElementById("sumStar").value = countStar.toString();
+            document.getElementById("revCount").value = reviews.length.toString();
         }
         
         function displayReviewBox() {
