@@ -7,10 +7,10 @@
     isMethod('POST');
     postEmptyField('email', 'pass', 'firstname', 'lastname');
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-        die(json_encode(array('status' => 100, 'message' => 'Email syntax is not correct' )));
+        die(json_encode(array('status' => 100, 'message' => 'Sintassi email non corretta' )));
         
     if((strlen($_POST['pass'])<10)) 
-        die(json_encode(array('status' => 0, 'message' => 'Pass must have more than 10 characters')));
+        die(json_encode(array('status' => 0, 'message' => 'La password deve avere almeno 10 caratteri')));
     
     /**
      * Fetch dei dati ed invio dei dati al database
