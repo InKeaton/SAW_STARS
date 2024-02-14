@@ -114,7 +114,6 @@
             console.log("countStar: " + countStar + " || " + reviews.length );
             document.getElementById("reviews_list").innerHTML = outString;
             document.getElementById("sumStar").value = countStar.toString();
-            document.getElementById("revCount").value = reviews.length.toString();
         }
         
         function displayReviewBox() {
@@ -129,7 +128,8 @@
                                                                 "</form>" +
                                                                 "<button class='button' onclick='javascript:returnButton()'> Annulla</button>";
         }
-
+        document.getElementById("sumStar").innerHTML = 0;
+        document.getElementById("revCount").innerHTML = <?php echo $haveReview?>;
         if(<?php echo $haveReview?>) displayAllReviews();
     </script>
 </html>
