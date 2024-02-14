@@ -8,7 +8,7 @@ class User extends CRUDTable {
         CRUDTable.updUrl = '../../_api/admin_api/user/adUpdate.php';
         CRUDTable.insUrl = '../../_api/admin_api/user/adInsert.php';
         CRUDTable.delUrl = '../../_api/admin_api/user/adDelete.php';
-        this.h1Element = "User"; 
+        this.h1Element = "Utenti"; 
     }
 
 
