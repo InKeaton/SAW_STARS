@@ -37,8 +37,8 @@ class Review extends CRUDTable {
         const data = new Date(element.revDate);
         return  "<tr id = " +id+ "><td>" +
                 "<form action='javascript:CRUDTable.Update("+id+")' id='"+"update"+id+"'>" + 
-                "<label> Nome Stella: <select name = 'starName' value = "+ element.starFK +">" + Review.SelectValue(Review.starMenu, element.starFK) + "</select></label>" +  
-                "<label> Email: <select name = 'email' value = "+ element.userFK +">" + Review.SelectValue(Review.userMenu, element.userFK) + "</select></label> " +  
+                "<label> Nome Stella: <select name = 'starFK' value = "+ element.starFK +">" + Review.SelectValue(Review.starMenu, element.starFK) + "</select></label>" +  
+                "<label> Email: <select name = 'userFK' value = "+ element.userFK +">" + Review.SelectValue(Review.userMenu, element.userFK) + "</select></label> " +  
                 "<label> Data Review: <input type='date' name='revDate' value = "+data.toISOString().substring(0, 10)+"></label> " + 
                 "<label> Voto: <input type='numeric' name='vote' value = '" + element.vote +"'></label> " + 
                 "<label> Nota: <input type='text' name='note' value = '" + element.note +"'></label> " + 
