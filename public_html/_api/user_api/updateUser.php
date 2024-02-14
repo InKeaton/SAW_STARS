@@ -9,7 +9,7 @@
     postEmptyField('email', 'firstname', 'lastname');
 
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-        die(json_encode(array('status' => 100, 'message' => 'La sintassi dell'email nonn è corretta' )));
+        die(json_encode(array('status' => 100, 'message' => 'La sintassi dell\'email non è corretta' )));
     
     $_POST['userID'] = $_SESSION['uuid'];
     /**
