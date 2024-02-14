@@ -8,7 +8,7 @@ class Constellation extends CRUDTable {
         CRUDTable.updUrl = '../../_api/admin_api/constellation/adUpdate.php';
         CRUDTable.insUrl = '../../_api/admin_api/constellation/adInsert.php';
         CRUDTable.delUrl = '../../_api/admin_api/constellation/adDelete.php';
-        this.h1Element = "Constellation"; 
+        this.h1Element = "Costellazioni"; 
     }
 
     SelectRow (id, element) {
