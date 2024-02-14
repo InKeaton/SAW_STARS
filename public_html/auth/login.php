@@ -24,11 +24,11 @@
         <main class = "main_container">
             <form class = "form" action="javascript:Login()" id = "login" method="post">
                 <label>Email <br>
-                    <input type="email"  maxlength="50" name="email"  required> <br>
+                    <input type="email"  maxlength="50" autocomplete="email" name="email"  required> <br>
                 </label>
 
                 <label>Password <br>
-                    <input type="password" name="pass"   required> <br>
+                    <input type="password" autocomplete="current-password" name="pass" minlength="10" required> <br>
                 </label>
 
                 <input type="submit"   name="submit" value="Accedi">

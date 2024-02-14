@@ -24,23 +24,23 @@
             <form class="form" type="submit" id="insert" action="javascript:Insert()">
 
                 <label for="firstname">Nome<br>
-                    <input type="text" id="firstname" name="firstname" maxlength="50">
+                    <input type="text" id="firstname" autocomplete="given-name" name="firstname" maxlength="50">
                 </label>
 
                 <label for="lastname">Cognome<br>
-                    <input type="text" id="lastname" name="lastname" maxlength="50">
+                    <input type="text" id="lastname" autocomplete="family-name" name="lastname" maxlength="50">
                 </label>
 
                 <label for="email">Email<br>
-                    <input type="email" id="email" name="email" maxlength="50">
+                    <input type="email" id="email" autocomplete="email" name="email" maxlength="50">
                 </label>
 
                 <label for="pass">Password<br>
-                    <input type="password" id="pass" name="pass" placeholder="Almeno 10 caratteri">
+                    <input type="password" id="pass" autocomplete="new-password" name="pass" minlength="10" placeholder="Almeno 10 caratteri">
                 </label>
 
                 <label for="confirm">Conferma la Password<br>
-                    <input type="password" id="confirm" name="confirm" placeholder="Almeno 10 caratteri">
+                    <input type="password" id="confirm" autocomplete="new-password" name="confirm" minlength="10" placeholder="Almeno 10 caratteri">
                 </label>
 
                 <input type="submit" value="Registrati">

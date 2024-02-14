@@ -26,13 +26,13 @@
         <main class = "main_container">
             <form class = "form" action="javascript:Update()" id="update">
                 <label>Vecchia Password: <br>
-                    <input type="password" id="oldPass" name="oldPass">
+                    <input type="password" id="oldPass" autocomplete="current-password" name="oldPass" minlength="10">
                 </label>
                 <label>Nuova Password: <br>
-                    <input type="password" id="pass" name="pass">
+                    <input type="password" id="pass" autocomplete="new-password" name="pass" minlength="10" placeholder="Almeno 10 caratteri">
                 </label>
                 <label>Conferma<br>
-                    <input type="password" id="confirm" name="confirm">
+                    <input type="password" id="confirm" autocomplete="new-password" name="confirm" minlength="10" placeholder="Almeno 10 caratteri">
                 </label>
                 <input type='submit' value="Aggiorna">
             </form>
