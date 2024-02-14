@@ -15,7 +15,7 @@
     <body>
         <?php include  dirname(__FILE__) . "/../_modules/navbar.php"; ?>
 
-        <audio controls autoplay loop hidden>
+        <audio controls autoplay loop hidden id="bgm">
             <source src="_resource/sound/bkg_sound.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio> 
@@ -33,7 +33,7 @@
                     </ul>
                 </p>
                 <h2><b>Su dispositivo mobile, si consiglia di usare il telefono orizzontalmente</b><br>
-                <input type="submit" id="introButton" value = "Salva le Stelle!" onclick="Start">
+                <input type="submit" id="introButton" value = "Difendi il mondo!" onclick="Start">
             </section>
         </div>
 
@@ -47,6 +47,8 @@
     <script src="./_class/Star.js"></script>
     <script src="./_class/Bullet.js"></script>
     <script>
+        document.getElementById("bgm").volume = 0.1;
+
         document.getElementById("introButton").addEventListener("click", Start);
         function Start() {
             document.getElementById("display").innerHTML = "<div id='POINT'>" +
