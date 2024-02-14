@@ -55,9 +55,9 @@ class Star extends CRUDTable {
         row.id = id;
         row.innerHTML = "<tr id="+id+"><td>" +
                         "<form action='javascript:CRUDTable.Insert("+id+")' id='"+"insert"+id+"'>" +
-                        "<label>Starname: <input type='text' name='starName' value = ''> </label>" +
-                        "<label>Distance light year: <input type='numeric' name='dLY' value = ''></label> " +
-                        "<label>Price: <input type='numeric' name='price' value = ''></label> " + 
+                        "<label>Nome Stella: <input type='text' name='starName' value = ''> </label>" +
+                        "<label>Distanza anni luce: <input type='numeric' name='dLY' value = ''></label> " +
+                        "<label>Prezzo: <input type='numeric' name='price' value = ''></label> " + 
                         "<label>Costellazione: <select name = 'consFK' value = ''>" + Star.StringSelect() + "</select></label> " +  
                         "<input type='submit' value='inserisci'>"+
                         "</form></td>"+
