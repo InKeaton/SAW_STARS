@@ -36,6 +36,14 @@ body {
     color: var(--light-fg);
 }
 
+a:link {
+    color: var(--second-bg);
+}
+
+a:visited {
+    color: var(--light-fg);
+}
+
 /********************************************************/
 
 .navbar {
