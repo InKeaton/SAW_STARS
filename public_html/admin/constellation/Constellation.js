@@ -22,7 +22,7 @@ class Constellation extends CRUDTable {
             "<label> Data Fine: <input type='date' name='endDate' value = '" + endDate.toISOString().substring(0, 10) +"'></label>" + 
             "<label> Descrizione: <input type='text' name='description' value = '" + element.description +"'></label>" +
             "<input type='hidden' value='"+element.consID+"' name='consID'>" +
-            "<input type='submit' value='modfica'>"+
+            "<input type='submit' value='modifica'>"+
             "</form></td>"+ 
             "<td><form action='javascript:CRUDTable.Delete("+id+")' id='"+"delete"+id+"'>" +
             "<input type='hidden' name='consID' value='"+element.consID+"'>"+  
