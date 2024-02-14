@@ -36,7 +36,7 @@
         <section class ="bento" id="cons_info">
             <article class="grid5">Nome:<br><?php echo $consResult->consName;?></article>
             <article class="grid5">Descrizione:<br><?php echo $consResult->description;?></article>
-            <article class="grid2">Visibile da:<br><?php echo new DateTimeImmutable($consResult->startDate)->format('m-d');?><br>a:<br><?php echo  new DateTimeImmutable($consResult->endDate)->format('m-d');?></article>
+            <article class="grid2">Visibile da:<br><?php echo (new DateTimeImmutable($consResult->startDate))->format('m-d');?><br>a:<br><?php echo  (new DateTimeImmutable($consResult->endDate))->format('m-d');?></article>
             <article class="grid2">Stelle contenute:<br><?php echo $consResult->conStar;?></article>
             <article class="grid3">Punti totali ricevuti:<br><?php echo $consResult->numVote;?></article>
             <article class="grid3">Media Valutazioni:<br><?php echo number_format((float)$consResult->consAvg, 1, '.', '');?></article>
