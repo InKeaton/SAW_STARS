@@ -22,6 +22,7 @@ class Sub extends CRUDTable {
     static SelectValue(obj, val) {
         obj[val] = obj[val].toString().replace("unselected", "selected");
         var ret = Sub.StringSelect(obj);
+        obj[val] = obj[val].toString().replace("selected", "unselected");
         return ret;
     }
 
