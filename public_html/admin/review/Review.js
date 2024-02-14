@@ -16,7 +16,7 @@ class Review extends CRUDTable {
         CRUDTable.delUrl = '../../_api/admin_api/review/adDelete.php';
         Review.userList.forEach(el => { Review.userMenu[el.userID] = "<option value="+el.userID+" unselected>"+el.email+"</option>";    });
         Review.starList.forEach(el => { Review.starMenu[el.starID] = "<option value="+el.starID+" unselected>"+el.starName+"</option>"; });
-        this.h1Element = "Review"; 
+        this.h1Element = "Ricordi"; 
     }
 
     static SelectValue(obj, val) {
