@@ -3,24 +3,32 @@
 
     class QueryMng {
         private $conn;
-        public function __construct() { $this->conn = new Conn(); }
+        #Salva se il valore della query è andato a buon fine o meno
+        private $executeResult;
+        #Salva il risultato della query nel caso si dovesse trattare di una query di select
+        private $sqlResult;
 
+        function __construct() { $this->conn = new Conn(); }
+        function __destruct() { unset($this->conn); }
+    
         private function STMTQuery($query, $data) {
             $dataType = "";
             foreach ($data as $x ) { $dataType .= "s"; }
             try  {
                 $stmt = $this->conn->GetConn()->prepare($query); 
                 $stmt->bind_param($dataType, ...$data);
-                $stmt->execute();
+                $this->executeResult =  $stmt->execute();
+                $this->sqlResult =  $stmt->get_result();
+                $stmt->close();
             }   
             catch(mysqli_sql_exception $e) {
                 die(json_encode(array('status' => 500, 'message' => "Errore nel DB, prova a inserire i dati come indicato o riprova più tardi")));
             }
-            return $stmt;
+            
         }
 
         private function NORMQuery($query) {    
-            try  {  return $this->conn->GetConn()->query($query); }   
+            try  {  $this->sqlResult = $this->executeResult = $this->conn->GetConn()->query($query); }   
             catch(mysqli_sql_exception $e) { 
                 die(json_encode(array('status' => 500, 'message' =>  "Errore nel DB, prova a inserire i dati come indicato o riprova più tardi")));
             }
@@ -28,13 +36,15 @@
         }
 
         public function ModelQuery($query, $data=NULL) {
-            $result = ($data === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $data);
-            return $result;
+            if($data === NULL) $this->NORMQuery($query);
+            else $this->STMTQuery($query, $data);
+            return $this->executeResult;
         }
 
         public function GetQuery($query, $data=NULL) { 
-            $result = ($data === NULL)? $this->NORMQuery($query) : $this->STMTQuery($query, $data)->get_result();
-            return $result;     
+            if($data === NULL) $this->NORMQuery($query);
+            else $this->STMTQuery($query, $data);
+            return $this->sqlResult;   
         }
     }
 ?>
