@@ -113,7 +113,7 @@
             document.getElementById("subs_table").innerHTML = outString;
             document.getElementById("numSub").innerHTML = countSub;
         }   
-
+        document.getElementById("numSub").innerHTML = 0;
         if (<?php echo count($subs_list)?>)displayAllSubs();
     </script>
 </html>
