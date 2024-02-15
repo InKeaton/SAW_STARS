@@ -16,7 +16,7 @@
 			$this->qMng = new QueryMng();
 		}
 
-		final function __destruct() { unset($this->conn); }
+		final function __destruct() { unset($this->qMng); }
 
 		private function PushOutField($input) { array_push( $this->outField, $input);  }
 
